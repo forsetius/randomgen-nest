@@ -1,11 +1,11 @@
-import compression from 'compression';
-import helmet from 'helmet';
-import RateLimit from 'express-rate-limit';
 import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app.module';
+import compression from 'compression';
+import RateLimit from 'express-rate-limit';
+import helmet from 'helmet';
+import { AppModule } from './app/app.module';
 
-async function bootstrap() {
+async function bootstrap(): Promise<void> {
   const app = await NestFactory.create(AppModule);
 
   app.enableShutdownHooks();
