@@ -85,12 +85,13 @@
     "preset": "ts-jest",
     "rootDir": "./test",
     "moduleFileExtensions": [
+      "js",
       "json",
       "ts"
     ],
-    "testRegex": ".*\\.spec\\.ts$",
+    "testRegex": ".e2e-spec.ts$",
     "transform": {
-      "^.+\\.ts$": "ts-jest"
+      "^.+\\.(t|j)s$": "ts-jest"
     },
     "collectCoverageFrom": [
       "**/*.ts"
