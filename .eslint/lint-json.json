@@ -1,0 +1,10 @@
+{
+  "plugins": [
+    "json-format"
+  ],
+  "parserOptions": {
+    "extraFileExtensions": [
+      ".json"
+    ]
+  }
+}
