@@ -131,6 +131,13 @@
     ],
     "class-methods-use-this": "off",
     "dot-notation": "off",
+    "func-names": [
+      "error",
+      "always",
+      {
+        "generators": "never"
+      }
+    ],
     "function-paren-newline": [
       "error",
       "multiline-arguments"
@@ -145,6 +152,12 @@
     ],
     "new-cap": "off",
     "no-param-reassign": "off",
+    "no-plusplus": [
+      "error",
+      {
+        "allowForLoopAfterthoughts": true
+      }
+    ],
     "no-use-before-define": "off",
     "no-void": [
       "error",
