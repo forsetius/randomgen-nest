@@ -2,11 +2,11 @@ import { Injectable } from '@nestjs/common';
 import { BaseGeneratorService } from '../../app/types/base-generator.service';
 import { flipCoin } from '../../app/util/random';
 import { RollableCollection } from '../../app/util/rollable-collection';
-import { TechnobabblePlSourceModel } from '../models/technobabble-pl.source-model';
+import { TechnobabblePlSourceModel } from '../models/technobabble-pl.source.model';
 import { AdjectiveForms, Gender, NounForms } from '../models/types';
 
 @Injectable()
-export class PolishGeneratorService extends BaseGeneratorService {
+export class PolishGeneratorService extends BaseGeneratorService<never, TechnobabblePlSourceModel> {
   private action: RollableCollection<string>;
   private descriptor: RollableCollection<AdjectiveForms>;
   private source: RollableCollection<AdjectiveForms>;
@@ -16,12 +16,12 @@ export class PolishGeneratorService extends BaseGeneratorService {
   public constructor() {
     super();
 
-    const dicts = this.getSourceData<TechnobabblePlSourceModel>('technobabble-pl');
-    this.action = new RollableCollection<string>(dicts['action']);
-    this.descriptor = new RollableCollection<AdjectiveForms>(dicts['descriptor']);
-    this.source = new RollableCollection<AdjectiveForms>(dicts['source']);
-    this.effect = new RollableCollection<NounForms>(dicts['effect']);
-    this.device = new RollableCollection<NounForms>(dicts['device']);
+    const dicts = this.getSourceData('technobabble/technobabble-pl');
+    this.action = new RollableCollection(dicts['action']);
+    this.descriptor = new RollableCollection(dicts['descriptor']);
+    this.source = new RollableCollection(dicts['source']);
+    this.effect = new RollableCollection(dicts['effect']);
+    this.device = new RollableCollection(dicts['device']);
   }
 
   public generate(): string {

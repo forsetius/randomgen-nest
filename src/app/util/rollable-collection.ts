@@ -1,3 +1,5 @@
+import { roll } from './random';
+
 export class RollableCollection<T> {
   public constructor(
     private readonly store: T[],
@@ -5,7 +7,7 @@ export class RollableCollection<T> {
   }
 
   public get(): T {
-    const position = Math.floor(Math.random() * this.store.length);
+    const position = roll(this.store.length);
 
     return this.store[position];
   }

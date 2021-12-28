@@ -107,7 +107,12 @@
       "n": "nadrzędne",
       "pl": "nadrzędne"
     },
-    { "m": "nano", "f": "nano", "n": "nano", "pl": "nano"},
+    {
+      "m": "nano",
+      "f": "nano",
+      "n": "nano",
+      "pl": "nano"
+    },
     {
       "m": "nielinearny",
       "f": "nielinearną",
@@ -272,7 +277,12 @@
     }
   ],
   "source": [
-    { "m": "barionowego", "f": "barionowej", "n": "barionowego", "pl": "barionowych"},
+    {
+      "m": "barionowego",
+      "f": "barionowej",
+      "n": "barionowego",
+      "pl": "barionowych"
+    },
     {
       "m": "cieplnego",
       "f": "cieplnej",
@@ -389,7 +399,11 @@
     }
   ],
   "effect": [
-    { "gender": "m", "sing": "strumienia", "pl": "strumieni"},
+    {
+      "gender": "m",
+      "sing": "strumienia",
+      "pl": "strumieni"
+    },
     {
       "gender": "f",
       "sing": "reakcji",
@@ -502,62 +516,290 @@
     }
   ],
   "device": [
-    { "gender": "m", "sing": "agregat", "pl": "agregaty"},
-    { "gender": "m", "sing": "aktywator", "pl": "aktywatory"},
-    { "gender": "m", "sing": "amortyzator", "pl": "amortyzatory"},
-    { "gender": "m", "sing": "blok", "pl": "bloki"},
-    { "gender": "f", "sing": "blokadę", "pl": "blokady"},
-    { "gender": "f", "sing": "cewkę", "pl": "cewki"},
-    { "gender": "m", "sing": "dławik", "pl": "dławiki"},
-    { "gender": "m", "sing": "dyfuzor", "pl": "dyfuzory"},
-    { "gender": "m", "sing": "dyskryminator", "pl": "dyskryminatory"},
-    { "gender": "m", "sing": "dyspenser", "pl": "dyspensery"},
-    { "gender": "m", "sing": "filtr", "pl": "filtry"},
-    { "gender": "m", "sing": "generator", "pl": "generatory"},
-    { "gender": "m", "sing": "hamulec", "pl": "hamulce"},
-    { "gender": "m", "sing": "harmonizator", "pl": "harmonizatory"},
-    { "gender": "m", "sing": "inhibitor", "pl": "inhibitory"},
-    { "gender": "f", "sing": "jednostkę", "pl": "jednostki"},
-    { "gender": "m", "sing": "kanał", "pl": "kanały"},
-    { "gender": "m", "sing": "katalizator", "pl": "katalizatory"},
-    { "gender": "m", "sing": "kolektor", "pl": "kolektory"},
-    { "gender": "f", "sing": "komorę", "pl": "komory"},
-    { "gender": "m", "sing": "kompensator", "pl": "kompensatory"},
-    { "gender": "m", "sing": "kontroler", "pl": "kontrolery"},
-    { "gender": "m", "sing": "korektor", "pl": "korektory"},
-    { "gender": "f", "sing": "kotwę", "pl": "kotwy"},
-    { "gender": "n", "sing": "łącze", "pl": "łącza"},
-    { "gender": "f", "sing": "maskę", "pl": "maski"},
-    { "gender": "f", "sing": "matrycę", "pl": "matryce"},
-    { "gender": "m", "sing": "modem", "pl": "modemy"},
-    { "gender": "m", "sing": "modulator", "pl": "modulatory"},
-    { "gender": "m", "sing": "moduł", "pl": "moduły"},
-    { "gender": "m", "sing": "napęd", "pl": "napędy"},
-    { "gender": "f", "sing": "nastawę", "pl": "nastawy"},
-    { "gender": "m", "sing": "pochłaniacz", "pl": "pochłaniacze"},
-    { "gender": "m", "sing": "podtrzymywacz", "pl": "podtrzymywacze"},
-    { "gender": "m", "sing": "przedłużacz", "pl": "przedłużacze"},
-    { "gender": "f", "sing": "przejściówkę", "pl": "przejściówki"},
-    { "gender": "m", "sing": "przekaźnik", "pl": "przekaźniki"},
-    { "gender": "f", "sing": "przepustnicę", "pl": "przepustnice"},
-    { "gender": "m", "sing": "reduktor", "pl": "reduktory"},
-    { "gender": "m", "sing": "regulator", "pl": "regulatory"},
-    { "gender": "m", "sing": "rozgałęziacz", "pl": "rozgałęziacze"},
-    { "gender": "m", "sing": "rozszerzacz", "pl": "rozszerzacze"},
-    { "gender": "m", "sing": "separator", "pl": "separatory"},
-    { "gender": "f", "sing": "sieć", "pl": "sieci"},
-    { "gender": "m", "sing": "siłownik", "pl": "siłowniki"},
-    { "gender": "m", "sing": "sprzęg", "pl": "sprzęgi"},
-    { "gender": "m", "sing": "stabilizator", "pl": "stabilizatory"},
-    { "gender": "m", "sing": "sterownik", "pl": "sterowniki"},
-    { "gender": "f", "sing": "tablicę", "pl": "tablice"},
-    { "gender": "n", "sing": "uzwojenie", "pl": "uzwojenia"},
-    { "gender": "f", "sing": "wężownicę", "pl": "wężownice"},
-    { "gender": "m", "sing": "wspornik", "pl": "wsporniki"},
-    { "gender": "f", "sing": "wytwornicę", "pl": "wytwornice"},
-    { "gender": "m", "sing": "zaczep", "pl": "zaczepy"},
-    { "gender": "m", "sing": "zasilacz", "pl": "zasilacze"},
-    { "gender": "m", "sing": "zbiornik", "pl": "zbiorniki"},
-    { "gender": "m", "sing": "zestaw", "pl": "zestawy"}
+    {
+      "gender": "m",
+      "sing": "agregat",
+      "pl": "agregaty"
+    },
+    {
+      "gender": "m",
+      "sing": "aktywator",
+      "pl": "aktywatory"
+    },
+    {
+      "gender": "m",
+      "sing": "amortyzator",
+      "pl": "amortyzatory"
+    },
+    {
+      "gender": "m",
+      "sing": "blok",
+      "pl": "bloki"
+    },
+    {
+      "gender": "f",
+      "sing": "blokadę",
+      "pl": "blokady"
+    },
+    {
+      "gender": "f",
+      "sing": "cewkę",
+      "pl": "cewki"
+    },
+    {
+      "gender": "m",
+      "sing": "dławik",
+      "pl": "dławiki"
+    },
+    {
+      "gender": "m",
+      "sing": "dyfuzor",
+      "pl": "dyfuzory"
+    },
+    {
+      "gender": "m",
+      "sing": "dyskryminator",
+      "pl": "dyskryminatory"
+    },
+    {
+      "gender": "m",
+      "sing": "dyspenser",
+      "pl": "dyspensery"
+    },
+    {
+      "gender": "m",
+      "sing": "filtr",
+      "pl": "filtry"
+    },
+    {
+      "gender": "m",
+      "sing": "generator",
+      "pl": "generatory"
+    },
+    {
+      "gender": "m",
+      "sing": "hamulec",
+      "pl": "hamulce"
+    },
+    {
+      "gender": "m",
+      "sing": "harmonizator",
+      "pl": "harmonizatory"
+    },
+    {
+      "gender": "m",
+      "sing": "inhibitor",
+      "pl": "inhibitory"
+    },
+    {
+      "gender": "f",
+      "sing": "jednostkę",
+      "pl": "jednostki"
+    },
+    {
+      "gender": "m",
+      "sing": "kanał",
+      "pl": "kanały"
+    },
+    {
+      "gender": "m",
+      "sing": "katalizator",
+      "pl": "katalizatory"
+    },
+    {
+      "gender": "m",
+      "sing": "kolektor",
+      "pl": "kolektory"
+    },
+    {
+      "gender": "f",
+      "sing": "komorę",
+      "pl": "komory"
+    },
+    {
+      "gender": "m",
+      "sing": "kompensator",
+      "pl": "kompensatory"
+    },
+    {
+      "gender": "m",
+      "sing": "kontroler",
+      "pl": "kontrolery"
+    },
+    {
+      "gender": "m",
+      "sing": "korektor",
+      "pl": "korektory"
+    },
+    {
+      "gender": "f",
+      "sing": "kotwę",
+      "pl": "kotwy"
+    },
+    {
+      "gender": "n",
+      "sing": "łącze",
+      "pl": "łącza"
+    },
+    {
+      "gender": "f",
+      "sing": "maskę",
+      "pl": "maski"
+    },
+    {
+      "gender": "f",
+      "sing": "matrycę",
+      "pl": "matryce"
+    },
+    {
+      "gender": "m",
+      "sing": "modem",
+      "pl": "modemy"
+    },
+    {
+      "gender": "m",
+      "sing": "modulator",
+      "pl": "modulatory"
+    },
+    {
+      "gender": "m",
+      "sing": "moduł",
+      "pl": "moduły"
+    },
+    {
+      "gender": "m",
+      "sing": "napęd",
+      "pl": "napędy"
+    },
+    {
+      "gender": "f",
+      "sing": "nastawę",
+      "pl": "nastawy"
+    },
+    {
+      "gender": "m",
+      "sing": "pochłaniacz",
+      "pl": "pochłaniacze"
+    },
+    {
+      "gender": "m",
+      "sing": "podtrzymywacz",
+      "pl": "podtrzymywacze"
+    },
+    {
+      "gender": "m",
+      "sing": "przedłużacz",
+      "pl": "przedłużacze"
+    },
+    {
+      "gender": "f",
+      "sing": "przejściówkę",
+      "pl": "przejściówki"
+    },
+    {
+      "gender": "m",
+      "sing": "przekaźnik",
+      "pl": "przekaźniki"
+    },
+    {
+      "gender": "f",
+      "sing": "przepustnicę",
+      "pl": "przepustnice"
+    },
+    {
+      "gender": "m",
+      "sing": "reduktor",
+      "pl": "reduktory"
+    },
+    {
+      "gender": "m",
+      "sing": "regulator",
+      "pl": "regulatory"
+    },
+    {
+      "gender": "m",
+      "sing": "rozgałęziacz",
+      "pl": "rozgałęziacze"
+    },
+    {
+      "gender": "m",
+      "sing": "rozszerzacz",
+      "pl": "rozszerzacze"
+    },
+    {
+      "gender": "m",
+      "sing": "separator",
+      "pl": "separatory"
+    },
+    {
+      "gender": "f",
+      "sing": "sieć",
+      "pl": "sieci"
+    },
+    {
+      "gender": "m",
+      "sing": "siłownik",
+      "pl": "siłowniki"
+    },
+    {
+      "gender": "m",
+      "sing": "sprzęg",
+      "pl": "sprzęgi"
+    },
+    {
+      "gender": "m",
+      "sing": "stabilizator",
+      "pl": "stabilizatory"
+    },
+    {
+      "gender": "m",
+      "sing": "sterownik",
+      "pl": "sterowniki"
+    },
+    {
+      "gender": "f",
+      "sing": "tablicę",
+      "pl": "tablice"
+    },
+    {
+      "gender": "n",
+      "sing": "uzwojenie",
+      "pl": "uzwojenia"
+    },
+    {
+      "gender": "f",
+      "sing": "wężownicę",
+      "pl": "wężownice"
+    },
+    {
+      "gender": "m",
+      "sing": "wspornik",
+      "pl": "wsporniki"
+    },
+    {
+      "gender": "f",
+      "sing": "wytwornicę",
+      "pl": "wytwornice"
+    },
+    {
+      "gender": "m",
+      "sing": "zaczep",
+      "pl": "zaczepy"
+    },
+    {
+      "gender": "m",
+      "sing": "zasilacz",
+      "pl": "zasilacze"
+    },
+    {
+      "gender": "m",
+      "sing": "zbiornik",
+      "pl": "zbiorniki"
+    },
+    {
+      "gender": "m",
+      "sing": "zestaw",
+      "pl": "zestawy"
+    }
   ]
 }

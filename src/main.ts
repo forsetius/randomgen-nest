@@ -1,21 +1,16 @@
 import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
-import compression from 'compression';
-import RateLimit from 'express-rate-limit';
-import helmet from 'helmet';
+import { NestExpressApplication } from '@nestjs/platform-express';
 import { AppModule } from './app/app.module';
+import { setupSecurity } from './app/util/setup-security';
+import { setupTemplating } from './app/util/setup-templating';
 
 async function bootstrap(): Promise<void> {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create<NestExpressApplication>(AppModule);
 
   app.enableShutdownHooks();
-  app.enableCors();
-  app.use(compression());
-  app.use(helmet());
-  app.use(RateLimit({
-    max: 10,
-    windowMs: 1000,
-  }));
+  setupSecurity(app);
+  setupTemplating(app);
 
   app.useGlobalPipes(
     new ValidationPipe({

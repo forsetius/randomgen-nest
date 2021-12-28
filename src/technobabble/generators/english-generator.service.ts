@@ -1,10 +1,11 @@
 import { Injectable } from '@nestjs/common';
 import { BaseGeneratorService } from '../../app/types/base-generator.service';
 import { RollableCollection } from '../../app/util/rollable-collection';
-import { TechnobabbleEnSourceModel } from '../models/technobabble-en.source-model';
+import { TechnobabbleEnSourceModel } from '../models/technobabble-en.source.model';
 
 @Injectable()
-export class EnglishGeneratorService extends BaseGeneratorService {
+export class EnglishGeneratorService
+  extends BaseGeneratorService<never, TechnobabbleEnSourceModel> {
   private action: RollableCollection<string>;
   private descriptor: RollableCollection<string>;
   private source: RollableCollection<string>;
@@ -14,12 +15,12 @@ export class EnglishGeneratorService extends BaseGeneratorService {
   public constructor() {
     super();
 
-    const dicts = this.getSourceData<TechnobabbleEnSourceModel>('technobabble-en');
-    this.action = new RollableCollection<string>(dicts['action']);
-    this.descriptor = new RollableCollection<string>(dicts['descriptor']);
-    this.source = new RollableCollection<string>(dicts['source']);
-    this.effect = new RollableCollection<string>(dicts['effect']);
-    this.device = new RollableCollection<string>(dicts['device']);
+    const dicts = this.getSourceData('technobabble/technobabble-en');
+    this.action = new RollableCollection(dicts['action']);
+    this.descriptor = new RollableCollection(dicts['descriptor']);
+    this.source = new RollableCollection(dicts['source']);
+    this.effect = new RollableCollection(dicts['effect']);
+    this.device = new RollableCollection(dicts['device']);
   }
 
   public generate(): string {
