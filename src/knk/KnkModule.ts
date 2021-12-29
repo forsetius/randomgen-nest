@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
-import { GeneratorService } from './generators/generator.service';
-import { KnkController } from './knk.controller';
+import { GeneratorService } from './generators/GeneratorService';
+import { KnkController } from './KnkController';
 
 @Module({
   controllers: [KnkController],

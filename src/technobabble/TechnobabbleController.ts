@@ -1,7 +1,7 @@
 import { Controller, Get, Query } from '@nestjs/common';
-import { EnglishGeneratorService } from './generators/english-generator.service';
-import { PolishGeneratorService } from './generators/polish-generator.service';
-import { TechnobabbleRequestQueryModel } from './models/technobabble.request-query.model';
+import { EnglishGeneratorService } from './generators/EnglishGeneratorService';
+import { PolishGeneratorService } from './generators/PolishGeneratorService';
+import { TechnobabbleRequestQueryModel } from './models/TechnobabbleRequestQueryModel';
 
 @Controller()
 export class TechnobabbleController {

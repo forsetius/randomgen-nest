@@ -1,9 +1,9 @@
 import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { NestExpressApplication } from '@nestjs/platform-express';
-import { AppModule } from './app/app.module';
-import { setupSecurity } from './app/util/setup-security';
-import { setupTemplating } from './app/util/setup-templating';
+import { AppModule } from './app/AppModule';
+import { setupSecurity } from './app/util/setupSecurity';
+import { setupTemplating } from './app/util/setupTemplating';
 
 async function bootstrap(): Promise<void> {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);

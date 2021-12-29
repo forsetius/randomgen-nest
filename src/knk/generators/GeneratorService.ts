@@ -1,12 +1,12 @@
 import { Injectable } from '@nestjs/common';
-import { BaseGeneratorService } from '../../app/types/base-generator.service';
+import { BaseGeneratorService } from '../../app/types/BaseGeneratorService';
 import { shuffle } from '../../app/util/random';
-import { RollableCollection } from '../../app/util/rollable-collection';
-import { Faction } from '../domain/faction';
-import { Relation } from '../domain/relation';
-import { NoSuchTemplateException } from '../exceptions/no-such-template.exception';
-import { KnkRequestParamsModel } from '../models/knk.request-params.model';
-import { KnkSourceModel } from '../models/knk.source.model';
+import { RollableCollection } from '../../app/util/RollableCollection';
+import { Faction } from '../domain/Faction';
+import { Relation } from '../domain/Relation';
+import { NoSuchTemplateException } from '../exceptions/NoSuchTemplateException';
+import { KnkRequestParamsModel } from '../models/KnkRequestParamsModel';
+import { KnkSourceModel } from '../models/KnkSourceModel';
 import { KnkTemplateModel, TemplateName } from '../models/types';
 
 @Injectable()

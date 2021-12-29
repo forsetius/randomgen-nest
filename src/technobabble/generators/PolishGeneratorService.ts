@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
-import { BaseGeneratorService } from '../../app/types/base-generator.service';
+import { BaseGeneratorService } from '../../app/types/BaseGeneratorService';
 import { flipCoin } from '../../app/util/random';
-import { RollableCollection } from '../../app/util/rollable-collection';
-import { TechnobabblePlSourceModel } from '../models/technobabble-pl.source.model';
+import { RollableCollection } from '../../app/util/RollableCollection';
+import { TechnobabblePlSourceModel } from '../models/TechnobabblePlSourceModel';
 import { AdjectiveForms, Gender, NounForms } from '../models/types';
 
 @Injectable()

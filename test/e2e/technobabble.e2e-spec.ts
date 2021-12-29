@@ -1,7 +1,7 @@
 import { INestApplication } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
 import supertest from 'supertest';
-import { TechnobabbleModule } from '../../src/technobabble/technobabble.module';
+import { TechnobabbleModule } from '../../src/technobabble/TechnobabbleModule';
 
 describe('TechnobabbleController (e2e)', () => {
   let app: INestApplication;

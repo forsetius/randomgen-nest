@@ -1,4 +1,4 @@
-import { Relation } from './relation';
+import { Relation } from './Relation';
 
 export class Faction {
   public readonly externalRelations: Relation[] = [];

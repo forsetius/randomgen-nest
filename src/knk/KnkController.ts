@@ -2,8 +2,8 @@ import {
   Controller, Get, Param, Query, Req,
 } from '@nestjs/common';
 import { Request } from 'express';
-import { GeneratorService } from './generators/generator.service';
-import { KnkRequestQueryModel } from './models/knk.request-query.model';
+import { GeneratorService } from './generators/GeneratorService';
+import { KnkRequestQueryModel } from './models/KnkRequestQueryModel';
 
 @Controller()
 export class KnkController {
