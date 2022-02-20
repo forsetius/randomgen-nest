@@ -91,7 +91,7 @@
       "json",
       "ts"
     ],
-    "testRegex": ".e2e-spec.ts$",
+    "testRegex": ".(e2e-spec|test).ts$",
     "transform": {
       "^.+\\.(t|j)s$": "ts-jest"
     },

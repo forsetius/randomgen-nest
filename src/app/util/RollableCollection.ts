@@ -7,7 +7,7 @@ export class RollableCollection<T> {
   }
 
   public get(): T {
-    const position = roll(this.store.length);
+    const position = roll(this.store.length) - 1;
 
     return this.store[position];
   }

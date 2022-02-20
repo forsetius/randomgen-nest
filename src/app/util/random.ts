@@ -3,7 +3,7 @@ export function roll(n: number): number {
 }
 
 export function flipCoin(): boolean {
-  return Math.random() > 0.5;
+  return Math.random() >= 0.5;
 }
 
 /**

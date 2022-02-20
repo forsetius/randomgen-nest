@@ -25,6 +25,16 @@ describe('TechnobabbleController (e2e)', () => {
     .expect(200)
     .expect(/^[\p{L}-]+ [\p{L}-]+ [\p{L}-]+ [\p{L}-]+ [\p{L}-]+$/u));
 
+  it('/technobabble?lang=pl (GET)', () => supertest(app.getHttpServer())
+    .get('/technobabble?lang=pl')
+    .expect(200)
+    .expect(/^[\p{L}-]+ [\p{L}-]+ [\p{L}-]+ [\p{L}-]+ [\p{L}-]+$/u));
+
+  it('/startrek/technobabble?lang=pl (GET)', () => supertest(app.getHttpServer())
+    .get('/startrek/technobabble?lang=pl')
+    .expect(200)
+    .expect(/^[\p{L}-]+ [\p{L}-]+ [\p{L}-]+ [\p{L}-]+ [\p{L}-]+$/u));
+
   it('/technobabble?lang=en (GET)', () => supertest(app.getHttpServer())
     .get('/technobabble?lang=en')
     .expect(200)
