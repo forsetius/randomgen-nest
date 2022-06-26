@@ -1,11 +1,16 @@
 import { Module } from '@nestjs/common';
-import { KnkModule } from '../knk/KnkModule';
+import { ConfigModule } from '@nestjs/config';
+import { KnkModule } from '../knk/knkModule';
 import { TechnobabbleModule } from '../technobabble/TechnobabbleModule';
 import { AppController } from './AppController';
 import { AppService } from './AppService';
 
 @Module({
-  imports: [KnkModule, TechnobabbleModule],
+  imports: [
+    ConfigModule.forRoot(),
+    KnkModule,
+    TechnobabbleModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })

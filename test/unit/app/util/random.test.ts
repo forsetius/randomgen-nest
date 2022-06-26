@@ -1,4 +1,4 @@
-import { flipCoin, roll } from '../../../../src/app/util/random';
+import { flipCoin, roll } from '../../../../src/app/utils/random';
 
 describe('Random utilities', () => {
   afterEach(() => {

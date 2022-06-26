@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { BaseGeneratorService } from '../../app/types/BaseGeneratorService';
-import { flipCoin } from '../../app/util/random';
-import { RollableCollection } from '../../app/util/RollableCollection';
+import { flipCoin } from '../../app/utils/random';
+import { RollableCollection } from '../../app/utils/RollableCollection';
 import { TechnobabblePlSourceModel } from '../models/TechnobabblePlSourceModel';
 import { AdjectiveForms, Gender, NounForms } from '../models/types';
 
@@ -25,11 +25,11 @@ export class PolishGeneratorService extends BaseGeneratorService<never, Technoba
   }
 
   public generate(): string {
-    const action = this.action.get();
-    const descriptor = this.descriptor.get();
-    const source = this.source.get();
-    const effect = this.effect.get();
-    const device = this.device.get();
+    const action = this.action.getRandom();
+    const descriptor = this.descriptor.getRandom();
+    const source = this.source.getRandom();
+    const effect = this.effect.getRandom();
+    const device = this.device.getRandom();
 
     const isEffectPlural = flipCoin();
     const isDevicePlural = flipCoin();

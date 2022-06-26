@@ -24,3 +24,10 @@ export function shuffle<T>(arr: T[]): T[] {
 
   return arrCopy;
 }
+
+export function* shuffledIter<T>(arr: T[]) {
+  const shuffled = shuffle(arr);
+  yield* shuffled;
+
+  return undefined;
+}

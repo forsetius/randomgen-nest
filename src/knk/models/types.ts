@@ -1,4 +1,4 @@
-import { RollableCollection } from '../../app/util/RollableCollection';
+import { RollableCollection } from '../../app/utils/RollableCollection';
 import { KnkSourceModel } from './KnkSourceModel';
 
 export type TemplateName = string;

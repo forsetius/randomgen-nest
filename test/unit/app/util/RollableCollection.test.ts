@@ -1,4 +1,4 @@
-import { RollableCollection } from '../../../../src/app/util/RollableCollection';
+import { RollableCollection } from '../../../../src/app/utils/RollableCollection';
 
 describe('RollableCollection', () => {
   afterEach(() => {
@@ -13,6 +13,6 @@ describe('RollableCollection', () => {
     jest.spyOn(global.Math, 'random').mockReturnValue(p);
 
     const coll = new RollableCollection(['a', 'b', 'c', 'd', 'e']);
-    expect(coll.get()).toEqual(expected);
+    expect(coll.getRandom()).toEqual(expected);
   });
 });

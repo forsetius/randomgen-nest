@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { BaseGeneratorService } from '../../app/types/BaseGeneratorService';
-import { RollableCollection } from '../../app/util/RollableCollection';
+import { RollableCollection } from '../../app/utils/RollableCollection';
 import { TechnobabbleEnSourceModel } from '../models/TechnobabbleEnSourceModel';
 
 @Injectable()
@@ -25,11 +25,11 @@ export class EnglishGeneratorService
 
   public generate(): string {
     return [
-      this.action.get(),
-      this.descriptor.get(),
-      this.source.get(),
-      this.effect.get(),
-      this.device.get(),
+      this.action.getRandom(),
+      this.descriptor.getRandom(),
+      this.source.getRandom(),
+      this.effect.getRandom(),
+      this.device.getRandom(),
     ].join(' ');
   }
 }

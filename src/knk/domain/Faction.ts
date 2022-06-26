@@ -1,7 +1,5 @@
-import { Relation } from './Relation';
-
 export class Faction {
-  public readonly externalRelations: Relation[] = [];
+  public readonly externalRelations: Map<FactionName, RelationType> = new Map();
   public rumour?: string;
 
   public constructor(
@@ -17,8 +15,11 @@ export class Faction {
   }
 
   public toString(): string {
-    const externalRelations = this.externalRelations.map(
-      (relation) => `<li>${relation.otherSide.getLabel()}: ${relation.type}</li>`,
+    const externalRelations: string[] = [];
+    this.externalRelations.forEach(
+      ([otherFactionName, relationType]) => {
+        externalRelations.push(`<li>${otherFactionName}: ${relationType}</li>`);
+      },
     );
 
     return `
@@ -27,8 +28,13 @@ export class Faction {
           <div>Zasób: ${this.resource}</div>
           <div>Plotki ${this.rumour!.toString()}</div>
           <div>Relacje wewnętrzne: ${this.internalRelations}</div>
-          <ul>Relacje zewnętrzne: \n${externalRelations.join('\n')}</ul>
+          <ul>Relacje zewnętrzne: 
+            ${externalRelations.join('\n')}
+          </ul>
       </section>
     `;
   }
 }
+
+type FactionName = string;
+type RelationType = string;

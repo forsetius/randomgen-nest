@@ -27,7 +27,7 @@ export class KnkController {
     return this.generatorService.generate({
       templateName: `${gamePrefix}-${template}-${lang}`,
       lang,
-      n: query.n ?? 4,
+      numberOfFactions: query.numberOfFactions ?? 4,
     });
   }
 }
