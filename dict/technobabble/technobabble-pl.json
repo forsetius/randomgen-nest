@@ -1,0 +1,805 @@
+{
+  "action": [
+    "nakierować",
+    "odwrócić",
+    "ograniczyć",
+    "pobudzić",
+    "podbić",
+    "przekalibrować",
+    "przekierować",
+    "przywrócić",
+    "rozszerzyć",
+    "skupić",
+    "uruchomić",
+    "wyrównać",
+    "wyzerować",
+    "wzmocnić",
+    "zintensyfikować",
+    "zmodulować",
+    "zmodyfikować",
+    "zrekonfigurować",
+    "zresetować",
+    "zrównoważyć",
+    "zsynchronizować"
+  ],
+  "descriptor": [
+    {
+      "m": "asymetryczny",
+      "f": "asymetryczną",
+      "n": "asymetryczne",
+      "pl": "asymetryczne"
+    },
+    {
+      "m": "awaryjny",
+      "f": "awaryjną",
+      "n": "awaryjne",
+      "pl": "awaryjne"
+    },
+    {
+      "m": "dodatkowy",
+      "f": "dodatkową",
+      "n": "dodatkowe",
+      "pl": "dodatkowe"
+    },
+    {
+      "m": "drugorzędny",
+      "f": "drugorzędną",
+      "n": "drugorzędne",
+      "pl": "drugorzędne"
+    },
+    {
+      "m": "fazowy",
+      "f": "fazową",
+      "n": "fazowe",
+      "pl": "fazowe"
+    },
+    {
+      "m": "główny",
+      "f": "główną",
+      "n": "główne",
+      "pl": "główne"
+    },
+    {
+      "m": "izometryczny",
+      "f": "izometryczną",
+      "n": "izometryczne",
+      "pl": "izometryczne"
+    },
+    {
+      "m": "kaskadowy",
+      "f": "kaskadową",
+      "n": "kaskadowe",
+      "pl": "kaskadowe"
+    },
+    {
+      "m": "korygujący",
+      "f": "korygującą",
+      "n": "korygujące",
+      "pl": "korygujące"
+    },
+    {
+      "m": "linearny",
+      "f": "linearną",
+      "n": "linearne",
+      "pl": "linearne"
+    },
+    {
+      "m": "makroskopowy",
+      "f": "makroskopową",
+      "n": "makroskopowe",
+      "pl": "makroskopowe"
+    },
+    {
+      "m": "mikroskopowy",
+      "f": "mikroskopową",
+      "n": "mikroskopowe",
+      "pl": "mikroskopowe"
+    },
+    {
+      "m": "nadmiarowy",
+      "f": "nadmiarową",
+      "n": "nadmiarowe",
+      "pl": "nadmiarowe"
+    },
+    {
+      "m": "nadrzędny",
+      "f": "nadrzędną",
+      "n": "nadrzędne",
+      "pl": "nadrzędne"
+    },
+    {
+      "m": "nano",
+      "f": "nano",
+      "n": "nano",
+      "pl": "nano"
+    },
+    {
+      "m": "nielinearny",
+      "f": "nielinearną",
+      "n": "nielinearne",
+      "pl": "nielinearne"
+    },
+    {
+      "m": "ortogonalny",
+      "f": "ortogonalną",
+      "n": "ortogonalne",
+      "pl": "ortogonalne"
+    },
+    {
+      "m": "oscylujący",
+      "f": "oscylującą",
+      "n": "oscylujące",
+      "pl": "oscylujące"
+    },
+    {
+      "m": "pierwotny",
+      "f": "pierwotną",
+      "n": "pierwotne",
+      "pl": "pierwotne"
+    },
+    {
+      "m": "podprogowy",
+      "f": "podprogową",
+      "n": "podprogowe",
+      "pl": "podprogowe"
+    },
+    {
+      "m": "podstawowy",
+      "f": "podstawową",
+      "n": "podstawowe",
+      "pl": "podstawowe"
+    },
+    {
+      "m": "pomocniczy",
+      "f": "pomocniczą",
+      "n": "pomocnicze",
+      "pl": "pomocnicze"
+    },
+    {
+      "m": "rezerwowy",
+      "f": "rezerwową",
+      "n": "rezerwowe",
+      "pl": "rezerwowe"
+    },
+    {
+      "m": "rozproszony",
+      "f": "rozproszoną",
+      "n": "rozproszone",
+      "pl": "rozproszone"
+    },
+    {
+      "m": "symetryczny",
+      "f": "symetryczną",
+      "n": "symetryczne",
+      "pl": "symetryczne"
+    },
+    {
+      "m": "trójdrożny",
+      "f": "trójdrożną",
+      "n": "trójdrożne",
+      "pl": "trójdrożne"
+    },
+    {
+      "m": "trójstronny",
+      "f": "trójstronną",
+      "n": "trójstronne",
+      "pl": "trójstronne"
+    },
+    {
+      "m": "trzeciorzędny",
+      "f": "trzeciorzędną",
+      "n": "trzeciorzędne",
+      "pl": "trzeciorzędne"
+    },
+    {
+      "m": "unimodalny",
+      "f": "unimodalną",
+      "n": "unimodalne",
+      "pl": "unimodalne"
+    },
+    {
+      "m": "uzupełniający",
+      "f": "uzupełniającą",
+      "n": "uzupełniające",
+      "pl": "uzupełniające"
+    },
+    {
+      "m": "wahliwy",
+      "f": "wahliwą",
+      "n": "wahliwe",
+      "pl": "wahliwe"
+    },
+    {
+      "m": "wielodrożny",
+      "f": "wielodrożną",
+      "n": "wielodrożne",
+      "pl": "wielodrożne"
+    },
+    {
+      "m": "wielofazowy",
+      "f": "wielofazową",
+      "n": "wielofazowe",
+      "pl": "wielofazowe"
+    },
+    {
+      "m": "wielofunkcyjny",
+      "f": "wielofunkcyjną",
+      "n": "wielofunkcyjne",
+      "pl": "wielofunkcyjne"
+    },
+    {
+      "m": "wielomodalny",
+      "f": "wielomodalną",
+      "n": "wielomodalne",
+      "pl": "wielomodalne"
+    },
+    {
+      "m": "wielostopniowy",
+      "f": "wielostopniową",
+      "n": "wielostopniowe",
+      "pl": "wielostopniowe"
+    },
+    {
+      "m": "wielowariantowy",
+      "f": "wielowariantową",
+      "n": "wielowariantowe",
+      "pl": "wielowariantowe"
+    },
+    {
+      "m": "wielowymiarowy",
+      "f": "wielowymiarową",
+      "n": "wielowymiarowe",
+      "pl": "wielowymiarowe"
+    },
+    {
+      "m": "wtórny",
+      "f": "wtórną",
+      "n": "wtórne",
+      "pl": "wtórne"
+    },
+    {
+      "m": "zapasowy",
+      "f": "zapasową",
+      "n": "zapasowe",
+      "pl": "zapasowe"
+    },
+    {
+      "m": "zrównoważony",
+      "f": "zrównoważoną",
+      "n": "zrównoważone",
+      "pl": "zrównoważone"
+    },
+    {
+      "m": "zunifikowany",
+      "f": "zunifikowaną",
+      "n": "zunifikowane",
+      "pl": "zunifikowane"
+    }
+  ],
+  "source": [
+    {
+      "m": "barionowego",
+      "f": "barionowej",
+      "n": "barionowego",
+      "pl": "barionowych"
+    },
+    {
+      "m": "cieplnego",
+      "f": "cieplnej",
+      "n": "cieplnego",
+      "pl": "cieplnych"
+    },
+    {
+      "m": "fermionowego",
+      "f": "fermionowej",
+      "n": "fermionowego",
+      "pl": "fermionowych"
+    },
+    {
+      "m": "fotonowego",
+      "f": "fotonowej",
+      "n": "fotonowego",
+      "pl": "fotonowych"
+    },
+    {
+      "m": "grawimetrycznego",
+      "f": "grawimetrycznej",
+      "n": "grawimetrycznego",
+      "pl": "grawimetrycznych"
+    },
+    {
+      "m": "jonowego",
+      "f": "jonowej",
+      "n": "jonowego",
+      "pl": "jonowych"
+    },
+    {
+      "m": "kwantowego",
+      "f": "kwantowej",
+      "n": "kwantowego",
+      "pl": "kwantowych"
+    },
+    {
+      "m": "nadionowego",
+      "f": "nadionowej",
+      "n": "nadionowego",
+      "pl": "nadionowych"
+    },
+    {
+      "m": "neutrinowego",
+      "f": "neutrinowej",
+      "n": "neutrinowego",
+      "pl": "neutrinowych"
+    },
+    {
+      "m": "nukleonowego",
+      "f": "nukleonowej",
+      "n": "nukleonowego",
+      "pl": "nukleonowych"
+    },
+    {
+      "m": "osmotycznego",
+      "f": "osmotycznej",
+      "n": "osmotycznego",
+      "pl": "osmotycznych"
+    },
+    {
+      "m": "plazmowego",
+      "f": "plazmowej",
+      "n": "plazmowego",
+      "pl": "plazmowych"
+    },
+    {
+      "m": "podprzestrzennego",
+      "f": "podprzestrzennej",
+      "n": "podprzestrzennego",
+      "pl": "podprzestrzennych"
+    },
+    {
+      "m": "polarionowego",
+      "f": "polarionowej",
+      "n": "polarionowego",
+      "pl": "polarionowych"
+    },
+    {
+      "m": "pozytronowego",
+      "f": "pozytronowej",
+      "n": "pozytronowego",
+      "pl": "pozytronowych"
+    },
+    {
+      "m": "przestrzennego",
+      "f": "przestrzennej",
+      "n": "przestrzennego",
+      "pl": "przestrzennych"
+    },
+    {
+      "m": "rezonującego",
+      "f": "rezonującej",
+      "n": "rezonującego",
+      "pl": "rezonujących"
+    },
+    {
+      "m": "tachionowego",
+      "f": "tachionowej",
+      "n": "tachionowego",
+      "pl": "tachionowych"
+    },
+    {
+      "m": "tetrionowego",
+      "f": "tetrionowej",
+      "n": "tetrionowego",
+      "pl": "tetrionowych"
+    },
+    {
+      "m": "werteronowego",
+      "f": "werteronowej",
+      "n": "werteronowego",
+      "pl": "werteronowych"
+    }
+  ],
+  "effect": [
+    {
+      "gender": "m",
+      "sing": "strumienia",
+      "pl": "strumieni"
+    },
+    {
+      "gender": "f",
+      "sing": "reakcji",
+      "pl": "reakcji"
+    },
+    {
+      "gender": "n",
+      "sing": "pola",
+      "pl": "pól"
+    },
+    {
+      "gender": "f",
+      "sing": "cząstki",
+      "pl": "cząstek"
+    },
+    {
+      "gender": "m",
+      "sing": "gradientu",
+      "pl": "gradientów"
+    },
+    {
+      "gender": "f",
+      "sing": "indukcji",
+      "pl": "indukcji"
+    },
+    {
+      "gender": "f",
+      "sing": "konwersji",
+      "pl": "konwersji"
+    },
+    {
+      "gender": "f",
+      "sing": "polaryzacji",
+      "pl": "polaryzacji"
+    },
+    {
+      "gender": "n",
+      "sing": "przesunięcia",
+      "pl": "przesunięć"
+    },
+    {
+      "gender": "m",
+      "sing": "wsadu",
+      "pl": "wsadów"
+    },
+    {
+      "gender": "n",
+      "sing": "obrazowania",
+      "pl": "obrazowań"
+    },
+    {
+      "gender": "f",
+      "sing": "recyrkulacji",
+      "pl": "recyrkulacji"
+    },
+    {
+      "gender": "f",
+      "sing": "częstotliwości",
+      "pl": "częstotliwości"
+    },
+    {
+      "gender": "m",
+      "sing": "impulsu",
+      "pl": "impulsów"
+    },
+    {
+      "gender": "f",
+      "sing": "fazy",
+      "pl": "faz"
+    },
+    {
+      "gender": "f",
+      "sing": "interferencji",
+      "pl": "interferencji"
+    },
+    {
+      "gender": "n",
+      "sing": "rozproszenia",
+      "pl": "rozproszeń"
+    },
+    {
+      "gender": "n",
+      "sing": "tłumienia",
+      "pl": "tłumienia"
+    },
+    {
+      "gender": "f",
+      "sing": "niezmienności",
+      "pl": "niezmienności"
+    },
+    {
+      "gender": "m",
+      "sing": "obiegu",
+      "pl": "obiegów"
+    },
+    {
+      "gender": "n",
+      "sing": "wzbudzenia",
+      "pl": "wzbudzeń"
+    },
+    {
+      "gender": "n",
+      "sing": "zasilania",
+      "pl": "zasilań"
+    },
+    {
+      "gender": "m",
+      "sing": "przebiegu",
+      "pl": "przebiegów"
+    }
+  ],
+  "device": [
+    {
+      "gender": "m",
+      "sing": "agregat",
+      "pl": "agregaty"
+    },
+    {
+      "gender": "m",
+      "sing": "aktywator",
+      "pl": "aktywatory"
+    },
+    {
+      "gender": "m",
+      "sing": "amortyzator",
+      "pl": "amortyzatory"
+    },
+    {
+      "gender": "m",
+      "sing": "blok",
+      "pl": "bloki"
+    },
+    {
+      "gender": "f",
+      "sing": "blokadę",
+      "pl": "blokady"
+    },
+    {
+      "gender": "f",
+      "sing": "cewkę",
+      "pl": "cewki"
+    },
+    {
+      "gender": "m",
+      "sing": "dławik",
+      "pl": "dławiki"
+    },
+    {
+      "gender": "m",
+      "sing": "dyfuzor",
+      "pl": "dyfuzory"
+    },
+    {
+      "gender": "m",
+      "sing": "dyskryminator",
+      "pl": "dyskryminatory"
+    },
+    {
+      "gender": "m",
+      "sing": "dyspenser",
+      "pl": "dyspensery"
+    },
+    {
+      "gender": "m",
+      "sing": "filtr",
+      "pl": "filtry"
+    },
+    {
+      "gender": "m",
+      "sing": "generator",
+      "pl": "generatory"
+    },
+    {
+      "gender": "m",
+      "sing": "hamulec",
+      "pl": "hamulce"
+    },
+    {
+      "gender": "m",
+      "sing": "harmonizator",
+      "pl": "harmonizatory"
+    },
+    {
+      "gender": "m",
+      "sing": "inhibitor",
+      "pl": "inhibitory"
+    },
+    {
+      "gender": "f",
+      "sing": "jednostkę",
+      "pl": "jednostki"
+    },
+    {
+      "gender": "m",
+      "sing": "kanał",
+      "pl": "kanały"
+    },
+    {
+      "gender": "m",
+      "sing": "katalizator",
+      "pl": "katalizatory"
+    },
+    {
+      "gender": "m",
+      "sing": "kolektor",
+      "pl": "kolektory"
+    },
+    {
+      "gender": "f",
+      "sing": "komorę",
+      "pl": "komory"
+    },
+    {
+      "gender": "m",
+      "sing": "kompensator",
+      "pl": "kompensatory"
+    },
+    {
+      "gender": "m",
+      "sing": "kontroler",
+      "pl": "kontrolery"
+    },
+    {
+      "gender": "m",
+      "sing": "korektor",
+      "pl": "korektory"
+    },
+    {
+      "gender": "f",
+      "sing": "kotwę",
+      "pl": "kotwy"
+    },
+    {
+      "gender": "n",
+      "sing": "łącze",
+      "pl": "łącza"
+    },
+    {
+      "gender": "f",
+      "sing": "maskę",
+      "pl": "maski"
+    },
+    {
+      "gender": "f",
+      "sing": "matrycę",
+      "pl": "matryce"
+    },
+    {
+      "gender": "m",
+      "sing": "modem",
+      "pl": "modemy"
+    },
+    {
+      "gender": "m",
+      "sing": "modulator",
+      "pl": "modulatory"
+    },
+    {
+      "gender": "m",
+      "sing": "moduł",
+      "pl": "moduły"
+    },
+    {
+      "gender": "m",
+      "sing": "napęd",
+      "pl": "napędy"
+    },
+    {
+      "gender": "f",
+      "sing": "nastawę",
+      "pl": "nastawy"
+    },
+    {
+      "gender": "m",
+      "sing": "pochłaniacz",
+      "pl": "pochłaniacze"
+    },
+    {
+      "gender": "m",
+      "sing": "podtrzymywacz",
+      "pl": "podtrzymywacze"
+    },
+    {
+      "gender": "m",
+      "sing": "przedłużacz",
+      "pl": "przedłużacze"
+    },
+    {
+      "gender": "f",
+      "sing": "przejściówkę",
+      "pl": "przejściówki"
+    },
+    {
+      "gender": "m",
+      "sing": "przekaźnik",
+      "pl": "przekaźniki"
+    },
+    {
+      "gender": "f",
+      "sing": "przepustnicę",
+      "pl": "przepustnice"
+    },
+    {
+      "gender": "m",
+      "sing": "reduktor",
+      "pl": "reduktory"
+    },
+    {
+      "gender": "m",
+      "sing": "regulator",
+      "pl": "regulatory"
+    },
+    {
+      "gender": "m",
+      "sing": "rozgałęziacz",
+      "pl": "rozgałęziacze"
+    },
+    {
+      "gender": "m",
+      "sing": "rozszerzacz",
+      "pl": "rozszerzacze"
+    },
+    {
+      "gender": "m",
+      "sing": "separator",
+      "pl": "separatory"
+    },
+    {
+      "gender": "f",
+      "sing": "sieć",
+      "pl": "sieci"
+    },
+    {
+      "gender": "m",
+      "sing": "siłownik",
+      "pl": "siłowniki"
+    },
+    {
+      "gender": "m",
+      "sing": "sprzęg",
+      "pl": "sprzęgi"
+    },
+    {
+      "gender": "m",
+      "sing": "stabilizator",
+      "pl": "stabilizatory"
+    },
+    {
+      "gender": "m",
+      "sing": "sterownik",
+      "pl": "sterowniki"
+    },
+    {
+      "gender": "f",
+      "sing": "tablicę",
+      "pl": "tablice"
+    },
+    {
+      "gender": "n",
+      "sing": "uzwojenie",
+      "pl": "uzwojenia"
+    },
+    {
+      "gender": "f",
+      "sing": "wężownicę",
+      "pl": "wężownice"
+    },
+    {
+      "gender": "m",
+      "sing": "wspornik",
+      "pl": "wsporniki"
+    },
+    {
+      "gender": "f",
+      "sing": "wytwornicę",
+      "pl": "wytwornice"
+    },
+    {
+      "gender": "m",
+      "sing": "zaczep",
+      "pl": "zaczepy"
+    },
+    {
+      "gender": "m",
+      "sing": "zasilacz",
+      "pl": "zasilacze"
+    },
+    {
+      "gender": "m",
+      "sing": "zbiornik",
+      "pl": "zbiorniki"
+    },
+    {
+      "gender": "m",
+      "sing": "zestaw",
+      "pl": "zestawy"
+    }
+  ]
+}
