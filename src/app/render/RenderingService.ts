@@ -1,15 +1,16 @@
-import { Inject, StreamableFile } from '@nestjs/common';
+import { Injectable, StreamableFile } from '@nestjs/common';
 import { CsvRenderer } from './CsvRenderer';
 import { RendererInterface } from './RendererInterface';
 import { RendererType } from './RendererType';
-import { XslxRenderer } from './XslxRenderer';
+import { XlsxRenderer } from './XlsxRenderer';
 
+@Injectable()
 export class RenderingService<T> {
   private renderers: Record<RendererType, RendererInterface<T>>;
 
   public constructor(
-    @Inject() csv: CsvRenderer<T>,
-    @Inject() xlsx: XslxRenderer<T>,
+    csv: CsvRenderer<T>,
+    xlsx: XlsxRenderer<T>,
   ) {
     this.renderers = { csv, xlsx };
   }

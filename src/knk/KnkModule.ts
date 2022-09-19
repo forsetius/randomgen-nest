@@ -5,7 +5,9 @@ import { KnkController } from './KnkController';
 import { KnkGeneratorService } from './KnkGeneratorService';
 
 @Module({
-  imports: [ConfigModule.forFeature(registerAs('knk', () => knkConfig))],
+  imports: [
+    ConfigModule.forFeature(registerAs('knk', () => knkConfig)),
+  ],
   controllers: [KnkController],
   providers: [KnkGeneratorService],
 })

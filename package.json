@@ -21,11 +21,11 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@nestjs/common": "^8.3.1",
-    "@nestjs/config": "^2.0.0",
-    "@nestjs/core": "^8.3.1",
-    "@nestjs/platform-express": "^8.3.1",
-    "@nestjs/testing": "^8.3.1",
+    "@nestjs/common": "^9.0.11",
+    "@nestjs/config": "^2.2.0",
+    "@nestjs/core": "^9.0.11",
+    "@nestjs/platform-express": "^9.0.11",
+    "@nestjs/testing": "^9.0.11",
     "class-transformer": "^0.5.1",
     "class-transformer-validator": "^0.9.1",
     "class-validator": "^0.13.2",
@@ -44,8 +44,8 @@
     "seedrandom": "^3.0.5"
   },
   "devDependencies": {
-    "@nestjs/cli": "^8.2.1",
-    "@nestjs/schematics": "^8.0.6",
+    "@nestjs/cli": "^9.1.2",
+    "@nestjs/schematics": "^9.0.3",
     "@types/compression": "^1.7.2",
     "@types/express": "^4.17.13",
     "@types/express-rate-limit": "^6.0.0",

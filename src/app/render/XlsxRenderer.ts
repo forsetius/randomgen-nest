@@ -1,7 +1,8 @@
-import { StreamableFile } from '@nestjs/common';
+import { Injectable, StreamableFile } from '@nestjs/common';
 import { RendererInterface } from './RendererInterface';
 
-export class XslxRenderer<T> implements RendererInterface<T> {
+@Injectable()
+export class XlsxRenderer<T> implements RendererInterface<T> {
   public render(data: T): StreamableFile {
     return new StreamableFile(Buffer.from(data as unknown as string));
   }
