@@ -1,4 +1,4 @@
-import { AdjectiveForms, NounForms } from './types';
+import type { AdjectiveForms, NounForms } from './types';
 
 export interface TechnobabblePlSourceModel {
   action: string[];

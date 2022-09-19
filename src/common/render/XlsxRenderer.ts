@@ -1,5 +1,5 @@
 import { Injectable, StreamableFile } from '@nestjs/common';
-import { RendererInterface } from './RendererInterface';
+import type { RendererInterface } from './RendererInterface';
 
 @Injectable()
 export class XlsxRenderer<T> implements RendererInterface<T> {

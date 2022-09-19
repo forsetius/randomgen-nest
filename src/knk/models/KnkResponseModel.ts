@@ -1,4 +1,4 @@
-import { FactionName, RelationType } from './types';
+import type { FactionName, RelationType } from './types';
 
 export interface KnkResponseModel {
   label: string;

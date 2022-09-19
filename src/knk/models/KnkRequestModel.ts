@@ -2,7 +2,7 @@ import { ConfigService } from '@nestjs/config';
 import {
   getFromContainer, IsIn, IsInt, IsOptional, IsString, Length, Max, Min,
 } from 'class-validator';
-import { knkConfig } from './KnkConfig';
+import type { knkConfig } from '../KnkConfig';
 
 const configService = getFromContainer(ConfigService) as ConfigService<typeof knkConfig, true>;
 

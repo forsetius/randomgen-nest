@@ -1,10 +1,10 @@
 import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
-import { NestExpressApplication } from '@nestjs/platform-express';
+import type { NestExpressApplication } from '@nestjs/platform-express';
 import * as classValidator from 'class-validator';
 import { AppModule } from './app/AppModule';
-import { setupSecurity } from './app/utils/setupSecurity';
-import { setupTemplating } from './app/utils/setupTemplating';
+import { setupSecurity } from './common/utils/setupSecurity';
+import { setupTemplating } from './common/utils/setupTemplating';
 
 async function bootstrap(): Promise<void> {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);

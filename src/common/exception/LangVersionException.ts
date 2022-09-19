@@ -1,4 +1,4 @@
-import { Lang } from '../../knk/models/types';
+import type { Lang } from '../../knk/models';
 
 export class LangVersionException extends Error {
   public constructor(lang: Lang) {

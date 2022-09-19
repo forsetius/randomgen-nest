@@ -1,16 +1,14 @@
-import { Global, Module } from '@nestjs/common';
+import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
+import { CommonModule } from '../common/CommonModule';
 import { KnkModule } from '../knk/KnkModule';
 import { TechnobabbleModule } from '../technobabble/TechnobabbleModule';
 import { AppController } from './AppController';
 import { AppService } from './AppService';
-import { CsvRenderer } from './render/CsvRenderer';
-import { RenderingService } from './render/RenderingService';
-import { XlsxRenderer } from './render/XlsxRenderer';
 
-@Global()
 @Module({
   imports: [
+    CommonModule,
     ConfigModule.forRoot({
       isGlobal: true,
     }),
@@ -18,8 +16,7 @@ import { XlsxRenderer } from './render/XlsxRenderer';
     TechnobabbleModule,
   ],
   controllers: [AppController],
-  providers: [AppService, RenderingService, CsvRenderer, XlsxRenderer],
-  exports: [RenderingService],
+  providers: [AppService],
 })
 export class AppModule {
 }
