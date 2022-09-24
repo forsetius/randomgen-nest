@@ -1,4 +1,4 @@
-import { RollableCollection } from '../../../../src/common/utils/RollableCollection';
+import { RollableCollection } from '../../../../src/app/utils/RollableCollection';
 
 describe('RollableCollection', () => {
   afterEach(() => {
