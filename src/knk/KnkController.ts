@@ -2,7 +2,7 @@ import {
   Controller, Get, Param, Query, Req, StreamableFile,
 } from '@nestjs/common';
 import type { Request } from 'express';
-import { RendererType, RenderingService } from '../common/render';
+import { RendererType, RenderingService } from '../app/render';
 import { KnkGeneratorService } from './KnkGeneratorService';
 import type { KnkResponseModel } from './models';
 import { KnkRequestModel } from './models';

@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
-import { CountingMap } from '../common/utils/CountingMap';
-import { getSourceDataDir } from '../common/utils/getData';
-import { shuffle } from '../common/utils/random';
-import { RollableCollection } from '../common/utils/RollableCollection';
-import { RoundRobinCollection } from '../common/utils/RoundRobinCollection';
+import { CountingMap } from '../app/utils/CountingMap';
+import { getSourceDataDir } from '../app/utils/getData';
+import { shuffle } from '../app/utils/random';
+import { RollableCollection } from '../app/utils/RollableCollection';
+import { RoundRobinCollection } from '../app/utils/RoundRobinCollection';
 import { Faction } from './domain/Faction';
 import { ValueValidationException } from './exceptions/ValueValidationException';
 import type {

@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
-import { getSourceData } from '../../common/utils/getData';
-import { flipCoin } from '../../common/utils/random';
-import { RollableCollection } from '../../common/utils/RollableCollection';
+import { getSourceData } from '../../app/utils/getData';
+import { flipCoin } from '../../app/utils/random';
+import { RollableCollection } from '../../app/utils/RollableCollection';
 import type {
   AdjectiveForms, Gender, NounForms, TechnobabblePlSourceModel,
 } from '../models';

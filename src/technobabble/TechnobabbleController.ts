@@ -1,7 +1,7 @@
 import {
   Controller, Get, Query, StreamableFile,
 } from '@nestjs/common';
-import { RendererType, RenderingService } from '../common/render';
+import { RendererType, RenderingService } from '../app/render';
 import { EnglishGeneratorService } from './generators/EnglishGeneratorService';
 import { PolishGeneratorService } from './generators/PolishGeneratorService';
 import { TechnobabbleRequestQueryModel } from './models';
@@ -51,6 +51,7 @@ export class TechnobabbleController {
       : this.englishGeneratorService;
 
     return Array(query.repeat)
+      .fill(0)
       .map(() => service.generate());
   }
 }

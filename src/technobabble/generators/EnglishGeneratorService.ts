@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { getSourceData } from '../../common/utils/getData';
-import { RollableCollection } from '../../common/utils/RollableCollection';
+import { getSourceData } from '../../app/utils/getData';
+import { RollableCollection } from '../../app/utils/RollableCollection';
 import type { TechnobabbleEnSourceModel } from '../models';
 
 @Injectable()

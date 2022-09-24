@@ -1,14 +1,15 @@
 import { ValidationPipe } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
 import { NestFactory } from '@nestjs/core';
 import type { NestExpressApplication } from '@nestjs/platform-express';
-import * as classValidator from 'class-validator';
+import type { appConfig } from './app/AppConfig';
 import { AppModule } from './app/AppModule';
-import { setupSecurity } from './common/utils/setupSecurity';
-import { setupTemplating } from './common/utils/setupTemplating';
+import { setupSecurity } from './app/utils/setupSecurity';
+import { setupTemplating } from './app/utils/setupTemplating';
 
 async function bootstrap(): Promise<void> {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
-  classValidator.useContainer(app, { fallback: true });
+  const config = app.get(ConfigService).get('app') as ReturnType<typeof appConfig>;
 
   app.enableShutdownHooks();
   setupSecurity(app);
@@ -16,13 +17,13 @@ async function bootstrap(): Promise<void> {
 
   app.useGlobalPipes(
     new ValidationPipe({
-      disableErrorMessages: process.env['NODE_ENV']?.startsWith('prod') ?? false,
+      disableErrorMessages: config.env.startsWith('prod'),
       transform: true,
       whitelist: true,
     }),
   );
 
-  await app.listen(process.env['PORT'] ?? 3000);
+  await app.listen(config.port);
 }
 
 void bootstrap();

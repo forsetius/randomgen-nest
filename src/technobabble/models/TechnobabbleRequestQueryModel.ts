@@ -1,22 +1,18 @@
-import { ConfigService } from '@nestjs/config';
 import {
-  getFromContainer, IsIn, IsInt, IsOptional, IsString, Length, Max, Min,
+  IsIn, IsInt, IsOptional, IsString, Length, Max, Min,
 } from 'class-validator';
-import type { technobabbleConfig } from '../TechnobabbleConfig';
-
-const configService = getFromContainer(ConfigService) as
-  ConfigService<typeof technobabbleConfig, true>;
+import { technobabbleConfig } from '../TechnobabbleConfig';
 
 export class TechnobabbleRequestQueryModel {
   @IsOptional()
   @IsString()
   @Length(2, 2)
-  @IsIn(configService.get('lang.supported', { infer: true }))
-    lang: string = configService.get('lang.default', { infer: true });
+  @IsIn(technobabbleConfig.lang.supported)
+    lang: string = technobabbleConfig.lang.default;
 
   @IsOptional()
   @IsInt()
   @Min(1)
-  @Max(configService.get('repeat.max', { infer: true }))
+  @Max(technobabbleConfig.repeat.max)
     repeat = 1;
 }
