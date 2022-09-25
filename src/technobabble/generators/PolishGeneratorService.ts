@@ -2,8 +2,9 @@ import { Injectable } from '@nestjs/common';
 import { getSourceData } from '../../app/utils/getData';
 import { flipCoin } from '../../app/utils/random';
 import { RollableCollection } from '../../app/utils/RollableCollection';
-import { TechnobabblePlSourceModel } from '../models/TechnobabblePlSourceModel';
-import { AdjectiveForms, Gender, NounForms } from '../models/types';
+import type {
+  AdjectiveForms, Gender, NounForms, TechnobabblePlSourceModel,
+} from '../models';
 
 @Injectable()
 export class PolishGeneratorService {

@@ -1,7 +1,7 @@
 import { Injectable, StreamableFile } from '@nestjs/common';
 import { CsvRenderer } from './CsvRenderer';
-import { RendererInterface } from './RendererInterface';
-import { RendererType } from './RendererType';
+import type { RendererInterface } from './RendererInterface';
+import type { RendererType } from './RendererType';
 import { XlsxRenderer } from './XlsxRenderer';
 
 @Injectable()

@@ -1,12 +1,11 @@
 import {
   Controller, Get, Param, Query, Req, StreamableFile,
 } from '@nestjs/common';
-import { Request } from 'express';
-import { RendererType } from '../app/render/RendererType';
-import { RenderingService } from '../app/render/RenderingService';
+import type { Request } from 'express';
+import { RendererType, RenderingService } from '../app/render';
 import { KnkGeneratorService } from './KnkGeneratorService';
-import { KnkRequestModel } from './KnkRequestModel';
-import { KnkResponseModel } from './models/KnkResponseModel';
+import type { KnkResponseModel } from './models';
+import { KnkRequestModel } from './models';
 
 @Controller()
 export class KnkController {

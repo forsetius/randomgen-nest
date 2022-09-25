@@ -1,4 +1,4 @@
-import { RollableCollection } from '../../app/utils/RollableCollection';
-import { KnkSourceModel } from './KnkSourceModel';
+import type { RollableCollection } from '../../app/utils/RollableCollection';
+import type { KnkSourceModel } from './KnkSourceModel';
 
 export type KnkTemplateModel = Record<keyof KnkSourceModel, RollableCollection<string>>;

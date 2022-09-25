@@ -6,10 +6,9 @@ import { RollableCollection } from '../app/utils/RollableCollection';
 import { RoundRobinCollection } from '../app/utils/RoundRobinCollection';
 import { Faction } from './domain/Faction';
 import { ValueValidationException } from './exceptions/ValueValidationException';
-import { KnkResponseModel } from './models/KnkResponseModel';
-import { KnkSourceModel } from './models/KnkSourceModel';
-import { KnkTemplateModel } from './models/KnkTemplateModel';
-import { TemplateName } from './models/types';
+import type {
+  KnkResponseModel, KnkSourceModel, KnkTemplateModel, TemplateName,
+} from './models';
 
 @Injectable()
 export class KnkGeneratorService {

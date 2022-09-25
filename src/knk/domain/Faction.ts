@@ -1,4 +1,4 @@
-import { KnkResponseModel } from '../models/KnkResponseModel';
+import type { KnkResponseModel } from '../models';
 
 export class Faction {
   public readonly externalRelations: Map<FactionName, RelationType> = new Map();

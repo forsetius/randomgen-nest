@@ -1,4 +1,4 @@
-import { Name } from '../../knk/models/types';
+import type { Name } from '../../knk/models';
 import { LangVersionException } from '../exception/LangVersionException';
 
 export class DefaultedCollection<T> {

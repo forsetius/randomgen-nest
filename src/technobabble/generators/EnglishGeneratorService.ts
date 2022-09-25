@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { getSourceData } from '../../app/utils/getData';
 import { RollableCollection } from '../../app/utils/RollableCollection';
-import { TechnobabbleEnSourceModel } from '../models/TechnobabbleEnSourceModel';
+import type { TechnobabbleEnSourceModel } from '../models';
 
 @Injectable()
 export class EnglishGeneratorService {
