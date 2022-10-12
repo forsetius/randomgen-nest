@@ -1,4 +1,4 @@
-import type { KnkResponseModel } from '../models';
+import type { KnkFactionResponseModel } from '../models';
 
 export class Faction {
   public readonly externalRelations: Map<FactionName, RelationType> = new Map();
@@ -16,7 +16,7 @@ export class Faction {
     return `${this.type} #${this.runningNumber}`;
   }
 
-  public serialize(): KnkResponseModel {
+  public toJSON(): KnkFactionResponseModel {
     return {
       label: this.getLabel(),
       rumour: this.rumour,

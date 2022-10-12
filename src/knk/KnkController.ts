@@ -59,7 +59,7 @@ export class KnkController {
     path: string,
     template: string,
     query: KnkRequestModel,
-  ): KnkResponseModel[] {
+  ): KnkResponseModel {
     const templateName = path.slice(0, path.indexOf(template) + template.length - 1)
       .replaceAll('/', '-');
 
