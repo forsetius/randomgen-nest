@@ -1,4 +1,6 @@
 import { Injectable } from '@nestjs/common';
+import { Column } from '../app/render/tabular/Column';
+import type { TabularDataModel } from '../app/render/tabular/TabularDataModel';
 import { getSourceDataDir } from '../app/utils/getData';
 import { FactionFactory } from './domain/FactionFactory';
 import { ValueValidationException } from './exceptions/ValueValidationException';
@@ -34,5 +36,30 @@ export class KnkGeneratorService {
       factions: factions.map((faction) => faction.toJSON()),
       event: factionFactory.rollEvent(factions),
     };
+  }
+
+  public tabularize(
+    data: KnkResponseModel,
+  ): TabularDataModel {
+    return [
+      {
+        header: 'Frakcje',
+        columns: [
+          new Column({ label: 'label' }),
+          new Column({ label: 'resource' }),
+          new Column({ label: 'rumour' }),
+          new Column({ label: 'internalRelations' }),
+          new Column({ label: 'externalRelations' }),
+        ],
+        rows: data.factions,
+      },
+      {
+        header: 'Wydarzenia',
+        columns: [
+          new Column(),
+        ],
+        rows: [data.event],
+      },
+    ];
   }
 }

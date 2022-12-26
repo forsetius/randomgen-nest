@@ -1,7 +1,8 @@
 import {
-  Controller, Get, Query, StreamableFile,
+  Controller, Get, Inject, Query, StreamableFile,
 } from '@nestjs/common';
-import { RendererType, RenderingService } from '../app/render';
+import { CsvRenderer, XlsxRenderer } from '../app/render';
+import type { BaseGeneratorService } from './generators/BaseGeneratorService';
 import { EnglishGeneratorService } from './generators/EnglishGeneratorService';
 import { PolishGeneratorService } from './generators/PolishGeneratorService';
 import { TechnobabbleRequestQueryModel } from './models';
@@ -11,7 +12,6 @@ export class TechnobabbleController {
   constructor(
     private polishGeneratorService: PolishGeneratorService,
     private englishGeneratorService: EnglishGeneratorService,
-    private renderingService: RenderingService<string[]>,
   ) {
   }
 
@@ -20,38 +20,57 @@ export class TechnobabbleController {
     '/startrek/technobabble',
   ])
   public generateRaw(@Query() query: TechnobabbleRequestQueryModel): string {
-    return this.generate(query).join('\n');
+    const service = this.chooseService(query.lang);
+
+    return this.generate(service, query).join('\n');
   }
 
   @Get([
     '/technobabble/csv',
     '/startrek/technobabble/csv',
   ])
-  public generateCsv(@Query() query: TechnobabbleRequestQueryModel): StreamableFile {
-    const result = this.generate(query);
+  public generateCsv(
+    @Inject(CsvRenderer) csvRenderer: CsvRenderer,
+    @Query() query: TechnobabbleRequestQueryModel,
+  ): StreamableFile {
+    const service = this.chooseService(query.lang);
 
-    return this.renderingService.render(RendererType.CSV, result);
+    const result = this.generate(service, query);
+    const tabularisedData = service.tabularize(result);
+
+    return csvRenderer.render(tabularisedData);
   }
 
   @Get([
     '/technobabble/xlsx',
     '/startrek/technobabble/xlsx',
   ])
-  public generateXslx(@Query() query: TechnobabbleRequestQueryModel): StreamableFile {
-    const result = this.generate(query);
+  public generateXslx(
+    @Inject(XlsxRenderer) xlsxRenderer: XlsxRenderer,
+    @Query() query: TechnobabbleRequestQueryModel,
+  ): StreamableFile {
+    const service = this.chooseService(query.lang);
 
-    return this.renderingService.render(RendererType.XLSX, result);
+    const result = this.generate(service, query);
+    const tabularisedData = service.tabularize(result);
+
+    return xlsxRenderer.render(tabularisedData);
   }
 
   private generate(
+    service: BaseGeneratorService,
     query: TechnobabbleRequestQueryModel,
   ): string[] {
-    const service = query.lang === 'pl'
+    return Array(query.repeat)
+      .fill('')
+      .map(() => service.generate());
+  }
+
+  private chooseService(
+    lang: string,
+  ): BaseGeneratorService {
+    return lang === 'pl'
       ? this.polishGeneratorService
       : this.englishGeneratorService;
-
-    return Array(query.repeat)
-      .fill(0)
-      .map(() => service.generate());
   }
 }

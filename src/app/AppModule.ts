@@ -5,7 +5,7 @@ import { TechnobabbleModule } from '../technobabble/TechnobabbleModule';
 import { appConfig } from './AppConfig';
 import { AppController } from './AppController';
 import { AppService } from './AppService';
-import { CsvRenderer, RenderingService, XlsxRenderer } from './render';
+import { CsvRenderer, XlsxRenderer } from './render';
 
 @Global()
 @Module({
@@ -15,8 +15,8 @@ import { CsvRenderer, RenderingService, XlsxRenderer } from './render';
     TechnobabbleModule,
   ],
   controllers: [AppController],
-  providers: [AppService, RenderingService, CsvRenderer, XlsxRenderer],
-  exports: [RenderingService, ConfigModule],
+  providers: [AppService, CsvRenderer, XlsxRenderer],
+  exports: [ConfigModule, CsvRenderer, XlsxRenderer],
 })
 export class AppModule {
 }

@@ -2,7 +2,7 @@ import {
   Controller, Get, Param, Query, Req, StreamableFile,
 } from '@nestjs/common';
 import type { Request } from 'express';
-import { RendererType, RenderingService } from '../app/render';
+import { CsvRenderer, XlsxRenderer } from '../app/render';
 import { KnkGeneratorService } from './KnkGeneratorService';
 import type { KnkResponseModel } from './models';
 import { KnkRequestModel } from './models';
@@ -11,7 +11,8 @@ import { KnkRequestModel } from './models';
 export class KnkController {
   constructor(
     private generatorService: KnkGeneratorService,
-    private renderingService: RenderingService<KnkResponseModel[]>,
+    private csvRenderer: CsvRenderer,
+    private xlsxRenderer: XlsxRenderer,
   ) {
   }
 
@@ -23,7 +24,7 @@ export class KnkController {
     @Req() request: Request,
     @Param('template') template: string,
     @Query() query: KnkRequestModel,
-  ): KnkResponseModel[] {
+  ): KnkResponseModel {
     return this.generate(request.path, template, query);
   }
 
@@ -37,8 +38,9 @@ export class KnkController {
     @Query() query: KnkRequestModel,
   ): StreamableFile {
     const result = this.generate(request.path, template, query);
+    const tabularizedData = this.generatorService.tabularize(result);
 
-    return this.renderingService.render(RendererType.CSV, result);
+    return this.csvRenderer.render(tabularizedData);
   }
 
   @Get([
@@ -51,8 +53,9 @@ export class KnkController {
     @Query() query: KnkRequestModel,
   ): StreamableFile {
     const result = this.generate(request.path, template, query);
+    const tabularizedData = this.generatorService.tabularize(result);
 
-    return this.renderingService.render(RendererType.XLSX, result);
+    return this.xlsxRenderer.render(tabularizedData);
   }
 
   private generate(
@@ -60,7 +63,7 @@ export class KnkController {
     template: string,
     query: KnkRequestModel,
   ): KnkResponseModel {
-    const templateName = path.slice(0, path.indexOf(template) + template.length - 1)
+    const templateName = path.slice(1, path.indexOf(template) + template.length)
       .replaceAll('/', '-');
 
     return this.generatorService.generate(

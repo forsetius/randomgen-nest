@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { CsvRenderer, RenderingService, XlsxRenderer } from '../app/render';
+import { CsvRenderer, XlsxRenderer } from '../app/render';
 import { EnglishGeneratorService } from './generators/EnglishGeneratorService';
 import { PolishGeneratorService } from './generators/PolishGeneratorService';
 import { TechnobabbleController } from './TechnobabbleController';
@@ -9,7 +9,6 @@ import { TechnobabbleController } from './TechnobabbleController';
   providers: [
     PolishGeneratorService,
     EnglishGeneratorService,
-    RenderingService,
     CsvRenderer,
     XlsxRenderer,
   ],
