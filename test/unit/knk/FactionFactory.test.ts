@@ -1,9 +1,7 @@
-// import { shuffle } from '../../../src/app/utils/random';
 import { FactionFactory } from '../../../src/knk/domain/FactionFactory';
 import { mockTemplate } from './mockTemplate';
 
 let factory: FactionFactory;
-// const mockShuffle = shuffle as jest.MockedFunction<typeof shuffle>;
 
 describe('KnkGeneratorService', () => {
   beforeAll(() => {
@@ -12,7 +10,7 @@ describe('KnkGeneratorService', () => {
 
       return {
         __esModule: false,
-        ...jest.requireActual('../../../src/app/utils/random'),
+        // ...jest.requireActual('../../../src/app/utils/random'),
         shuffle: jest.fn().mockReturnValue([
           new Faction(4, 'Faction C', '', ''),
           new Faction(1, 'Faction C', '', ''),
@@ -77,7 +75,7 @@ describe('KnkGeneratorService', () => {
       jest.spyOn(global.Math, 'random')
         .mockReturnValueOnce(0)
         .mockReturnValueOnce(0.8);
-      factory.rollExternalRelations(factions, 2);
+      factory.rollExternalRelations(factions, 1);
 
       const results = factions.map((faction) => faction.externalRelations);
       expect(results.length).toBe(3);
@@ -108,24 +106,31 @@ describe('KnkGeneratorService', () => {
     },
   );
 
+  test('Substitutes tokens', () => {
+    const NUMBER_OF_FACTIONS = 4;
+
+    jest.spyOn(global.Math, 'random').mockReturnValue(0.5);
+
+    const factions = factory.rollFactions(NUMBER_OF_FACTIONS);
+    const result = factory['substituteTokens']('Faction %1% with %2% against %3%. Again %2% and %1%', factions);
+
+    expect(result).toBe(
+      'Faction Faction C #1 with Faction C #4 against Faction C #2. Again Faction C #4 and Faction C #1',
+    );
+  });
+
   test(
     'An event is set',
     () => {
       const NUMBER_OF_FACTIONS = 4;
 
       jest.spyOn(global.Math, 'random').mockReturnValue(0.5);
-      // mockShuffle.mockReturnValue([
-      //   new Faction(2, 'Faction C', '', ''),
-      //   new Faction(4, 'Faction C', '', ''),
-      //   new Faction(1, 'Faction C', '', ''),
-      //   new Faction(3, 'Faction C', '', ''),
-      // ]);
 
       const factions = factory.rollFactions(NUMBER_OF_FACTIONS);
       const names = factions.map((faction) => faction.getLabel());
       const event = factory.rollEvent(factions);
 
-      expect(event).toBe(`Event with ${names[1]!} and ${names[3]!} C`);
+      expect(event).toBe(`Event with ${names[0]!} and ${names[3]!} C`);
     },
   );
 });
