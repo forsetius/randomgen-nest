@@ -1,9 +1,8 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { Column } from '../app/render/tabular/Column';
 import type { TabularDataModel } from '../app/render/tabular/TabularDataModel';
 import { getSourceDataDir } from '../app/utils/getData';
 import { FactionFactory } from './domain/FactionFactory';
-import { ValueValidationException } from './exceptions/ValueValidationException';
 import type { KnkResponseModel, KnkSourceModel, TemplateName } from './models';
 
 @Injectable()
@@ -23,7 +22,7 @@ export class KnkGeneratorService {
   ): KnkResponseModel {
     const factionFactory = this.factories.get(templateName);
     if (!factionFactory) {
-      throw new ValueValidationException(`No such template: "${templateName}"`);
+      throw new HttpException(`No such template: "${templateName}"`, HttpStatus.NOT_FOUND);
     }
 
     const factions = factionFactory.rollFactions(numberOfFactions);

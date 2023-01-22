@@ -1,5 +1,5 @@
+import { HttpException } from '@nestjs/common';
 import { FactionFactory } from '../../../src/knk/domain/FactionFactory';
-import { ValueValidationException } from '../../../src/knk/exceptions/ValueValidationException';
 import { KnkGeneratorService } from '../../../src/knk/KnkGeneratorService';
 
 jest.mock('../../../src/app/utils/getData', () => {
@@ -49,6 +49,6 @@ describe('KnkGeneratorService', () => {
   });
 
   test('An exception is thrown out of non-existing template', () => {
-    expect(() => service.generate('capital', 4)).toThrow(ValueValidationException);
+    expect(() => service.generate('capital', 4)).toThrow(HttpException);
   });
 });

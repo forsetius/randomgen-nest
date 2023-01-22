@@ -1,4 +1,4 @@
-import { ValidationPipe } from '@nestjs/common';
+import { INestApplication, ValidationPipe } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { NestFactory } from '@nestjs/core';
 import type { NestExpressApplication } from '@nestjs/platform-express';
@@ -7,7 +7,7 @@ import { AppModule } from './app/AppModule';
 import { setupSecurity } from './app/utils/setupSecurity';
 import { setupTemplating } from './app/utils/setupTemplating';
 
-async function bootstrap(): Promise<void> {
+export async function bootstrap(): Promise<INestApplication> {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
   const config = app.get(ConfigService).get('app') as ReturnType<typeof appConfig>;
 
@@ -24,6 +24,8 @@ async function bootstrap(): Promise<void> {
   );
 
   await app.listen(config.port);
+
+  return app;
 }
 
 void bootstrap();

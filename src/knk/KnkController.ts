@@ -44,8 +44,8 @@ export class KnkController {
   }
 
   @Get([
-    '/knk/:template/csv',
-    '/ep/factions/:template/csv',
+    '/knk/:template/xlsx',
+    '/ep/factions/:template/xlsx',
   ])
   public getXlsx(
     @Req() request: Request,

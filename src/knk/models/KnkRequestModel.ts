@@ -1,3 +1,4 @@
+import { Type } from 'class-transformer';
 import {
   IsIn, IsInt, IsOptional, IsString, Length, Max, Min,
 } from 'class-validator';
@@ -13,6 +14,7 @@ export class KnkRequestModel {
   @IsOptional()
   @IsInt()
   @Min(2)
-  @Max(knkConfig.numberOfFactions.max)
-    numberOfFactions: number = knkConfig.numberOfFactions.default;
+  @Max(8)
+  @Type(() => Number)
+    numberOfFactions: number = knkConfig.numberOfFactions.max;
 }

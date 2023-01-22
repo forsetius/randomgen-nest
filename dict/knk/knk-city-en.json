@@ -1,7 +1,9 @@
 {
   "factions": [
     "Argonauts",
-    "Experia"
+    "Experia",
+    "Titanians",
+    "TITANs"
   ],
   "events": [
     "śmierć lidera fakcji kx",

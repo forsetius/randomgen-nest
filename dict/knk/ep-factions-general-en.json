@@ -1,0 +1,352 @@
+{
+  "factions": [
+    {
+      "name": "14k triad",
+      "type": "Criminals/Triads",
+      "description": ""
+    },
+    {
+      "name": "Amelia Assets",
+      "type": "Hypercorps/Banking and finance",
+      "description": "An LLC bank"
+    },
+    {
+      "name": "Anarchists",
+      "type": "Polity/Autonomous Alliance",
+      "description": "An LLC bank"
+    },
+    {
+      "name": "Argonauts",
+      "type": "Social movement",
+      "description": ""
+    },
+    {
+      "name": "Barsoomians",
+      "type": "Social movement",
+      "description": ""
+    },
+    {
+      "name": "Big Circle gang",
+      "type": "Criminals/Triad",
+      "description": ""
+    },
+    {
+      "name": "Bioconservatives",
+      "type": "Social movement",
+      "description": ""
+    },
+    {
+      "name": "Brinkers",
+      "type": "Social movement",
+      "description": ""
+    },
+    {
+      "name": "Cardison Limited",
+      "type": "Hypercorps/Banking and finance",
+      "description": "An LLC bank"
+    },
+    {
+      "name": "Cerebrex",
+      "type": "Hypercorps/Cognitive sciences & uplift",
+      "description": "Psychosurgical research"
+    },
+    {
+      "name": "Chan-Davis Trust",
+      "type": "Hypercorps/Banking and finance",
+      "description": "An LLC bank"
+    },
+    {
+      "name": "Exhumans",
+      "type": "Social movement",
+      "description": ""
+    },
+    {
+      "name": "ExoTech",
+      "type": "Hypercorps/Cognitive sciences & uplift",
+      "description": "Pioneer in uploading and infomorph techs. High-end electronics and meshware, AI development"
+    },
+    {
+      "name": "Experia",
+      "type": "Hypercorps/",
+      "description": ""
+    },
+    {
+      "name": "Extropians",
+      "type": "Polity/Autonomous Alliance",
+      "description": ""
+    },
+    {
+      "name": "Finosa Labs",
+      "type": "Hypercorps/Agritech and pharma",
+      "description": "Linked to drug cartels"
+    },
+    {
+      "name": "Firewall",
+      "type": "",
+      "description": ""
+    },
+    {
+      "name": "Ganguli-Bhattacharya-Corbett Investments (GBCI)",
+      "type": "Hypercorps/Banking and finance",
+      "description": "An LLC bank",
+      "from": "Inner System/Earth/Luna"
+    },
+    {
+      "name": "Gingko Biosciences",
+      "type": "Hypercorps/Agritech and pharma",
+      "description": "Micrograv agripods and faux meats of every persuasion"
+    },
+    {
+      "name": "Hidden Concern",
+      "type": "Criminals",
+      "description": ""
+    },
+    {
+      "name": "ID Crew",
+      "type": "Criminals",
+      "description": ""
+    },
+    {
+      "name": "Independent Gang",
+      "type": "Criminals/Gangs",
+      "description": ""
+    },
+    {
+      "name": "Jovian Republic",
+      "type": "Polity",
+      "description": ""
+    },
+    {
+      "name": "Les Goules",
+      "type": "Criminals/Gangs",
+      "description": ""
+    },
+    {
+      "name": "Lunar-Lagrange Alliance",
+      "type": "Polity",
+      "description": ""
+    },
+    {
+      "name": "Mentat",
+      "type": "Hypercorps/Cognitive sciences & uplift",
+      "description": "Bioware and cybernetics"
+    },
+    {
+      "name": "Mercurials",
+      "type": "Social movement",
+      "description": ""
+    },
+    {
+      "name": "Morningstar Constellation",
+      "type": "Polity",
+      "description": ""
+    },
+    {
+      "name": "Mutual Credit",
+      "type": "Hypercorps/Banking and finance",
+      "description": "The largest mutualist bank, with a significant involvement in financing intelligence services."
+    },
+    {
+      "name": "Night Cartel",
+      "type": "Criminals",
+      "description": ""
+    },
+    {
+      "name": "Nine Lives",
+      "type": "Criminals",
+      "description": ""
+    },
+    {
+      "name": "Pax Familae",
+      "type": "Criminals",
+      "description": ""
+    },
+    {
+      "name": "Pirates",
+      "type": "Criminals",
+      "description": ""
+    },
+    {
+      "name": "Planetary Consortium",
+      "type": "Polity",
+      "description": ""
+    },
+    {
+      "name": "Planetary Stock Exchange (PEX)",
+      "type": "Hypercorps/Banking and finance",
+      "description": "Stock Exchange with no lightspeed limit, offers generous bounties on a list of known hackers"
+    },
+    {
+      "name": "Progress Bank",
+      "type": "Hypercorps/Banking and finance",
+      "description": "Planetary Consortium bank",
+      "from": "Inner System/Mars"
+    },
+    {
+      "name": "Prosperity Group",
+      "type": "Hypercorps/Agritech and pharma",
+      "description": "Planetary Consortium bank",
+      "from": "Inner System/Mars"
+    },
+    {
+      "name": "Rangarajan Metrics",
+      "type": "Hypercorps/Cognitive sciences & uplift",
+      "description": "Psychometrics and education"
+    },
+    {
+      "name": "Reclaimers",
+      "type": "Social movement",
+      "description": ""
+    },
+    {
+      "name": "Sapients",
+      "type": "Social movement",
+      "description": ""
+    },
+    {
+      "name": "Scum",
+      "type": "Polity/Autonomous Alliance",
+      "description": ""
+    },
+    {
+      "name": "Socialites",
+      "type": "Social movement",
+      "description": ""
+    },
+    {
+      "name": "Shui Fong",
+      "type": "Criminals/Triads",
+      "description": ""
+    },
+    {
+      "name": "Solaris",
+      "type": "Hypercorps/Banking and finance",
+      "description": "Owns a signifincant the largest share in the Planetary Consortium Hypercorp Council, has an expansive black R&D budget"
+    },
+    {
+      "name": "Somatek",
+      "type": "Hypercorps/Cognitive sciences & uplift",
+      "description": "Uplift research: forced breeding and uplift programs. Sells pharmaceuticals (for animals and transhumans) and uplift morphs"
+    },
+    {
+      "name": "St. Catherine Tong",
+      "type": "Criminals/Triads",
+      "description": ""
+    },
+    {
+      "name": "Sun Yee On",
+      "type": "Criminals/Triad",
+      "description": ""
+    },
+    {
+      "name": "Tharsis League",
+      "type": "Polity",
+      "description": ""
+    },
+    {
+      "name": "Titanian Commonwealth",
+      "type": "Polity/Autonomous Alliance",
+      "description": ""
+    },
+    {
+      "name": "TITANs",
+      "type": "",
+      "description": ""
+    },
+    {
+      "name": "Minor triad",
+      "type": "Criminals/Triads",
+      "description": ""
+    },
+    {
+      "name": "Ultimates",
+      "type": "Social movement",
+      "description": ""
+    },
+    {
+      "name": "Wild Hunt",
+      "type": "Criminals/Gangs",
+      "description": ""
+    },
+    {
+      "name": "XenoPharma",
+      "type": "Hypercorps/Agritech and pharma",
+      "description": "Developing new products from xenoflora and -fauna"
+    }
+  ],
+  "events": [
+    "{Death|Kidnapping|Forknapping} of %1% faction {leader|member|leader's relative}",
+    "{Death|Kidnapping|Forknapping} among the ranks of %1%",
+    "Natural disaster",
+    "Act of habitat sabotage with suspitions cast to %1%",
+    "Sudden shift of relations between %1% and %2%",
+    "A proxy war between %1% and %2%",
+    "TITANs attack",
+    "Factors visitation",
+    "State of emergency in the habitat: {whiteout|blackout|famine|leak|outbreak of gene engineered pests|acts of random terror}",
+    "{Bio|Nano|Info}-plague in the habitat",
+    "Aggressive memetic campaign against %1%",
+    "Suicide attacks agaist %1%"
+  ],
+  "externalRelations": [
+    "vendetta",
+    "enmity",
+    "rivalry",
+    "indifferent",
+    "truce",
+    "cooperation",
+    "open conflict",
+    "claims",
+    "contempt",
+    "obligations"
+  ],
+  "internalRelations": [
+    "one for all and all for one",
+    "power struggle",
+    "everybody knows their place",
+    "cutthroat politics",
+    "casual",
+    "intense rivalry",
+    "blind followers",
+    "business only",
+    "loyalty",
+    "common-cause partnership"
+  ],
+  "resources": [
+    "valuable scientific readings",
+    "blackmail material",
+    "copious amount of strategic commodity",
+    "laboratory conducting TITANs research",
+    "cache of artifacts reclaimed from the Earth",
+    "passcodes to secret facility",
+    "illegal drug",
+    "MacLeod-Watts infected morphs",
+    "sensitive data on their rivals",
+    "TITANs artifact",
+    "Factor specimens",
+    "extensive insider network",
+    "heavy weaponry",
+    "big amounts of nerve gas",
+    "stock of defective morphs",
+    "enslaved team of artificial intelligences",
+    "uplink to seed artificial intelligence",
+    "portfolio of frozen egos of pre-Fall politicians",
+    "near-perfect mind simulations of their opponents",
+    "access to Firewall communication channels",
+    "sought-after long-term market predictions",
+    "plans of secret training group facility"
+  ],
+  "rumours": [
+    "%0% allied with %1% to eliminate %2%",
+    "%0% are on the verge of losing their Resource",
+    "%0% is working on summoning TITANs forces to take a complete advantage over your rivals",
+    "%0% and %1% leaders are having an affair",
+    "%0% is led by an outsider",
+    "%0% leader's ego has been infected and his faction is looking for solution of the situation",
+    "%0% spare no resources looking for {TITANs artifact|hidden Pandorian Gate|mole in their ranks}",
+    "%0% leader has gone mad",
+    "%0% is notoriously cheating on other factions",
+    "The fall of %0% means",
+    "the fall of %0% {end|bloom} of the habitat"
+  ]
+}

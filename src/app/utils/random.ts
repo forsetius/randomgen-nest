@@ -25,6 +25,14 @@ export function shuffle<T>(originalArray: T[]): T[] {
   return arr;
 }
 
+export function pickRandomly<T>(arr: T[]): T {
+  if (arr.length === 0) {
+    throw new Error('Passed array must have at least 1 element');
+  }
+
+  return shuffle(arr)[0]!;
+}
+
 export function* shuffledIter<T>(arr: T[]): Generator<T, undefined, undefined> {
   const shuffled = shuffle(arr);
   yield* shuffled;

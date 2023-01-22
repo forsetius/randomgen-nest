@@ -1,11 +1,14 @@
-import { shuffle } from '../../app/utils/random';
+import type { StripArray } from '../../app/types/StripArray';
+import { pickRandomly, shuffle } from '../../app/utils/random';
 import { RollableCollection } from '../../app/utils/RollableCollection';
 import { RoundRobinCollection } from '../../app/utils/RoundRobinCollection';
-import type { KnkSourceModel, KnkTemplateModel } from '../models';
+import type { KnkSourceModel } from '../models';
 import { Faction } from './Faction';
 
 export class FactionFactory {
-  private template: KnkTemplateModel;
+  private template: {
+    [T in keyof KnkSourceModel]: RollableCollection<StripArray<KnkSourceModel[T]>>
+  };
 
   public constructor(
     dict: KnkSourceModel,
@@ -24,7 +27,7 @@ export class FactionFactory {
     numberOfFactions: number,
   ): Faction[] {
     const factions = new Array(numberOfFactions)
-      .fill(undefined)
+      .fill(null)
       .map(() => this.template.factions.getRandom())
       .sort();
 
@@ -67,24 +70,29 @@ export class FactionFactory {
   public rollRumour(
     factions: Faction[],
     index: number,
-  ): string {
+  ): void {
     if (typeof factions[index] === 'undefined') {
       throw new RangeError('Invalid faction index');
     }
 
-    let rumour = this.template.rumours.getRandom();
-    rumour = rumour.replaceAll('%0%', factions[index]!.getLabel());
-    const others = factions.filter((_, i) => i !== index);
+    factions.forEach((faction) => {
+      let rumour = this.template.rumours.getRandom();
+      rumour = rumour.replaceAll('%0%', factions[index]!.getLabel());
+      const others = factions.filter((_, i) => i !== index);
 
-    return this.substituteTokens(rumour, others);
+      const result = this.substituteTokens(rumour, others);
+
+      faction.rumour = this.chooseAlternative(result);
+    });
   }
 
   public rollEvent(
     factions: Faction[],
   ): string {
     const event = this.template.events.getRandom();
+    const result = this.substituteTokens(event, factions);
 
-    return this.substituteTokens(event, factions);
+    return this.chooseAlternative(result);
   }
 
   private substituteTokens(
@@ -105,5 +113,14 @@ export class FactionFactory {
     });
 
     return result;
+  }
+
+  private chooseAlternative(text: string): string {
+    return text.replaceAll(
+      /\{.+?}/g,
+      (alternativeSet) => pickRandomly(
+        alternativeSet.slice(1, -1).split('|'),
+      ),
+    );
   }
 }
