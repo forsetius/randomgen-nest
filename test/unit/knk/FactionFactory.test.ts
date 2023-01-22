@@ -78,7 +78,7 @@ describe('KnkGeneratorService', () => {
       factory.rollExternalRelations(factions, 1);
 
       const results = factions.map((faction) => faction.externalRelations);
-      expect(results.length).toBe(3);
+      expect(results.length).toBe(NUMBER_OF_FACTIONS);
       expect(Array.from(results[0]!.entries())).toEqual([
         ['Faction C #2', 'External Relation A'],
       ]);
@@ -100,9 +100,11 @@ describe('KnkGeneratorService', () => {
 
       const factions = factory.rollFactions(NUMBER_OF_FACTIONS);
       const names = factions.map((faction) => faction.getLabel());
-      const event = factory.rollRumour(factions, 1);
+      factory.rollRumour(factions, 1);
 
-      expect(event).toBe(`${names[1]!} has Rumour with ${names[0]!} and ${names[3]!} C`);
+      const rumours = factions.map((faction) => faction.rumour);
+      expect(rumours.length).toBe(NUMBER_OF_FACTIONS);
+      expect(rumours[0]!).toBe(`${names[1]!} has Rumour with ${names[0]!} and ${names[3]!} C`);
     },
   );
 
