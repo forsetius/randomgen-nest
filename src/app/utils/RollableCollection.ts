@@ -9,6 +9,6 @@ export class RollableCollection<T> {
   public getRandom(): T {
     const position = roll(this.store.length) - 1;
 
-    return this.store[position];
+    return this.store[position]!;
   }
 }

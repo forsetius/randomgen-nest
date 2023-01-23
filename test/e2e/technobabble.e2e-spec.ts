@@ -1,7 +1,10 @@
-import { INestApplication } from '@nestjs/common';
+import type { INestApplication } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
 import supertest from 'supertest';
 import { TechnobabbleModule } from '../../src/technobabble/TechnobabbleModule';
+
+const regexpPl = /^[\p{L}-]+ [\p{L}-]+ [\p{L}-]+ [\p{L}-]+ [\p{L}-]+$/u;
+const regexpEn = /^[\w-]+ [\w-]+ [\w-]+ [\w-]+ [\w-]+$/u;
 
 describe('TechnobabbleController (e2e)', () => {
   let app: INestApplication;
@@ -18,30 +21,30 @@ describe('TechnobabbleController (e2e)', () => {
   it('/technobabble (GET)', () => supertest(app.getHttpServer())
     .get('/technobabble')
     .expect(200)
-    .expect(/^[\p{L}-]+ [\p{L}-]+ [\p{L}-]+ [\p{L}-]+ [\p{L}-]+$/u));
+    .expect(regexpPl));
 
   it('/startrek/technobabble (GET)', () => supertest(app.getHttpServer())
     .get('/startrek/technobabble')
     .expect(200)
-    .expect(/^[\p{L}-]+ [\p{L}-]+ [\p{L}-]+ [\p{L}-]+ [\p{L}-]+$/u));
+    .expect(regexpPl));
 
   it('/technobabble?lang=pl (GET)', () => supertest(app.getHttpServer())
     .get('/technobabble?lang=pl')
     .expect(200)
-    .expect(/^[\p{L}-]+ [\p{L}-]+ [\p{L}-]+ [\p{L}-]+ [\p{L}-]+$/u));
+    .expect(regexpPl));
 
   it('/startrek/technobabble?lang=pl (GET)', () => supertest(app.getHttpServer())
     .get('/startrek/technobabble?lang=pl')
     .expect(200)
-    .expect(/^[\p{L}-]+ [\p{L}-]+ [\p{L}-]+ [\p{L}-]+ [\p{L}-]+$/u));
+    .expect(regexpPl));
 
   it('/technobabble?lang=en (GET)', () => supertest(app.getHttpServer())
     .get('/technobabble?lang=en')
     .expect(200)
-    .expect(/^[\w-]+ [\w-]+ [\w-]+ [\w-]+ [\w-]+$/u));
+    .expect(regexpEn));
 
   it('/startrek/technobabble?lang=en (GET)', () => supertest(app.getHttpServer())
     .get('/startrek/technobabble?lang=en')
     .expect(200)
-    .expect(/^[\w-]+ [\w-]+ [\w-]+ [\w-]+ [\w-]+$/u));
+    .expect(regexpEn));
 });

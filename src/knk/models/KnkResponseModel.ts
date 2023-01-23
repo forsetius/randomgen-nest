@@ -1,9 +1,6 @@
-import { FactionName, RelationType } from './types';
+import type { KnkFactionResponseModel } from './KnkFactionResponseModel';
 
 export interface KnkResponseModel {
-  label: string;
-  resource: string;
-  rumour: string | undefined;
-  internalRelations: string;
-  externalRelations: Record<FactionName, RelationType>;
+  factions: KnkFactionResponseModel[],
+  event: string
 }

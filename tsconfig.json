@@ -1,17 +1,19 @@
 {
+  "extends": "@tsconfig/node18-strictest/tsconfig.json",
+  "display": "Node 18 + Strictest",
   "compilerOptions": {
     // modules
     "baseUrl": "./",
-    "module": "commonjs",
     "resolveJsonModule": true,
-    "rootDirs": [ "./src", "./test" ],
+    "rootDirs": [
+      "./src",
+      "./test"
+    ],
     "typeRoots": [
       "./node_modules/@types",
       "./types"
     ],
     "incremental": true,
-    "skipLibCheck": true,
-
     // emit
     "declaration": true,
     "declarationMap": true,
@@ -20,24 +22,10 @@
     "outDir": "./dist",
     "removeComments": true,
     "sourceMap": true,
-
-    // Interop Constraints
-    "exactOptionalPropertyTypes": true,
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": false,
-
     // Language and Environment
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "target": "es2021",
-
     // type checking
-    "strict": true,
-    "allowUnusedLabels": false,
-    "noFallthroughCasesInSwitch": false,
-    "noImplicitOverride": true,
-    "noImplicitReturns": true,
-    "noPropertyAccessFromIndexSignature": true,
-    "noUnusedLocals": true,
+    "noFallthroughCasesInSwitch": false
   }
 }

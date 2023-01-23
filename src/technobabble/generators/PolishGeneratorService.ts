@@ -2,11 +2,13 @@ import { Injectable } from '@nestjs/common';
 import { getSourceData } from '../../app/utils/getData';
 import { flipCoin } from '../../app/utils/random';
 import { RollableCollection } from '../../app/utils/RollableCollection';
-import { TechnobabblePlSourceModel } from '../models/TechnobabblePlSourceModel';
-import { AdjectiveForms, Gender, NounForms } from '../models/types';
+import type {
+  AdjectiveForms, Gender, NounForms, TechnobabblePlSourceModel,
+} from '../models';
+import { BaseGeneratorService } from './BaseGeneratorService';
 
 @Injectable()
-export class PolishGeneratorService {
+export class PolishGeneratorService extends BaseGeneratorService {
   private action: RollableCollection<string>;
   private descriptor: RollableCollection<AdjectiveForms>;
   private source: RollableCollection<AdjectiveForms>;
@@ -14,6 +16,8 @@ export class PolishGeneratorService {
   private device: RollableCollection<NounForms>;
 
   public constructor() {
+    super();
+
     const dicts = getSourceData<TechnobabblePlSourceModel>('technobabble/technobabble-pl');
     this.action = new RollableCollection(dicts['action']);
     this.descriptor = new RollableCollection(dicts['descriptor']);

@@ -1,0 +1,78 @@
+{
+  "factions": [
+    "Argonauts",
+    "Experia",
+    "Titanians",
+    "TITANs"
+  ],
+  "events": [
+    "śmierć lidera fakcji kx",
+    "porwanie lidera fakcji kx",
+    "morderstwa/porwania w szeregach kx",
+    "katastrofa naturalna",
+    "katastrofa magiczna",
+    "niespodziewana zmiana relacji między kx i kx (rzuć",
+    "na nową relację)",
+    "wybuch wojny",
+    "inwazja",
+    "wyczerpanie surowców",
+    "głód",
+    "zaraza",
+    "przebudzenie starożytnych sił"
+  ],
+  "externalRelations": [
+    "vendetta",
+    "wrogość",
+    "rywalizacja",
+    "ignorowanie",
+    "rozejm",
+    "współpraca",
+    "otwarty konflikt",
+    "roszczenia",
+    "pogarda",
+    "zobowiązanie"
+  ],
+  "internalRelations": [
+    "jeden za wszystkich, wszyscy za jednego",
+    "walka o władzę",
+    "każdy zna i akceptuje swoje miejsce",
+    "zawiść",
+    "przyjacielskie",
+    "rywalizacja",
+    "ślepe oddanie",
+    "pełne podejrzeń",
+    "lojalni",
+    "łączy ich tylko wspólny cel"
+  ],
+  "resources": [
+    "święta relikwia",
+    "magiczny artefakt",
+    "bogactwo",
+    "tajemna wiedza",
+    "sieć kontaktów",
+    "terytorium",
+    "informacje",
+    "liczebność",
+    "władza",
+    "wpływy"
+  ],
+  "rumours": [
+    "kx zawarli sojusz z kx, aby wyeliminować kx",
+    "kx są na granicy utraty swojego Zasobu",
+    "kx pracuje nad przywołaniem nieczystych sił, aby",
+    "przejąć całkowitą przewagę nad rywalami",
+    "liderzy kx i kx mają romans",
+    "kx jest rządzone przez kogoś z zewnątrz",
+    "legenda mówi, że upadek kx oznacza",
+    "koniec/rozkwit miasta, bądź podziemi",
+    "lider kx został opętany, a jego fakcja szuka",
+    "rozwiązania sytuacji",
+    "kx nie szczędzą zasobów w poszukiwaniu k3:",
+    "1-artefaktu; 2-portalu; 3-proroka.",
+    "lider kx oszalał",
+    "w ręce kx wpadła tajemnicza k2: 1-mapa; 2-księga",
+    "lider kx mocno choruje i jest na granicy śmierci",
+    "kx notorycznie oszukuje pozostałe fakcje,",
+    "ciekawe kiedy to wyjdzie na jaw?"
+  ]
+}

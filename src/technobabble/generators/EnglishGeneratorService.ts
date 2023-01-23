@@ -1,10 +1,11 @@
 import { Injectable } from '@nestjs/common';
 import { getSourceData } from '../../app/utils/getData';
 import { RollableCollection } from '../../app/utils/RollableCollection';
-import { TechnobabbleEnSourceModel } from '../models/TechnobabbleEnSourceModel';
+import type { TechnobabbleEnSourceModel } from '../models';
+import { BaseGeneratorService } from './BaseGeneratorService';
 
 @Injectable()
-export class EnglishGeneratorService {
+export class EnglishGeneratorService extends BaseGeneratorService {
   private action: RollableCollection<string>;
   private descriptor: RollableCollection<string>;
   private source: RollableCollection<string>;
@@ -12,6 +13,8 @@ export class EnglishGeneratorService {
   private device: RollableCollection<string>;
 
   public constructor() {
+    super();
+
     const dicts = getSourceData<TechnobabbleEnSourceModel>('technobabble/technobabble-en');
     this.action = new RollableCollection(dicts['action']);
     this.descriptor = new RollableCollection(dicts['descriptor']);

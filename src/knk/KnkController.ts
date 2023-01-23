@@ -1,18 +1,18 @@
 import {
   Controller, Get, Param, Query, Req, StreamableFile,
 } from '@nestjs/common';
-import { Request } from 'express';
-import { RendererType } from '../app/render/RendererType';
-import { RenderingService } from '../app/render/RenderingService';
+import type { Request } from 'express';
+import { CsvRenderer, XlsxRenderer } from '../app/render';
 import { KnkGeneratorService } from './KnkGeneratorService';
-import { KnkRequestModel } from './KnkRequestModel';
-import { KnkResponseModel } from './models/KnkResponseModel';
+import type { KnkResponseModel } from './models';
+import { KnkRequestModel } from './models';
 
 @Controller()
 export class KnkController {
   constructor(
     private generatorService: KnkGeneratorService,
-    private renderingService: RenderingService<KnkResponseModel[]>,
+    private csvRenderer: CsvRenderer,
+    private xlsxRenderer: XlsxRenderer,
   ) {
   }
 
@@ -24,7 +24,7 @@ export class KnkController {
     @Req() request: Request,
     @Param('template') template: string,
     @Query() query: KnkRequestModel,
-  ): KnkResponseModel[] {
+  ): KnkResponseModel {
     return this.generate(request.path, template, query);
   }
 
@@ -38,13 +38,14 @@ export class KnkController {
     @Query() query: KnkRequestModel,
   ): StreamableFile {
     const result = this.generate(request.path, template, query);
+    const tabularizedData = this.generatorService.tabularize(result);
 
-    return this.renderingService.render(RendererType.CSV, result);
+    return this.csvRenderer.render(tabularizedData);
   }
 
   @Get([
-    '/knk/:template/csv',
-    '/ep/factions/:template/csv',
+    '/knk/:template/xlsx',
+    '/ep/factions/:template/xlsx',
   ])
   public getXlsx(
     @Req() request: Request,
@@ -52,16 +53,17 @@ export class KnkController {
     @Query() query: KnkRequestModel,
   ): StreamableFile {
     const result = this.generate(request.path, template, query);
+    const tabularizedData = this.generatorService.tabularize(result);
 
-    return this.renderingService.render(RendererType.XLSX, result);
+    return this.xlsxRenderer.render(tabularizedData);
   }
 
   private generate(
     path: string,
     template: string,
     query: KnkRequestModel,
-  ): KnkResponseModel[] {
-    const templateName = path.slice(0, path.indexOf(template) + template.length - 1)
+  ): KnkResponseModel {
+    const templateName = path.slice(1, path.indexOf(template) + template.length)
       .replaceAll('/', '-');
 
     return this.generatorService.generate(

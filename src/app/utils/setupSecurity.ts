@@ -1,4 +1,4 @@
-import { NestExpressApplication } from '@nestjs/platform-express';
+import type { NestExpressApplication } from '@nestjs/platform-express';
 import compression from 'compression';
 import RateLimit from 'express-rate-limit';
 import helmet from 'helmet';

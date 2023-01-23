@@ -9,10 +9,10 @@ export class RoundRobinCollection<T> {
     }
   }
 
-  public get() {
+  public get(): T {
     const originalPosition = this.position;
     this.position = this.position === this.store.length - 1 ? 0 : this.position + 1;
 
-    return this.store[originalPosition];
+    return this.store[originalPosition]!;
   }
 }

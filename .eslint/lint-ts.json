@@ -2,10 +2,12 @@
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "sourceType": "module",
-    "project": "tsconfig.json"
+    "project": "tsconfig.json",
+    "ecmaVersion": "latest"
   },
   "plugins": [
-    "@typescript-eslint/eslint-plugin"
+    "@typescript-eslint/eslint-plugin",
+    "jest"
   ],
   "extends": [
     "airbnb-base",
@@ -16,7 +18,7 @@
   "env": {
     "node": true,
     "jest": true,
-    "es2021": true
+    "es6": true
   },
   "rules": {
     "@typescript-eslint/interface-name-prefix": "off",
@@ -206,6 +208,12 @@
         "blankLine": "always",
         "prev": "*",
         "next": "return"
+      }
+    ],
+    "jest/valid-expect": [
+      "error",
+      {
+        "maxArgs": 2
       }
     ]
   }

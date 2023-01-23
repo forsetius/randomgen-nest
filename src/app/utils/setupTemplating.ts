@@ -1,4 +1,4 @@
-import { NestExpressApplication } from '@nestjs/platform-express';
+import type { NestExpressApplication } from '@nestjs/platform-express';
 import * as nunjucks from 'nunjucks';
 
 export function setupTemplating(app: NestExpressApplication): void {
