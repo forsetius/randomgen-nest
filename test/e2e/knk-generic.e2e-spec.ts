@@ -34,7 +34,6 @@ describe('KnkController (e2e) - Generic', () => {
       .get('/ep/factions/general?lang=en&numberOfFactions=4');
 
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-    console.log(JSON.parse(response.text).factions, JSON.parse(response.text).event);
     expect(response.status, getErrorMessage(response)).toBe(200);
   });
 
