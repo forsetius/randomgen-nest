@@ -17,7 +17,7 @@ export class TechnobabbleController {
 
   @Get([
     '/technobabble',
-    '/startrek/technobabble',
+    '/api/1.0/startrek/technobabble',
   ])
   public generateRaw(@Query() query: TechnobabbleRequestQueryModel): string {
     const service = this.chooseService(query.lang);
@@ -27,7 +27,7 @@ export class TechnobabbleController {
 
   @Get([
     '/technobabble/csv',
-    '/startrek/technobabble/csv',
+    '/api/1.0/startrek/technobabble/csv',
   ])
   public generateCsv(
     @Inject(CsvRenderer) csvRenderer: CsvRenderer,
@@ -43,7 +43,7 @@ export class TechnobabbleController {
 
   @Get([
     '/technobabble/xlsx',
-    '/startrek/technobabble/xlsx',
+    '/api/1.0/startrek/technobabble/xlsx',
   ])
   public generateXslx(
     @Inject(XlsxRenderer) xlsxRenderer: XlsxRenderer,

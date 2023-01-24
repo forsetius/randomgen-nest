@@ -23,8 +23,8 @@ describe('TechnobabbleController (e2e)', () => {
     .expect(200)
     .expect(regexpPl));
 
-  it('/startrek/technobabble (GET)', () => supertest(app.getHttpServer())
-    .get('/startrek/technobabble')
+  it('/api/1.0/startrek/technobabble (GET)', () => supertest(app.getHttpServer())
+    .get('/api/1.0/startrek/technobabble')
     .expect(200)
     .expect(regexpPl));
 
@@ -33,8 +33,8 @@ describe('TechnobabbleController (e2e)', () => {
     .expect(200)
     .expect(regexpPl));
 
-  it('/startrek/technobabble?lang=pl (GET)', () => supertest(app.getHttpServer())
-    .get('/startrek/technobabble?lang=pl')
+  it('/api/1.0/startrek/technobabble?lang=pl (GET)', () => supertest(app.getHttpServer())
+    .get('/api/1.0/startrek/technobabble?lang=pl')
     .expect(200)
     .expect(regexpPl));
 
@@ -43,8 +43,8 @@ describe('TechnobabbleController (e2e)', () => {
     .expect(200)
     .expect(regexpEn));
 
-  it('/startrek/technobabble?lang=en (GET)', () => supertest(app.getHttpServer())
-    .get('/startrek/technobabble?lang=en')
+  it('/api/1.0/startrek/technobabble?lang=en (GET)', () => supertest(app.getHttpServer())
+    .get('/api/1.0/startrek/technobabble?lang=en')
     .expect(200)
     .expect(regexpEn));
 });

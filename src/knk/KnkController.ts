@@ -17,8 +17,8 @@ export class KnkController {
   }
 
   @Get([
-    '/knk/:template',
-    '/ep/factions/:template',
+    '/api/1.0/knk/:template',
+    '/api/1.0/ep/factions/:template',
   ])
   public getJson(
     @Req() request: Request,
@@ -29,8 +29,8 @@ export class KnkController {
   }
 
   @Get([
-    '/knk/:template/csv',
-    '/ep/factions/:template/csv',
+    '/api/1.0/knk/:template/csv',
+    '/api/1.0/ep/factions/:template/csv',
   ])
   public getCsv(
     @Req() request: Request,
@@ -44,8 +44,8 @@ export class KnkController {
   }
 
   @Get([
-    '/knk/:template/xlsx',
-    '/ep/factions/:template/xlsx',
+    '/api/1.0/knk/:template/xlsx',
+    '/api/1.0/ep/factions/:template/xlsx',
   ])
   public getXlsx(
     @Req() request: Request,
@@ -63,7 +63,8 @@ export class KnkController {
     template: string,
     query: KnkRequestModel,
   ): KnkResponseModel {
-    const templateName = path.slice(1, path.indexOf(template) + template.length)
+    const templateName = path.slice(0, path.lastIndexOf(template) + template.length)
+      .replace(/\/api\/\d+\.\d+\//, '')
       .replaceAll('/', '-');
 
     return this.generatorService.generate(
