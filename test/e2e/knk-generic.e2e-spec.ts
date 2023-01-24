@@ -31,7 +31,7 @@ describe('KnkController (e2e) - Generic', () => {
 
   it('GETs the "ep" template', async () => {
     const response = await supertest(app.getHttpServer())
-      .get('/ep/factions/general?lang=en&numberOfFactions=4');
+      .get('/api/1.0/ep/factions/general?lang=en&numberOfFactions=4');
 
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     expect(response.status, getErrorMessage(response)).toBe(200);
@@ -39,7 +39,7 @@ describe('KnkController (e2e) - Generic', () => {
 
   it('GETs the "city" template', async () => {
     const response = await supertest(app.getHttpServer())
-      .get('/knk/city');
+      .get('/api/1.0/knk/city');
 
     expect(response.status, getErrorMessage(response)).toBe(200);
   });
@@ -51,7 +51,7 @@ describe('KnkController (e2e) - Generic', () => {
     ['true', 'No such template: "knk-true-pl"'],
   ])('Unable to GET the %p template', async (val, message) => {
     const response = await supertest(app.getHttpServer())
-      .get(`/knk/${val}`);
+      .get(`/api/1.0/knk/${val}`);
 
     const body = JSON.parse(response.text) as { message: string };
 
@@ -61,7 +61,7 @@ describe('KnkController (e2e) - Generic', () => {
 
   it.each(['pl', 'en'])('GETs the "city" template in %p language', async () => {
     const response = await supertest(app.getHttpServer())
-      .get('/knk/city?lang=pl');
+      .get('/api/1.0/knk/city?lang=pl');
 
     expect(response.status, getErrorMessage(response)).toBe(200);
   });
@@ -74,7 +74,7 @@ describe('KnkController (e2e) - Generic', () => {
     [1.5, 'lang must be shorter than or equal to 2 characters'],
   ])('Unable to GET the "city" template in %p language', async (val, message) => {
     const response = await supertest(app.getHttpServer())
-      .get(`/knk/city?lang=${val}`);
+      .get(`/api/1.0/knk/city?lang=${val}`);
 
     const body = JSON.parse(response.text) as { message: string };
 
@@ -84,7 +84,7 @@ describe('KnkController (e2e) - Generic', () => {
 
   it.each([2, 4, 8])('GETs %p factions', async (num) => {
     const response = await supertest(app.getHttpServer())
-      .get(`/knk/city?lang=pl&numberOfFactions=${num}`);
+      .get(`/api/1.0/knk/city?lang=pl&numberOfFactions=${num}`);
 
     expect(response.status, getErrorMessage(response)).toBe(200);
   });
@@ -98,7 +98,7 @@ describe('KnkController (e2e) - Generic', () => {
     ['true', 'numberOfFactions must be an integer number'],
   ])('Errors on GET %p factions', async (val, message) => {
     const response = await supertest(app.getHttpServer())
-      .get(`/knk/city?lang=pl&numberOfFactions=${val}`);
+      .get(`/api/1.0/knk/city?lang=pl&numberOfFactions=${val}`);
 
     const body = JSON.parse(response.text) as { message: string };
 
