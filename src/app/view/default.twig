@@ -1,0 +1,39 @@
+{% extends "master.html.twig" %}
+
+{% block article %}  
+<section class="content">
+    {{ content.article|raw }}
+</section>
+{% endblock %}
+
+{% block aside %}
+    <aside id="sideNav" role="tablist">
+        <div id="toc" class="card">
+            <div class="card-header d-flex justify-content-end bg-custom-dark">
+                <div class="h2" role="tab" id="hacc1">Spis treści</div>
+            </div>
+            <div id="acc1" role="tabpanel" aria-labelledby="hacc1" data-parent="#sideNav">
+                <div class="card-body">
+        
+                </div>
+            </div>
+        </div>
+    </aside>
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        $(document).ready(function () {
+            if (Number($('.content h2').length > 1)) {
+                $('#toc .card-body').append(`<ol>`)
+                $('.content h2').each(function (k, h) {
+                    $(h).attr('id', k);
+                    $('#toc .card-body ol').append(`<li><a href="#${k}">${$(h).html()} </a></li>`)
+                })
+                $('#toc .card-body').append(`</ol>`)
+            } 
+            if (Number($('#atts .card').length === 0)) { $('#atts').hide() }
+        });
+
+    </script>
+{% endblock %}

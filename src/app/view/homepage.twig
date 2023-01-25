@@ -1,0 +1,19 @@
+{% extends "master.html.twig" %}
+ 
+{% block bodyClass %}home-page{% endblock %}
+
+{% block article %} 
+<section class="content">
+    {{ content.article|raw }}
+</section>
+{% endblock %}
+
+{% block aside %}
+<aside>
+    {% if app.request.get('send') != 'true' %}
+            {{ form(content.form) }}
+        {% else %}
+            {{ view.form.entity.successText|raw }}
+        {% endif %}
+</aside>
+{% endblock %}

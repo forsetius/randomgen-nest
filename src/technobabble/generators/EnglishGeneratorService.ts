@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common';
+import type { ViewData } from 'src/app/render/ViewData';
 import { getSourceData } from '../../app/utils/getData';
 import { RollableCollection } from '../../app/utils/RollableCollection';
 import type { TechnobabbleEnSourceModel } from '../models';
@@ -31,5 +32,12 @@ export class EnglishGeneratorService extends BaseGeneratorService {
       this.effect.getRandom(),
       this.device.getRandom(),
     ].join(' ');
+  }
+
+
+  getMeta(): ViewData['meta'] {
+    return {
+      title: 'Technobabble Generator',
+    }
   }
 }

@@ -1,0 +1,7 @@
+<div id="headerImg" class="bg-custom-primary-light" 
+    {% if content.headerImage is defined %} 
+        style="background: url('{{ content.headerImage.url }}') right center; background-size: cover;"
+    {% endif %}>
+    <h1>{{ content.title }}</h1>
+</div>
+ 
