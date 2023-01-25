@@ -1,0 +1,29 @@
+<nav id="topbar-nav" class="navbar navbar-expand-lg navbar-dark bg-custom-dark ">
+  <a class="navbar-brand" href="/">{{ brand.name }}</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button> 
+  <div class="collapse navbar-collapse " id="navbarNavDropdown">
+    <ul class="navbar-nav mt-2 mt-lg-0">
+    {% for item in nav.main %}
+      {% if item.children|length > 0 %}
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="{{ item.url }}" title="{{ item.title }}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+             {{ item.title }}
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          {% for child in item.children %}
+            <a class="dropdown-item" href="{{ child.url }}" title="{{ child.title }}">{{ child.title }}</a>
+          {% endfor %}
+          </div>
+        </li>
+      {% else %}
+        <li class="nav-item">
+            <a class="nav-link" href="{{ item.url }}" title="{{ item.title }}">{{ item.title }}</a>
+        </li>
+      {% endif %}
+    {% endfor %}
+    </ul>
+  </div>
+</nav>
