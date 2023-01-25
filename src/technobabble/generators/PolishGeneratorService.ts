@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common';
+import type { ViewData } from 'src/app/render/ViewData';
 import { getSourceData } from '../../app/utils/getData';
 import { flipCoin } from '../../app/utils/random';
 import { RollableCollection } from '../../app/utils/RollableCollection';
@@ -51,5 +52,11 @@ export class PolishGeneratorService extends BaseGeneratorService {
 
   private pickNounForm(forms: NounForms, isPlural: boolean) {
     return isPlural ? forms.pl : forms.sing;
+  }
+
+  getMeta(): ViewData['meta'] {
+    return {
+      title: 'Generator technobełkotu',
+    }
   }
 }

@@ -1,6 +1,7 @@
 import {
-  Controller, Get, Inject, Query, StreamableFile,
+  Controller, Get, Inject, Query, Render, StreamableFile,
 } from '@nestjs/common';
+import type { ViewData } from 'src/app/render/ViewData';
 import { CsvRenderer, XlsxRenderer } from '../app/render';
 import type { BaseGeneratorService } from './generators/BaseGeneratorService';
 import { EnglishGeneratorService } from './generators/EnglishGeneratorService';
@@ -23,6 +24,23 @@ export class TechnobabbleController {
     const service = this.chooseService(query.lang);
 
     return this.generate(service, query).join('\n');
+  }
+
+  @Get([
+    '/startrek/technobabble',
+  ])
+  @Render('technobabble')
+  public generateHtml(
+    @Query() query: TechnobabbleRequestQueryModel
+  ): ViewData<string[]> {
+    const service = this.chooseService(query.lang);
+    const result = this.generate(service, query);
+
+    return {
+      lang: query.lang,
+      meta: service.getMeta(),
+      content: result,
+    }
   }
 
   @Get([
