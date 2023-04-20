@@ -34,7 +34,7 @@
     "glob": "8.1.0",
     "helmet": "6.0.1",
     "luxon": "3.2.1",
-    "nunjucks": "^3.2.3",
+    "nunjucks": "^3.2.4",
     "pino": "8.8.0",
     "random": "4.1.0",
     "reflect-metadata": "^0.1.13",
