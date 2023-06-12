@@ -1,0 +1,31 @@
+{% extends "base.html.twig" %}
+{% import 'components/carousel.twig' as carousel %}
+{% import 'components/card.twig' as cards %}
+
+{% block content %}
+    <div class="container-fluid">
+        <div id="most-important" class="row">
+            {% if slides is defined %}
+                {{ carousel.carousel('main-carousel', slides) }}
+            {% endif %}
+            <div id="whats-new" class="col-sm-4"></div>
+        </div>
+
+        <!-- Intro -->
+        <div id="titleBar" class="row">
+            <div class="col-sm-6"><h1>{{ page.title }}</h1></div>
+            <div class="col-sm-6"><h2>{{ page.lead }}</h2></div>
+        </div>
+
+        <!-- Blurb -->
+        <div id="introBar" class="row">
+            <div class="col-md-8" style="border-right: 1px solid #eee">{{ page.content|raw }}</div>
+            <div class="col-md-4">{# TODO dymek z bootstrap-milestones #}</div>
+        </div>
+
+        <!-- Sekcje -->
+        <div id="main-sections" class="container-fluid">
+            {{ cards.deck(subs, 'topCatCard') }}
+        </div>
+    </div>
+{% endblock %}

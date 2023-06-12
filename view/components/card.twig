@@ -1,0 +1,69 @@
+{% macro deck(elements, type) %}
+    {% import _self as cards %}
+    <div class="card-deck-wrapper">
+        <div class="card-deck">
+            {% for element in elements %}
+                {{ attribute(cards, element.type|default(type), [element]) }}
+            {% endfor %}
+        </div>
+    </div>
+{% endmacro %}
+
+{% macro group(elements, type) %}
+    {% import _self as cards %}
+    <div class="card-group">
+        {% for card in cards %}
+            {{ attribute(cards, card.type|default(type), [card]) }}
+        {% endfor %}
+    </div>
+{% endmacro %}
+
+{% macro columns(elements, type) %}
+    {% import _self as cards %}
+    <div class="card-columns">
+        {% for card in cards %}
+            {{ attribute(cards, card.type|default(type), [card]) }}
+        {% endfor %}
+    </div>
+{% endmacro %}
+
+{% macro topCatCard(c) %}
+    {% import _self as cards %}
+    <div class="card">
+        <img class="card-img-top" data-src="{{ c.image_card }}">
+        <div class="card-img-overlay">
+            <h4 class="card-title"><a href="{{ c.href }}">{{ c.title }}</a></h4>
+        </div>
+        <p class="card-text">{{ c.text }}</p>
+        <p class="card-text text-xs-right"><a href="{{ c.href }}">{{ c.jumpline }}</a></p>
+        {% set columnDef = [{ width: 3, class: 'itemType'}, {}] %}
+        {{ cards.tableComponent(c.list, columnDef) }}
+    </div>
+{% endmacro %}
+
+{% macro listComponent(list, class) %}
+    {% import 'page/components/decorator.html.twig' as decor %}
+    <ul class="list-group list-group-flush">
+        {% for it in list %}
+            <li class="list-group-item {{ it.class ?? (class ?? '') }}">{{ decor.a(it.text, it.href) }}</li>
+        {% endfor %}
+    </ul>
+{% endmacro %}
+
+{% macro tableComponent(table, columns, class) %}
+    {% import 'page/components/decorator.html.twig' as decor %}
+    <ul class="list-group list-group-flush">
+        {% for row in table %}
+            <li class="list-group-item {{ row.class|default(class)|default('') }}">
+                {% set cc = 12 %}
+                {% for cell in row %}
+                    {% set width = cell.width|default(cc) %}
+                    {% set cc = cc - width %}
+                    <div class="col-sm-{{ width }} {{ cell.class|default('') }}">
+                        {{ decor.a(cell.text, cell.href|default('')) }}
+                    </div>
+                {% endfor %}
+            </li>
+        {% endfor %}
+    </ul>
+{% endmacro %}
