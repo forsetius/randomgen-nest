@@ -1,31 +1,26 @@
 {
-  "extends": "@tsconfig/node18-strictest/tsconfig.json",
-  "display": "Node 18 + Strictest",
+  "extends": [
+    "@tsconfig/strictest/tsconfig.json",
+    "@tsconfig/node20/tsconfig.json"
+  ],
+  "display": "Node 20 + Strictest",
   "compilerOptions": {
-    // modules
     "baseUrl": "./",
+    "declaration": true,
+    "declarationMap": true,
+    "downlevelIteration": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": false,
+    "incremental": true,
+    "noFallthroughCasesInSwitch": false,
+    "outDir": "./dist",
     "resolveJsonModule": true,
+    "removeComments": true,
     "rootDirs": [
       "./src",
       "./test"
     ],
-    "typeRoots": [
-      "./node_modules/@types",
-      "./types"
-    ],
-    "incremental": true,
-    // emit
-    "declaration": true,
-    "declarationMap": true,
-    "downlevelIteration": true,
-    "importHelpers": false,
-    "outDir": "./dist",
-    "removeComments": true,
-    "sourceMap": true,
-    // Language and Environment
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    // type checking
-    "noFallthroughCasesInSwitch": false
+    "sourceMap": true
   }
 }
