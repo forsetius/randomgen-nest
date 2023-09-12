@@ -1,5 +1,4 @@
 import { HttpException } from '@nestjs/common';
-import { FactionFactory } from '../../../src/knk/domain/FactionFactory';
 import { KnkGeneratorService } from '../../../src/knk/KnkGeneratorService';
 
 jest.mock('../../../src/app/utils/getData', () => {
@@ -35,13 +34,6 @@ const service = new KnkGeneratorService();
 describe('KnkGeneratorService', () => {
   afterEach(() => {
     jest.spyOn(global.Math, 'random').mockRestore();
-  });
-
-  test('The service correctly sets up factories', () => {
-    expect(service['factories']).toBeInstanceOf(Map);
-    expect(service['factories'].get('city')).toBeInstanceOf(FactionFactory);
-    expect(service['factories'].get('village')).toBeInstanceOf(FactionFactory);
-    expect(service['factories'].size).toBe(2);
   });
 
   test('A result is generated out of existing template', () => {

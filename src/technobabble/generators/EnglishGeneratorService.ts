@@ -16,11 +16,11 @@ export class EnglishGeneratorService extends BaseGeneratorService {
     super();
 
     const dicts = getSourceData<TechnobabbleEnSourceModel>('technobabble/technobabble-en');
-    this.action = new RollableCollection(dicts['action']);
-    this.descriptor = new RollableCollection(dicts['descriptor']);
-    this.source = new RollableCollection(dicts['source']);
-    this.effect = new RollableCollection(dicts['effect']);
-    this.device = new RollableCollection(dicts['device']);
+    this.action = new RollableCollection(dicts.action);
+    this.descriptor = new RollableCollection(dicts.descriptor);
+    this.source = new RollableCollection(dicts.source);
+    this.effect = new RollableCollection(dicts.effect);
+    this.device = new RollableCollection(dicts.device);
   }
 
   public generate(): string {

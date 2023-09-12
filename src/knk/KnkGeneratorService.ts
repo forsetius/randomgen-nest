@@ -7,7 +7,7 @@ import type { KnkResponseModel, KnkSourceModel, TemplateName } from './models';
 
 @Injectable()
 export class KnkGeneratorService {
-  private factories: Map<TemplateName, FactionFactory> = new Map();
+  private factories = new Map<TemplateName, FactionFactory>();
 
   constructor() {
     Object.entries(getSourceDataDir<KnkSourceModel>('knk'))

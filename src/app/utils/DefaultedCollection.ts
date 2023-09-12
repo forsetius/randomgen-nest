@@ -2,7 +2,7 @@ import type { Name } from '../../knk/models';
 import { LangVersionException } from '../exception/LangVersionException';
 
 export class DefaultedCollection<T> {
-  private store: Map<Name, T> = new Map();
+  private store = new Map<Name, T>();
 
   public constructor(
     private defaultElement: Name,

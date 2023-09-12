@@ -3,7 +3,7 @@ import type { KnkFactionResponseModel } from '../models';
 export class Faction {
   public readonly type: string;
   public readonly description?: Record<string, string> = undefined;
-  public readonly externalRelations: Map<FactionName, RelationType> = new Map();
+  public readonly externalRelations = new Map<FactionName, RelationType>();
   public rumour?: string;
 
   public constructor(

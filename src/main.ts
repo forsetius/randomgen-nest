@@ -9,7 +9,7 @@ import { setupTemplating } from './app/utils/setupTemplating';
 
 export async function bootstrap(): Promise<INestApplication> {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
-  const config = app.get(ConfigService).get<typeof appConfig>('app')!;
+  const config: ReturnType<typeof appConfig> = app.get(ConfigService).get('app')!;
 
   app.enableShutdownHooks();
   setupSecurity(app);
