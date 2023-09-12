@@ -1,9 +1,9 @@
 export { KnkRequestModel } from './KnkRequestModel';
 
-export { KnkResponseModel } from './KnkResponseModel';
+export type { KnkResponseModel } from './KnkResponseModel';
 
-export { KnkFactionResponseModel } from './KnkFactionResponseModel';
+export type { KnkFactionResponseModel } from './KnkFactionResponseModel';
 
-export { KnkSourceModel } from './KnkSourceModel';
+export type { KnkSourceModel } from './KnkSourceModel';
 
 export * from './types';

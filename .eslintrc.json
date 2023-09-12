@@ -2,17 +2,17 @@
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "sourceType": "module",
-    "project": "tsconfig.json",
+    "project": true,
     "ecmaVersion": "latest"
   },
   "plugins": [
-    "@typescript-eslint/eslint-plugin",
+    "@typescript-eslint",
     "jest"
   ],
   "extends": [
-    "airbnb-base",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:@typescript-eslint/recommended-requiring-type-checking"
+    "eslint:recommended",
+    "plugin:@typescript-eslint/strict-type-checked",
+    "plugin:@typescript-eslint/stylistic-type-checked"
   ],
   "root": true,
   "env": {
@@ -85,6 +85,7 @@
     "@typescript-eslint/no-dupe-class-members": "error",
     "no-extra-semi": "off",
     "@typescript-eslint/no-extra-semi": "error",
+    "@typescript-eslint/no-extraneous-class": "off",
     "no-loop-func": "off",
     "@typescript-eslint/no-loop-func": "error",
     "no-non-null-assertion": "off",
@@ -144,10 +145,6 @@
       "error",
       "multiline-arguments"
     ],
-    "import/extensions": "off",
-    "import/no-default-export": "error",
-    "import/no-unresolved": "off",
-    "import/prefer-default-export": "off",
     "indent": [
       "error",
       2

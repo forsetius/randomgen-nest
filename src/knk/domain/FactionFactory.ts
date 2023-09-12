@@ -95,7 +95,7 @@ export class FactionFactory {
     return this.chooseAlternative(result);
   }
 
-  private substituteTokens(
+  public substituteTokens(
     template: string,
     factions: Faction[],
   ): string {

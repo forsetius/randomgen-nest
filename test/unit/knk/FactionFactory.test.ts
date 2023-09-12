@@ -6,7 +6,7 @@ let factory: FactionFactory;
 describe('KnkGeneratorService', () => {
   beforeAll(() => {
     jest.mock('../../../src/app/utils/random', async () => {
-      const { Faction } = await import('../../../src/knk/domain/Faction');
+      const { Faction } = await import('../../../src/knk/domain/Faction.js');
 
       return {
         __esModule: false,
@@ -114,7 +114,7 @@ describe('KnkGeneratorService', () => {
     jest.spyOn(global.Math, 'random').mockReturnValue(0.5);
 
     const factions = factory.rollFactions(NUMBER_OF_FACTIONS);
-    const result = factory['substituteTokens']('Faction %1% with %2% against %3%. Again %2% and %1%', factions);
+    const result = factory.substituteTokens('Faction %1% with %2% against %3%. Again %2% and %1%', factions);
 
     expect(result).toBe(
       'Faction Faction C #1 with Faction C #4 against Faction C #2. Again Faction C #4 and Faction C #1',

@@ -1,7 +1,7 @@
 export { TechnobabbleRequestQueryModel } from './TechnobabbleRequestQueryModel';
 
-export { TechnobabbleEnSourceModel } from './TechnobabbleEnSourceModel';
+export type { TechnobabbleEnSourceModel } from './TechnobabbleEnSourceModel';
 
-export { TechnobabblePlSourceModel } from './TechnobabblePlSourceModel';
+export type { TechnobabblePlSourceModel } from './TechnobabblePlSourceModel';
 
 export * from './types';

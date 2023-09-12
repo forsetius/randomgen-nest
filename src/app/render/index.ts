@@ -1,4 +1,4 @@
-export { RendererInterface } from './renderer/RendererInterface';
+export type { RendererInterface } from './renderer/RendererInterface';
 
 export { RendererType } from './RendererType';
 
