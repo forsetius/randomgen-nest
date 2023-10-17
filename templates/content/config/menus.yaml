@@ -1,0 +1,59 @@
+navbar:
+  - pl: { url: "/o-mnie", text: "O mnie" }
+    en: { url: "/about", text: "About me" }
+  - pl: { url: "/programowanie", text: "Programowanie" }
+    en: { url: "/programming", text: "Programming" }
+  - pl:
+      text: Projekty
+      menu:
+        - { url: "/generatory", text: "Generatory" }
+    en:
+      text: Projects
+      menu:
+        - { url: "/generators", text: "Generators" }
+  - pl:
+      text: RPG
+      menu:
+        - { url: "/unimechanika", text: "UniMechanika" }
+        - { url: "/eclipse-phase", text: "Eclipse Phase" }
+        - { url: "/dioramy", text: "Dioramy" }
+    en:
+      text: RPG
+      menu:
+        - { url: "/eclipse-phase", text: "Eclipse Phase" }
+        - { url: "/dioramas", text: "Dioramas" }
+  - pl: { url: "/blog", text: "Blog" }
+    en: { url: "/blog", text: "Blog" }
+
+
+footer:
+  - pl:
+      text: Socjale
+      menu:
+        - { text: "Facebook", url: "https://facebook.com/forsetius" }
+        - { text: "Twitter/X", url: "https://twitter.com/forsetius" }
+        - { text: "LinkedIn", url: "https://linked.in" }
+        - { text: "GitHub", url: "https://github.com/forsetius" }
+    en:
+      text: Socials
+      menu:
+        - { text: "Facebook", url: "https://facebook.com/forsetius" }
+        - { text: "Twitter/X", url: "https://twitter.com/forsetius" }
+        - { text: "LinkedIn", url: "https://linked.in" }
+        - { text: "GitHub", url: "https://github.com/forsetius" }
+  - pl:
+      text: Projekty
+      menu:
+        - { text: "RandomGen", url: "/project/randomgen" }
+    en:
+      text: Projects
+      menu:
+        - { text: "RandomGen", url: "/project/randomgen" }
+  - pl:
+      text: Zasoby
+      menu:
+        - { text: "Nomenklatura planetarna dla Celestii", url: "/assets/astro/planetary-names-for-celestia" }
+    en:
+      text: Assets
+      menu:
+        - { text: "Planetary nomenclature for Celestia", url: "/assets/astro/planetary-names-for-celestia" }

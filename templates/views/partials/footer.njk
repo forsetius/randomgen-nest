@@ -1,0 +1,19 @@
+<div class="row">
+    <div class="col-lg-3 mb-3">
+        <h5>{{ meta.title }}</h5>
+        <ul class="list-unstyled small">
+            <li class="mb-2">© 2023 by {{ meta.author }}</li>
+        </ul>
+    </div>
+    <div class="col-6 col-lg-2 offset-lg-1 mb-3"></div>
+    {% for menuDef in menus.footer %}
+    <div class="col-6 col-lg-2 mb-3">
+        <h5>{{ menuDef.text }}</h5>
+        <ul class="list-unstyled">
+        {% for item in menuDef.menu %}
+            <li class="mb-2"><a href="{{ item.url }}">{{ item.text }}</a></li>
+        {% endfor %}
+        </ul>
+    </div>
+    {% endfor %}
+</div>

@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">
+            <img src="{{ meta.logo }}" alt="Logo" width="32" height="32" class="d-inline-block align-text-middle">
+            <span>{{ meta.title }}</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mt-2 mb-lg-0">
+            {% for item in menus.navbar %}
+                {% if item.url %}
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="{{ item.url }}" title="{{ item.text }}">{{ item.text }}</a>
+                </li>
+                {% else %}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        {{ item.text }}
+                    </a>
+                    <ul class="dropdown-menu">
+                    {% for subitem in item.menu %}
+                        <li><a class="dropdown-item" href="{{ subitem.url }}">{{ subitem.text }}</a></li>
+                    {% endfor %}
+                    </ul>
+                </li>
+                {% endif %}
+            {% endfor %}
+            </ul>
+        </div>
+        <div class="ml-auto fg-custom-light"><p>English</p></div>
+    </div>
+</nav>

@@ -6,7 +6,7 @@ import helmet from 'helmet';
 export function setupSecurity(app: NestExpressApplication): void {
   app.enableCors();
   app.use(compression());
-  app.use(helmet());
+  app.use(helmet({ contentSecurityPolicy: false }));
   app.use(RateLimit({
     max: 10,
     windowMs: 1000,

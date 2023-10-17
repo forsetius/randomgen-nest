@@ -1,0 +1,11 @@
+{% macro post(def) %}
+<div class="card bg-body-secondary">
+    <div class="card-body text-white">
+        <img src="img/{{ def.image }}" class="card-img-top" alt="...">
+        <div class="card-img-overlay"><div class="position-absolute bottom-0 bg-dark bg-opacity-50">
+                <h3 class="card-title"><a href="{{ def.url }}">{{ def.title }}</a></h3>
+                <p class="card-text">{{ def.content }}</p>
+            </div></div>
+    </div>
+</div>
+{% endmacro %}

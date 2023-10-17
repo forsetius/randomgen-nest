@@ -1,0 +1,57 @@
+{% extends 'layout.njk' %}
+{% from "partials/post.njk" import post as postBlock %}
+
+{% block title %}
+        <h1 id="title">{{ page.title }}</h1>
+{% endblock %}
+
+{% block content %}
+      <article class="content col-sm-9">
+        <p><strong>{{ page.lead }}</strong></p>
+        {{ page.content }}
+
+        <section class="cards">
+          <div class="row row-cols-1 row-cols-md-2 g-4">
+            <div class="col">
+              <div class="card text-bg-dark h-100 ">
+                <img src="img/astro-card.jpg" class="card-img" alt="...">
+                <div class="card-img-overlay">
+                  <h2 class="card-title position-absolute bottom-0">Astronomia</h2>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+            <div class="card text-bg-dark h-100">
+                <img src="img/geopolitics-card.jpg" class="card-img" alt="...">
+                <div class="card-img-overlay">
+                  <h2 class="card-title position-absolute bottom-0">Geopolityka</h2>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card text-bg-dark h-100">
+                <img src="img/rpg-card.jpg" class="card-img" alt="...">
+                <div class="card-img-overlay">
+                  <h2 class="card-title position-absolute bottom-0">Gry fabularne</h2>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+            <div class="card text-bg-dark h-100">
+                <img src="img/diorama-card.jpg" class="card-img" alt="...">
+                <div class="card-img-overlay">
+                  <h2 class="card-title position-absolute bottom-0">Dioramy</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </article>
+
+      <aside class="bg-body-secondary col-sm-3" data-bs-theme="dark">
+        <h2 class="text-center">Ostatnie wpisy</h2>
+        {% for postDef in posts %}
+          {{ postBlock(postDef) }}
+        {% endfor %}
+      </aside>
+{% endblock %}

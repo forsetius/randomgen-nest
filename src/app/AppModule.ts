@@ -6,12 +6,14 @@ import { appConfig } from './AppConfig';
 import { AppController } from './AppController';
 import { AppService } from './AppService';
 import { CsvRenderer, XlsxRenderer } from './render';
+import { PageModule } from '../page/PageModule';
 
 @Global()
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true, load: [registerAs('app', appConfig)] }),
     KnkModule,
+    PageModule,
     TechnobabbleModule,
   ],
   controllers: [AppController],

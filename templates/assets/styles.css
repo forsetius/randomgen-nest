@@ -1,0 +1,77 @@
+html, body {height: 100%}
+main {min-height: calc(100% - 234px) }
+h1, h2, .h1, .h2, h1 a, h2 a, .h1 a, .h2 a, aside h3, aside h3 a {font-family: "Unica One", serif; font-weight: 400;}
+a, a:hover, a:active {color: #587cb3; text-decoration: none;}
+h4, h4 a {font-size: 1.5rem}
+hr { border-color: #aaa; margin: 12px 0 0 -20px }
+blockquote { margin-left: 30px; border-left: 7px solid #bbb; border-radius: 3px; padding: 0 20px; }
+blockquote p {font-family:  'Roboto Condensed' !important; }
+main {padding-top: 56px; padding-bottom: 49px;}
+
+.navbar { padding-top: 0 }
+.navbar-brand  { padding: 10px 0.5rem 0; }
+.navbar-brand span { padding: 0.5rem; }
+#headerImg {display: flex; height: 300px; overflow: hidden; border-bottom: 8px solid #111}
+#headerImg h1 {
+    display: inline-block;
+    align-self: flex-end;
+    font-size: 72pt;
+    color: #fff;
+    padding-left: 70px;
+    text-shadow: 5px 5px 15px #606060;
+}
+
+#footBar {padding: 5px; margin: 0;}
+#footBar a, #footBar a:hover, #footBar a:focus {font-size: 14px;}
+#footBar a:hover, #footBar a:focus {text-decoration: underline;}
+
+article.lead {padding: 30px 28% 0 35px;}
+article.content {padding: 0 100px 10px 0;}
+
+article.lead p, 
+article.lead strong, 
+article.lead li, 
+article.content p, 
+article.content strong, 
+article.content li {font-family: 'Fira Sans', sans-serif;font-size: 1.05rem; line-height: 1.75; text-align: justify;}
+
+article.content h2 {margin-top: 40px; padding: 10px 0 20px 15px; border-top: 1px #111 solid; width: 100%; }
+article.content h3 {
+    padding: 10px 0 0 20px;
+    font-size: 1.5rem;
+}
+article.content > p,
+article.content > blockquote,
+article.content > ul,
+article.content > ol,
+article.content > table,
+article.content > div {
+    margin-left: 75px;
+}
+
+@media screen and (min-width: 768px) {
+    aside {position: absolute; top: 300px; right: 0; width: 20%; margin-right: 1.5% }
+    .home-page aside {width: 30%;}
+}
+@media screen and (max-width: 767px) {
+    aside {position: inherit; width: auto; margin: 200px 20px 30px 20px;}
+    article.lead , article.content  {margin: 0 20px; padding: 0;}
+}
+
+section.cards { margin: 40px 0 40px 75px; }
+section .col { margin-top: 36px; padding: 0 18px;}
+section.cards .card-title { left: 0; border: 0; padding: 30px 38px; font-size: 2.5rem; text-shadow: 3px 3px 5px #606060; }
+.content .card:hover { border: 0; box-shadow: 0px 0px 20px #606060;}
+
+aside { border-radius: 8px; padding-bottom: 6px;}
+aside .card { border: 0; margin-bottom: 12px;}
+aside .card-body { margin: 5px 10px; padding: 0 12px; }
+aside .card-title { font-size: 1.45rem; padding: 8px 0 4px 0; margin: 0 28px 0 18px;}
+aside .card-title a { color: white; }
+aside .card-img-overlay { padding: 12px; }
+aside h2 { padding-top: 16px; }
+aside p { margin: 0 28px 0 18px; padding-bottom: 8px; }
+
+aside p, aside p a { font-size: smaller; }
+
+#dynamic_form1 {padding: 15px;}
