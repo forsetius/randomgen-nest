@@ -1,0 +1,11 @@
+{% extends 'layout.njk' %}
+
+{% block title %}
+    <h1 id="title">{{ page.title }}</h1>
+{% endblock %}
+
+{% block content %}
+    <article class="content col-sm-9">
+        <p>{{ page.content }}</p>
+    </article>
+{% endblock %}
