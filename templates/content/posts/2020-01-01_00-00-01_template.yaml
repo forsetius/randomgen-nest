@@ -1,0 +1,20 @@
+title: Hello world!,
+subTitle: Precog
+headerImage: "matrix-head.jpg"
+cardImage: "matrix-card.jpg"
+lead: Pam pam pam
+content: Tralalala szumi fala
+tags:
+  - a
+  - b
+  - c
+blocks:
+  right:
+    - title: Notatka na pasku bocznym
+      url: /post/hi
+      image: hi.jpg
+      style: normal
+      content: >
+        Lorrem ipossum dolores amelinet.
+  below: []
+  underLead: []

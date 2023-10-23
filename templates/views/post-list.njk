@@ -1,0 +1,36 @@
+{% extends 'layout.njk' %}
+
+{% block title %}
+    <h1 id="title">{{ page.title }}</h1>
+{% endblock %}
+
+{% block content %}
+<article class="content col-sm-9">
+    <p><strong>{{ page.lead }}</strong></p>
+    {{ page.content }}
+
+    <section class="cards">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for item in items %}
+        <div class="col">
+        <div class="card bg-body-secondary">
+            <img src="img/{{ item.headerImage }}" class="card-img-top" alt="{{ item.title }}">
+            <div class="card-img">
+                <h3 class="card-title position-absolute top-0"><a href="/post/{{ item.slug }}?lang={{ item.lang }}" class="text-light">{{ item.title }}</a></h3>
+            </div>
+            <div class="card-body">
+                {% if item.createdAt %}<p class="card-text"><small class="text-body-secondary bi bi-calendar3"> {{ item.date }} {{ item.time }}</small></p>{% endif %}
+                <p class="card-text">{{ item.lead | striptags }}</p>
+                {% for tag in item.tags %}
+                    &nbsp;<small><a href="/post/tag/{{ tag }}" class="icon-link bi bi-tag">
+                        {{ tag }}
+                    </a></small>
+                {%  endfor %}
+            </div>
+        </div>
+        </div>
+    {% endfor %}
+    </div>
+    </section>
+</article>
+{% endblock %}

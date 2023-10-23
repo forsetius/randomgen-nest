@@ -31,15 +31,16 @@ export class PageService extends BaseArticleService{
     const dir = fsSync.readdirSync(sourcePath);
     dir.filter((filename: string) => filename.endsWith('.yaml'))
       .forEach((filename: string) => {
+        const slug = path.basename(filename, '.yaml');
         const filePath = path.join(sourcePath, filename);
         const page = YAML.parse(fsSync.readFileSync(filePath, { encoding: 'utf8' })) as Page;
 
-        this.populateItem(page);
+        this.populateItem(slug, page);
       });
   }
 
-  private populateItem(page: Page): void {
-    this.pageCollection.set(page.slug, this.renderContents(page));
+  private populateItem(slug: string, page: Page): void {
+    this.pageCollection.set(slug, this.renderContents(slug, this.lang, page));
   }
 }
 

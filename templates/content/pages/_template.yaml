@@ -1,0 +1,19 @@
+title: Hello World!
+subtitle: Strona główna
+lead: Pierwszy akapit albo dwa
+headerImage: matrix-head.jpg
+content: >
+  Lorem ipsum dolor sit amet.
+  
+  
+  Lorem ipsum dolor sit amet.
+blocks:
+  right:
+    - title: Notatka na pasku bocznym
+      type: note
+      image: hi.jpg
+      style: info
+      content: >
+        Lorrem ipossum dolores amelinet.
+  below: []
+  underLead: []

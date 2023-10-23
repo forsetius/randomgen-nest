@@ -6,12 +6,13 @@ import { appConfig } from './app/AppConfig';
 import { AppModule } from './app/AppModule';
 import { setupSecurity } from './app/utils/setupSecurity';
 import { setupTemplating } from './app/utils/setupTemplating';
+import { setupErrorHandling } from './app/utils/setupErrorHandling';
 
 export async function bootstrap(): Promise<INestApplication> {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
   const config: ReturnType<typeof appConfig> = app.get(ConfigService).get('app')!;
 
-  app.enableShutdownHooks();
+  setupErrorHandling(app);
   setupSecurity(app);
   setupTemplating(app);
 

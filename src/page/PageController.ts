@@ -33,18 +33,13 @@ export class PageController {
   public index(
     @Query('lang') lang: AppLanguageEnum = AppLanguageEnum.PL,
   ) {
-    const page = this.pageService[lang].getPage('index');
-    console.log(this.postService);
-    const posts = this.postService[lang].getPosts(0, 2);
+    const page = this.pageService[lang].getPage('_index');
+    const posts = this.postService[lang].getPosts(3, 1);
 
-    return {
-      meta: this.configService.get<AppConfig>('app.meta'),
-      menus: this.configService.get<MenuConfig>(`app.menus.${lang}`),
-      page,
-      posts,
-    };
+    return this.makeResponse(lang, { page, posts: posts.getItems() });
   }
 
+  /*
   @Get('/generator/:page')
   @Render('generator')
   public getGeneratorPage(
@@ -61,22 +56,47 @@ export class PageController {
   ) {
     return this.pageService[AppLanguageEnum.PL].getPage(`ep-${page}`);
   }
+   */
+
+  @Get('/blog')
+  @Render('post-list')
+  public getPostList(
+    @Query('lang') lang: AppLanguageEnum = AppLanguageEnum.PL,
+    @Query('itemsPerPage') itemsPerPage = 9,
+    @Query('pageNo') pageNo = 1,
+  ) {
+    const page =  this.pageService[lang].getPage('_blog-list');
+    const pager = this.postService[lang].getPosts(itemsPerPage, pageNo);
+
+    return this.makeResponse(lang, { page, items: pager.getItems(), paging: pager.getInfo() });
+  }
 
   @Get('/post/:post')
   @Render('post')
   public getPost(
-    @Param('post') post: string,
+    @Param('post') slug: string,
     @Query('lang') lang: AppLanguageEnum = AppLanguageEnum.PL,
   ) {
-    return this.postService[lang].getPost(post);
+    const page = this.postService[lang].getPost(slug);
+
+    return this.makeResponse(lang, { page });
   }
 
   @Get('/post/tag/:tag')
+  @Render('post-list')
   public getPostsTagged(
     @Param('tag') tag: string,
     @Query('lang') lang: AppLanguageEnum = AppLanguageEnum.PL,
+    @Query('itemsPerPage') itemsPerPage = 8,
+    @Query('pageNo') pageNo = 1,
   ) {
-    return this.postService[lang].getPostsByTag(tag);
+    const page =  this.pageService[lang].getPage('_blog-list-tag');
+    const pager = this.postService[lang].getPostsByTag(tag, itemsPerPage, pageNo);
+
+    return this.makeResponse(
+      lang,
+      { page, posts: pager.getItems(), paging: pager.getInfo(), search: { by: 'tag', term: tag } },
+    );
   }
 
   @Put('/post')
@@ -85,18 +105,29 @@ export class PageController {
     this.postService[AppLanguageEnum.EN].load();
   }
 
-  @Get('/:page')
+
+  @Get('/:page([a-z0-9\\-]+)')
   @Render('page')
   public getPage(
-    @Param('page') page: string,
+    @Param('page') slug: string,
     @Query('lang') lang: AppLanguageEnum = AppLanguageEnum.PL,
   ) {
-    return this.pageService[lang].getPage(page);
+    const page = this.pageService[lang].getPage(slug);
+
+    return this.makeResponse(lang, { page });
   }
 
   @Put('/page')
   public reloadPages(): void {
     this.pageService[AppLanguageEnum.PL].load();
     this.pageService[AppLanguageEnum.EN].load();
+  }
+
+  private makeResponse(lang: AppLanguageEnum, content: Record<string, object>) {
+    return {
+      meta: this.configService.get<AppConfig>('app.meta'),
+      menus: this.configService.get<MenuConfig>(`app.menus.${lang}`),
+      ...content,
+    };
   }
 }

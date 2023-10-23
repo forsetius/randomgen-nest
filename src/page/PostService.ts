@@ -6,6 +6,8 @@ import { Post } from './types/Post';
 import { BaseArticleService } from './BaseArticleService';
 import path from 'path';
 import { AppLanguageEnum } from './types/AppLanguageEnum';
+import { Pager } from './types/Pager';
+import { DateTime } from 'luxon';
 
 @Injectable()
 export class PostService extends BaseArticleService {
@@ -29,43 +31,53 @@ export class PostService extends BaseArticleService {
     return this.postCollection.get(slug)!;
   }
 
-  public getPosts(start: number, end: number): Post[] {
-    return this.postsByCreatedAt.slice(start, end);
+  public getPosts(itemsPerPage: number, pageNo: number): Pager<Post> {
+    return new Pager(this.postsByCreatedAt, itemsPerPage, pageNo);
   }
 
-  public getPostsByTag(tag: string): Post[] {
+  public getPostsByTag(tag: string, itemsPerPage: number, pageNo: number): Pager<Post> {
     if (!this.tags.has(tag)) {
       throw new NotFoundException(`Tag "${tag}" not found`);
     }
 
-    return this.tags.get(tag)!;
+    return new Pager(this.tags.get(tag)!, itemsPerPage, pageNo);
   }
 
   public load() {
+    this.postCollection.clear();
+    this.tags.clear();
+    this.postsByCreatedAt = [];
+
     const sourcePath = path.join(this.BASE_SOURCE_PATH, 'posts', this.lang);
     const dir = fsSync.readdirSync(sourcePath);
     dir.filter((filename: string) => filename.endsWith('.yaml'))
       .forEach((filename: string) => {
-        const post = YAML.parse(fsSync.readFileSync(
-          path.join(sourcePath, filename),
-          { encoding: 'utf8' },
-        )) as Post;
+        const slug = path.basename(filename, '.yaml');
+        const filePath = path.join(sourcePath, filename);
 
-        this.populateItem(post);
+        const post = YAML.parse(fsSync.readFileSync(filePath, { encoding: 'utf8' })) as Post;
+        post.createdAt = DateTime.fromFormat(filename.slice(0, 19), 'yyyy-MM-dd_HH-mm-ss');
+        post.date = post.createdAt.toLocaleString(DateTime.DATE_FULL, { locale: this.lang });
+        post.time = post.createdAt.toLocaleString(DateTime.TIME_SIMPLE, { locale: this.lang });
+
+        this.populateItem(slug, post);
       });
 
     this.postsByCreatedAt = Array.from(this.postCollection.values())
-      .sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime());
+      .sort((a, b) => +b.createdAt - +a.createdAt);
 
     this.tags.forEach((posts, tag, tags) => {
-      tags.set(tag, posts.sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime()));
+      tags.set(
+        tag,
+        posts.sort((a, b) => +b.createdAt - +a.createdAt),
+      );
     });
   }
 
-  private populateItem(post: Post): void {
-    post = this.renderContents(post);
+  private populateItem(slug: string, post: Post): void {
+    post = this.renderContents(slug, this.lang, post);
 
-    this.postCollection.set(post.slug, post);
+    this.postCollection.set(slug, post);
     this.tags.forEach((posts, tag, tags) => {
       tags.set(tag, posts.filter((postItem) => postItem.slug !== post.slug));
     });

@@ -1,6 +1,4 @@
 {% extends 'layout.njk' %}
-{% from "partials/post.njk" import post as postBlock %}
-
 {% block title %}
         <h1 id="title">{{ page.title }}</h1>
 {% endblock %}
@@ -51,7 +49,17 @@
       <aside class="bg-body-secondary col-sm-3" data-bs-theme="dark">
         <h2 class="text-center">Ostatnie wpisy</h2>
         {% for postDef in posts %}
-          {{ postBlock(postDef) }}
+            <div class="card bg-body-secondary">
+                <div class="card-body text-white">
+                    <img src="img/{{ postDef.headerImage }}" class="card-img-top" alt="{{ postDef.title }}">
+                    <div class="card-img-overlay">
+                        <div class="position-absolute bottom-0 bg-dark bg-opacity-50">
+                            <h3 class="card-title"><a href=/post/{{ postDef.slug }}?lang={{ postDef.lang }}">{{ postDef.title }}</a></h3>
+                            <p class="card-text">{{ postDef.content }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         {% endfor %}
       </aside>
 {% endblock %}

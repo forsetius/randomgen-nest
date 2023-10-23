@@ -1,11 +1,14 @@
-import { Aside } from './Aside';
+import { Block } from './Block';
+import { BlockPlacement } from './BlockPlacement';
+import { AppLanguageEnum } from './AppLanguageEnum';
 
 export interface Page {
   slug: string;
+  lang: AppLanguageEnum,
   title: string;
   subtitle?: string;
   headerImage: string;
   lead?: string;
   content: string;
-  asides: Aside[] | undefined;
+  blocks: Record<BlockPlacement, Block[]> | undefined;
 }

@@ -1,11 +1,12 @@
 html, body {height: 100%}
 main {min-height: calc(100% - 234px) }
-h1, h2, .h1, .h2, h1 a, h2 a, .h1 a, .h2 a, aside h3, aside h3 a {font-family: "Unica One", serif; font-weight: 400;}
+h1, h2, .h1, .h2, h1 a, h2 a, .h1 a, .h2 a, h3.card-title, h3.card-title a {font-family: "Unica One", serif; font-weight: 400;}
 a, a:hover, a:active {color: #587cb3; text-decoration: none;}
 h4, h4 a {font-size: 1.5rem}
 hr { border-color: #aaa; margin: 12px 0 0 -20px }
 blockquote { margin-left: 30px; border-left: 7px solid #bbb; border-radius: 3px; padding: 0 20px; }
-blockquote p {font-family:  'Roboto Condensed' !important; }
+blockquote p {
+    font-family: 'Roboto Condensed', sans-serif !important; }
 main {padding-top: 56px; padding-bottom: 49px;}
 
 .navbar { padding-top: 0 }
@@ -28,11 +29,11 @@ main {padding-top: 56px; padding-bottom: 49px;}
 article.lead {padding: 30px 28% 0 35px;}
 article.content {padding: 0 100px 10px 0;}
 
-article.lead p, 
-article.lead strong, 
-article.lead li, 
-article.content p, 
-article.content strong, 
+article.lead p,
+article.lead strong,
+article.lead li,
+article.content p,
+article.content strong,
 article.content li {font-family: 'Fira Sans', sans-serif;font-size: 1.05rem; line-height: 1.75; text-align: justify;}
 
 article.content h2 {margin-top: 40px; padding: 10px 0 20px 15px; border-top: 1px #111 solid; width: 100%; }
@@ -61,7 +62,7 @@ article.content > div {
 section.cards { margin: 40px 0 40px 75px; }
 section .col { margin-top: 36px; padding: 0 18px;}
 section.cards .card-title { left: 0; border: 0; padding: 30px 38px; font-size: 2.5rem; text-shadow: 3px 3px 5px #606060; }
-.content .card:hover { border: 0; box-shadow: 0px 0px 20px #606060;}
+.content .card:hover { border: 0; box-shadow: 0 0 20px #606060;}
 
 aside { border-radius: 8px; padding-bottom: 6px;}
 aside .card { border: 0; margin-bottom: 12px;}
