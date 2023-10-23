@@ -1,6 +1,7 @@
 html, body {height: 100%}
 main {min-height: calc(100% - 234px) }
 h1, h2, .h1, .h2, h1 a, h2 a, .h1 a, .h2 a, h3.card-title, h3.card-title a {font-family: "Unica One", serif; font-weight: 400;}
+p, li, h4, h5, h6 {font-family: 'Baloo 2', sans-serif}
 a, a:hover, a:active {color: #587cb3; text-decoration: none;}
 h4, h4 a {font-size: 1.5rem}
 hr { border-color: #aaa; margin: 12px 0 0 -20px }
@@ -12,7 +13,7 @@ main {padding-top: 56px; padding-bottom: 49px;}
 .navbar { padding-top: 0 }
 .navbar-brand  { padding: 10px 0.5rem 0; }
 .navbar-brand span { padding: 0.5rem; }
-#headerImg {display: flex; height: 300px; overflow: hidden; border-bottom: 8px solid #111}
+#headerImg {display: flex; height: 300px; overflow: hidden;}
 #headerImg h1 {
     display: inline-block;
     align-self: flex-end;
@@ -21,6 +22,8 @@ main {padding-top: 56px; padding-bottom: 49px;}
     padding-left: 70px;
     text-shadow: 5px 5px 15px #606060;
 }
+#subheader {padding: 10px 30px 10px 70px}
+#subheader p {margin-bottom: 0;display: contents}
 
 #footBar {padding: 5px; margin: 0;}
 #footBar a, #footBar a:hover, #footBar a:focus {font-size: 14px;}
@@ -34,7 +37,7 @@ article.lead strong,
 article.lead li,
 article.content p,
 article.content strong,
-article.content li {font-family: 'Fira Sans', sans-serif;font-size: 1.05rem; line-height: 1.75; text-align: justify;}
+article.content li {font-family: 'Baloo 2', sans-serif;font-size: 1.05rem; line-height: 1.75; text-align: justify;}
 
 article.content h2 {margin-top: 40px; padding: 10px 0 20px 15px; border-top: 1px #111 solid; width: 100%; }
 article.content h3 {

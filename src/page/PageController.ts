@@ -92,10 +92,11 @@ export class PageController {
   ) {
     const page =  this.pageService[lang].getPage('_blog-list-tag');
     const pager = this.postService[lang].getPostsByTag(tag, itemsPerPage, pageNo);
+    console.log(pager);
 
     return this.makeResponse(
       lang,
-      { page, posts: pager.getItems(), paging: pager.getInfo(), search: { by: 'tag', term: tag } },
+      { page, items: pager.getItems(), paging: pager.getInfo(), search: { by: 'tag', term: tag } },
     );
   }
 

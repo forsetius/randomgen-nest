@@ -8,8 +8,10 @@
     <link href="https://fonts.googleapis.com/css?family=Fira+Sans+Condensed&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Unica+One&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Fira+Sans&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Baloo+2&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
       <meta name="robots" content="index,follow"/>
 
+    <base href=/">
     <link rel="alternate" href="/pl" hreflang="x-default"/><link rel="alternate" href="/pl" hreflang="pl"/>
     <link rel="alternate" href="/en" hreflang="en"/><link rel="canonical" href="/en"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
@@ -25,6 +27,12 @@
       <!-- Title pic -->
       <div id="headerImg" class="bg-custom-primary-light" style="background: url('img/{{ page.headerImage }}') right center; background-size: cover;">
         {% block title %}{% endblock %}
+      </div>
+      <div id="subheader" class="container-fluid text-light bg-body-secondary" data-bs-theme="dark">
+        <div class="row">
+          <div id="subheaderLeft" class="col align-middle">{% block subheaderLeft %}{% endblock %}</div>
+          <div id="subheaderRight" class="col align-middle">{% block subheaderRight %}{% endblock %}</div>
+        </div>
       </div>
     </header>
 

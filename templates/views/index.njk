@@ -46,7 +46,7 @@
         </section>
       </article>
 
-      <aside class="bg-body-secondary col-sm-3" data-bs-theme="dark">
+      <aside class="col-sm-3 shadow-sm bg-body-secondary shadow-lg rounded" data-bs-theme="dark">
         <h2 class="text-center">Ostatnie wpisy</h2>
         {% for postDef in posts %}
             <div class="card bg-body-secondary">
@@ -54,7 +54,7 @@
                     <img src="img/{{ postDef.headerImage }}" class="card-img-top" alt="{{ postDef.title }}">
                     <div class="card-img-overlay">
                         <div class="position-absolute bottom-0 bg-dark bg-opacity-50">
-                            <h3 class="card-title"><a href=/post/{{ postDef.slug }}?lang={{ postDef.lang }}">{{ postDef.title }}</a></h3>
+                            <h3 class="card-title"><a href="/post/{{ postDef.slug }}?lang={{ postDef.lang }}">{{ postDef.title }}</a></h3>
                             <p class="card-text">{{ postDef.content }}</p>
                         </div>
                     </div>

@@ -3,6 +3,18 @@
     <h1 id="title">{{ page.title }}</h1>
 {% endblock %}
 
+{% block subheaderLeft %}
+    <p class="bi bi-calendar3">&nbsp;&nbsp;{{ page.date }} {{ page.time }}</p>
+{% endblock %}
+
+{% block subheaderRight %}
+    {% if page.tags %}<p class="d-flex justify-content-end">
+    {% for tag in page.tags %}
+        <a href="/post/tag/{{ tag }}" class="text-light bi bi-tag-fill">&nbsp;{{ tag }}&nbsp;&nbsp;</a>
+    {% endfor %}
+    </p>{% endif %}
+{% endblock %}
+
 {% block content %}
     <article class="content col-sm-9">
         <p><strong>{{ page.lead }}</strong></p>
