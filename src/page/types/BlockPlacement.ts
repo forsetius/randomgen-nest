@@ -1,5 +1,5 @@
 export enum BlockPlacement {
-  BELOW = 'below,',
+  BELOW = 'below',
   RIGHT = 'right',
   TOP_RIGHT = 'topRight',
   UNDER_TITLE = 'underTitle',

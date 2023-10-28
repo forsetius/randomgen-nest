@@ -1,6 +1,25 @@
 slug: dioramy
 title: Dioramy
+subtitle: Malutkie krajobrazy
 headerImage: diorama-head.jpg
 content: >
   Nie samym komputerem człowiek żyje, toteż
-asides: []
+blocks:
+  right:
+    - title: Notatka na pasku bocznym
+      type: note
+      image: hi.jpg
+      style: info
+      content: >
+        Lorrem ipossum dolores amelinet.
+    - title: Kolejna notatka
+      type: note
+      image: hi.jpg
+      style: info
+      content: >
+        Lorrem ipossum dolores amelinet.
+        
+        
+        Panie, panowie, Wysoka Izbo!
+  below: []
+  underLead: []

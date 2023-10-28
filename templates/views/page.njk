@@ -1,0 +1,36 @@
+{% extends 'layout.njk' %}
+{% block title %}
+    <h1 id="title">{{ page.title }}</h1>
+{% endblock %}
+
+{% block subheaderLeft %}
+    {{ page.subtitle }}
+{% endblock %}
+
+{% block content %}
+    <article class="content col-sm-9">
+        <p><strong>{{ page.lead }}</strong></p>
+        {% if page.blocks.underLead %}{% include 'partials/asideUnderLead.njk' %}{% endif %}
+        {{ page.content }}
+        {% if page.blocks.bottom %}{% include 'partials/asideBottom.njk' %}{% endif %}
+    </article>
+    {% if page.blocks.right %}{% include 'partials/asideRight.njk' %}{% endif %}
+{% endblock %}
+
+{% if page.blocks.underLead %}
+    {% set asideUnderLeadContent %}
+        {% if page.blocks.underLead.title %}<h3>{{ page.blocks.underLead.title }}</h3>{% endif %}
+        {{ page.blocks.underLead.content }}
+    {% endset %}
+{% endif %}
+
+{% if page.blocks.bottom %}
+    {% set asideBottomContent %}
+        {% if page.blocks.bottom.title %}<h3>{{ page.blocks.bottom.title }}</h3>{% endif %}
+        {{ page.blocks.bottom.content }}
+    {% endset %}
+{% endif %}
+
+{% if page.blocks.right %}
+    {% set asideRightContent = page.blocks.right %}
+{% endif %}

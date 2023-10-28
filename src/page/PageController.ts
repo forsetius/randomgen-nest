@@ -1,30 +1,22 @@
 import { Controller, Get, Inject, Param, Put, Query, Render } from '@nestjs/common';
-import { PageService } from './PageService';
-import { PostService } from './PostService';
 import { ConfigService } from '@nestjs/config';
 import { AppConfig, MenuConfig } from '../app/types/AppConfig';
 import { AppLanguageEnum } from './types/AppLanguageEnum';
+import { ContentService } from './ContentService';
 
 
 @Controller()
 export class PageController {
-  private pageService: { pl: PageService, en: PageService };
-  private postService: { pl: PostService, en: PostService };
+  private contentService: { pl: ContentService, en: ContentService };
 
   public constructor(
     private configService: ConfigService,
-    @Inject('PlPageService') plPageService: PageService,
-    @Inject('EnPageService') enPageService: PageService,
-    @Inject('PlPostService') plPostService: PostService,
-    @Inject('EnPostService') enPostService: PostService,
+    @Inject('PlContentService') PlContentService: ContentService,
+    @Inject('EnContentService') EnContentService: ContentService,
   ) {
-    this.pageService = {
-      pl: plPageService,
-      en: enPageService,
-    };
-    this.postService = {
-      pl: plPostService,
-      en: enPostService,
+    this.contentService = {
+      pl: PlContentService,
+      en: EnContentService,
     };
   }
 
@@ -33,10 +25,9 @@ export class PageController {
   public index(
     @Query('lang') lang: AppLanguageEnum = AppLanguageEnum.PL,
   ) {
-    const page = this.pageService[lang].getPage('_index');
-    const posts = this.postService[lang].getPosts(3, 1);
+    const page = this.contentService[lang].getPage('_index');
 
-    return this.makeResponse(lang, { page, posts: posts.getItems() });
+    return this.makeResponse(lang, { page });
   }
 
   /*
@@ -46,7 +37,7 @@ export class PageController {
     @Param('page') page: string,
     @Query('lang') lang: AppLanguageEnum = AppLanguageEnum.PL,
   ) {
-    return this.pageService[lang].getPage(`generator-${page}`);
+    return this.contentService[lang].getPage(`generator-${page}`);
   }
 
   @Get('/eclipse-phase/:page')
@@ -54,7 +45,7 @@ export class PageController {
   public getEclipsePhasePage(
     @Param('page') page: string,
   ) {
-    return this.pageService[AppLanguageEnum.PL].getPage(`ep-${page}`);
+    return this.contentService[AppLanguageEnum.PL].getPage(`ep-${page}`);
   }
    */
 
@@ -65,8 +56,8 @@ export class PageController {
     @Query('itemsPerPage') itemsPerPage = 9,
     @Query('pageNo') pageNo = 1,
   ) {
-    const page =  this.pageService[lang].getPage('_blog-list');
-    const pager = this.postService[lang].getPosts(itemsPerPage, pageNo);
+    const page =  this.contentService[lang].getPage('_blog-list');
+    const pager = this.contentService[lang].getPosts(itemsPerPage, pageNo);
 
     return this.makeResponse(lang, { page, items: pager.getItems(), paging: pager.getInfo() });
   }
@@ -77,7 +68,7 @@ export class PageController {
     @Param('post') slug: string,
     @Query('lang') lang: AppLanguageEnum = AppLanguageEnum.PL,
   ) {
-    const page = this.postService[lang].getPost(slug);
+    const page = this.contentService[lang].getPost(slug);
 
     return this.makeResponse(lang, { page });
   }
@@ -90,8 +81,8 @@ export class PageController {
     @Query('itemsPerPage') itemsPerPage = 8,
     @Query('pageNo') pageNo = 1,
   ) {
-    const page =  this.pageService[lang].getPage('_blog-list-tag');
-    const pager = this.postService[lang].getPostsByTag(tag, itemsPerPage, pageNo);
+    const page =  this.contentService[lang].getPage('_blog-list-tag');
+    const pager = this.contentService[lang].getPostsByTag(tag, itemsPerPage, pageNo);
     console.log(pager);
 
     return this.makeResponse(
@@ -102,10 +93,9 @@ export class PageController {
 
   @Put('/post')
   public reloadPosts(): void {
-    this.postService[AppLanguageEnum.PL].load();
-    this.postService[AppLanguageEnum.EN].load();
+    this.contentService[AppLanguageEnum.PL].reload();
+    this.contentService[AppLanguageEnum.EN].reload();
   }
-
 
   @Get('/:page([a-z0-9\\-]+)')
   @Render('page')
@@ -113,15 +103,15 @@ export class PageController {
     @Param('page') slug: string,
     @Query('lang') lang: AppLanguageEnum = AppLanguageEnum.PL,
   ) {
-    const page = this.pageService[lang].getPage(slug);
+    const page = this.contentService[lang].getPage(slug);
 
     return this.makeResponse(lang, { page });
   }
 
   @Put('/page')
   public reloadPages(): void {
-    this.pageService[AppLanguageEnum.PL].load();
-    this.pageService[AppLanguageEnum.EN].load();
+    this.contentService[AppLanguageEnum.PL].reload();
+    this.contentService[AppLanguageEnum.EN].reload();
   }
 
   private makeResponse(lang: AppLanguageEnum, content: Record<string, object>) {
