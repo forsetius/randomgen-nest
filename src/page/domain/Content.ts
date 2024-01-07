@@ -1,9 +1,8 @@
 import { BlockPlacement } from '../types/BlockPlacement';
-import { Block } from './blocks/Block';
 import { PageDef } from '../types/PageDef';
 import { marked } from 'marked';
-import { Defs } from '../types/Defs';
 import { PostDef } from '../types/PostDef';
+import { Block } from '../types/Block';
 
 export class Content {
   public readonly title: string;
@@ -25,18 +24,8 @@ export class Content {
   ) {
     this.title = def.title;
     this.headerImage = def.headerImage;
-    this.thumbnailImage = def.thumbnailImage;
+    this.thumbnailImage = def.thumbnailImage ?? def.headerImage;
     this.lead = def.lead ? marked.parse(def.lead) : undefined;
     this.content = marked.parse(def.content);
-  }
-
-  protected renderBlocks(type: 'pages'|'posts', defLib: Defs): void {
-    const blocks = defLib[type][this.slug]!.blocks ?? {};
-    Object.entries(blocks)
-      .forEach(([place, defs]) => {
-        defs.forEach((def) => {
-          this.blocks[place as BlockPlacement].push( Block.create(def, defLib));
-        });
-      });
   }
 }

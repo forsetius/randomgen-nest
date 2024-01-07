@@ -2,7 +2,7 @@ html, body {height: 100%}
 main {min-height: calc(100% - 234px) }
 h1, h2, .h1, .h2, h1 a, h2 a, .h1 a, .h2 a, h3.card-title, h3.card-title a {font-family: "Unica One", serif; font-weight: 400;}
 p, a, li, h4, h5, h6 {font-family: 'Maven Pro', sans-serif}
-a, a:hover, a:active {color: #587cb3; text-decoration: none;}
+a, a:hover, a:active, .card-body a, .card-body a:hover, .card-body a:active {color: #587cb3; text-decoration: none;}
 h4, h4 a {font-size: 1.5rem}
 hr { border-color: #aaa; margin: 12px 0 0 -20px }
 blockquote { margin-left: 30px; border-left: 7px solid #bbb; border-radius: 3px; padding: 0 20px; }
@@ -20,7 +20,7 @@ main {padding-top: 56px; padding-bottom: 49px;}
     font-size: 72pt;
     color: #fff;
     padding-left: 70px;
-    text-shadow: 5px 5px 15px #606060;
+    text-shadow: 0 0 20px #000;
 }
 #subheader {padding: 10px 30px 10px 70px}
 #subheader p {margin-bottom: 0;display: contents}
@@ -39,10 +39,12 @@ article.content p,
 article.content strong,
 article.content li {font-family: 'Maven Pro', sans-serif;font-size: 1.05rem; line-height: 1.75; text-align: justify;}
 
-article.content h2 {margin-top: 40px; padding: 10px 0 20px 15px; border-top: 1px #111 solid; width: 100%; }
+article.content h2 {margin-top: 40px; padding: 10px 0 20px 40px; border-top: 1px #111 solid; width: 100%; }
 article.content h3 {
-    padding: 10px 0 0 20px;
-    font-size: 1.5rem;
+    margin: 30px 0 0 75px;
+    padding: 10px 0;
+    border-top: 1px #111 dotted;
+    font-size: 1.15rem;
 }
 article.content > p,
 article.content > blockquote,
@@ -64,15 +66,15 @@ article.content > div {
 
 section.cards { margin: 40px 0 40px 75px; }
 section .col { margin-top: 36px; padding: 0 18px;}
-section.cards .card-title { left: 0; border: 0; padding: 30px 38px; font-size: 2.5rem; text-shadow: 3px 3px 5px #606060; }
-.content .card:hover { border: 0; box-shadow: 0 0 20px #606060;}
-
+section.cards .card-title { left: 0; border: 0; margin: 0; padding: 30px 38px; font-size: 2rem; text-shadow: 3px 3px 5px #606060; }
+section.cards .card-img-top { height: 200px; object-fit: cover; }
 aside { border-radius: 8px; padding-bottom: 6px;}
 aside .card { border: 0; margin-bottom: 12px;}
 aside .card-body { margin: 5px 10px; padding: 0 12px; }
 aside .card-title { font-size: 1.45rem; padding: 8px 0 4px 0; margin: 0 28px 0 18px;}
 aside .card-title a { color: white; }
 aside .card-img-overlay { padding: 12px; }
+#asideRight { box-shadow: 0 0 20px #000 }
 aside h2 { padding-top: 16px; }
 aside p { margin: 0 28px 0 18px; padding-bottom: 8px; }
 

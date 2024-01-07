@@ -10,58 +10,65 @@ import { Post } from './domain/Post';
 import { BlockDef } from './types/BlockDef';
 import { Defs } from './types/Defs';
 import { Pager } from './domain/Pager';
-import { Block } from './domain/blocks/Block';
+import { BlockPlacement } from './types/BlockPlacement';
+import { BlockType } from './types/BlockType';
+import { Block } from './types/Block';
+import { MarkdownService } from './MarkdownService';
+import { ContentDef } from './types/ContentDef';
+import { Content } from './domain/Content';
+import { NoteBlock } from './domain/NoteBlock';
 
 @Injectable()
 export class ContentService {
   private BASE_SOURCE_PATH = path.join(__dirname, '..', '..', 'templates', 'content');
 
-  public readonly pages = new Map<Slug, Page>;
-  public readonly posts = new Map<Slug, Post>;
-  public readonly tags = new Map<Tag, Post[]>;
-  public readonly blocks = new Map<Label, Block>;
-  public postsByDate: Post[] = [];
+  public readonly lib = {
+    pages: new Map<Slug, Page>,
+    posts: new Map<Slug, Post>,
+    tags: new Map<Tag, Post[]>,
+    postsByDate: [] as Post[],
+  };
 
   public constructor(
+    private readonly markdownService: MarkdownService,
     public readonly lang: AppLanguageEnum,
   ) {
     this.load();
   }
 
   public getPage(slug: string): Page {
-    if (!this.pages.has(slug)) {
-      throw new NotFoundException();
+    if (!this.lib.pages.has(slug)) {
+      throw new NotFoundException(`No page with slug: "${slug}"`);
     }
 
-    return this.pages.get(slug)!;
+    return this.lib.pages.get(slug)!;
   }
 
   public getPost(slug: string): Post {
-    if (!this.posts.has(slug)) {
-      throw new NotFoundException();
+    if (!this.lib.posts.has(slug)) {
+      throw new NotFoundException(`No post with slug: "${slug}"`);
     }
 
-    return this.posts.get(slug)!;
+    return this.lib.posts.get(slug)!;
   }
 
   public getPosts(itemsPerPage: number, pageNo: number): Pager<Post> {
-    return new Pager(this.postsByDate, itemsPerPage, pageNo);
+    return new Pager(this.lib.postsByDate, itemsPerPage, pageNo);
   }
 
   public getPostsByTag(tag: string, itemsPerPage: number, pageNo: number): Pager<Post> {
-    if (!this.tags.has(tag)) {
+    if (!this.lib.tags.has(tag)) {
       throw new NotFoundException(`Tag "${tag}" not found`);
     }
 
-    return new Pager(this.tags.get(tag)!, itemsPerPage, pageNo);
+    return new Pager(this.lib.tags.get(tag)!, itemsPerPage, pageNo);
   }
 
   public reload(): void {
-    this.pages.clear();
-    this.posts.clear();
-    this.tags.clear();
-    this.postsByDate = [];
-    this.blocks.clear();
+    this.lib.pages.clear();
+    this.lib.posts.clear();
+    this.lib.tags.clear();
+    this.lib.postsByDate = [];
 
     this.load();
   }
@@ -73,51 +80,29 @@ export class ContentService {
       blocks: this.readSourceFiles<BlockDef>(SourceDirEnum.BLOCK, this.lang),
     };
 
-    this.populate(defs.pages, (name, def) => { this.pages.set(name, new Page(name, def)); });
-    this.populate(
-      defs.posts,
-      (name, def) => { this.posts.set(name, new Post(name, this.lang, def)); },
-    );
-    this.populate(defs.blocks, (name, def) => { this.blocks.set(name, Block.create(def, this)); });
-
-    Array.from(this.pages.values()).forEach((page) => {
-      page.renderAsides(defs);
-    });
-    Array.from(this.posts.values()).forEach((post) => {
-      post.renderAsides(defs);
-    });
-
-    this.postsByDate = Array.from(this.posts.values())
+    this.createPages(this.lib.pages, defs.pages);
+    this.createPages(this.lib.posts, defs.posts);
+    this.lib.postsByDate = Array.from(this.lib.posts.values())
       .sort((a, b) => +b.createdAt - +a.createdAt);
-
     this.populateTags();
-  }
 
-  private populate<D>(
-    defs: Record<string, D>,
-    fn: (name: string, def: D) => void,
-  ): void {
-    Object.entries(defs).forEach(([name, def]) => {
-      fn(name, def);
+    Object.entries(defs.pages).forEach(([slug, def]) => {
+      this.expandBlocks(this.lib.pages.get(slug)!, def);
+    });
+    Object.entries(defs.posts).forEach(([slug, def]) => {
+      this.expandBlocks(this.lib.posts.get(slug)!, def);
     });
   }
 
   private populateTags(): void {
-    for (const post of this.posts.values()) {
+    for (const post of this.lib.postsByDate) {
       post.tags.forEach((tag) => {
-        if (!this.tags.has(tag)) {
-          this.tags.set(tag, []);
+        if (!this.lib.tags.has(tag)) {
+          this.lib.tags.set(tag, []);
         }
 
-        this.tags.get(tag)!.push(post);
+        this.lib.tags.get(tag)!.push(post);
       });
-    }
-
-    for (const [tag, posts] of this.tags) {
-      const sorted = Array.from(posts)
-        .sort((a, b) => +b.createdAt - +a.createdAt);
-
-      this.tags.set(tag, sorted);
     }
   }
 
@@ -139,9 +124,91 @@ export class ContentService {
 
     return defs;
   }
+
+  private createPages(defs: Defs['pages']): void {
+    Object.entries(defs).forEach(([name, def]: [string, PageDef]) => {
+      const definition: PageDef = {
+        ...def,
+        content: this.markdownService.parse(def.content),
+      };
+
+      if (def.lead) {
+        definition.lead = this.markdownService.parse(def.lead);
+      }
+
+      this.lib.pages.set(name, new Page(name, definition));
+    });
+  }
+
+  private createPost(defs: Defs['posts']): void {
+    Object.entries(defs).forEach(([name, def]: [string, PostDef]) => {
+      Post.markdownFields.forEach((fieldName) => {
+        if (typeof def[fieldName] === 'string') {
+          def[fieldName] = this.markdownService.parse(def[fieldName] as string);
+        }
+      });
+
+      this.lib.posts.set(name, new Post(name, this.lang, def));
+    });
+  }
+
+  private expandBlocks(targetItem: Content, def: ContentDef): void {
+    Object.entries(def.blocks ?? {})
+      .forEach(([place, blockDefs]) => {
+        blockDefs.forEach((blockDef) => {
+          targetItem.blocks[place as BlockPlacement].push( this.createBlock(blockDef));
+        });
+      });
+  }
+
+  private createBlock(blockDef: BlockDef): Block {
+    switch (blockDef.type) {
+    case BlockType.NOTE:
+      return new NoteBlock({ ...blockDef, content: this.markdownService.parse(blockDef.content) });
+
+    case BlockType.PAGE:
+      return {
+        type: BlockType.PAGE,
+        ...this.lib.pages.get(blockDef.slug)!,
+      };
+
+    case BlockType.PAGE_SET:
+      return {
+        type: BlockType.PAGE_SET,
+        title: blockDef.title,
+        items: blockDef.items.map((item) => this.lib.pages.get(item)!),
+      };
+
+    case BlockType.POST:
+      return {
+        type: BlockType.POST,
+        ...this.lib.posts.get(blockDef.slug)!.render(),
+      };
+
+    case BlockType.POST_LIST:
+      if (blockDef.tag && typeof this.lib.tags.get(blockDef.tag) === 'undefined') {
+        throw new Error();
+      }
+
+      return {
+        type: BlockType.POST_LIST,
+        title: blockDef.title,
+        items: (blockDef.tag ? this.lib.tags.get(blockDef.tag)! : this.lib.postsByDate)
+          .slice(0, blockDef.itemCount),
+        link: blockDef.link,
+        tag: blockDef.tag,
+      };
+
+    case BlockType.POST_SET:
+      return {
+        type: BlockType.POST_SET,
+        title: blockDef.title,
+        items: blockDef.items.map((item) => this.lib.posts.get(item)!),
+      };
+    }
+  }
 }
 
-type Label = string;
 type Slug = string;
 type Tag = string;
 

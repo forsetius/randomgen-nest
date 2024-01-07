@@ -1,5 +1,6 @@
 {% extends 'layout.njk' %}
 {% from 'partials/asideRight.njk' import asideRight %}
+{% from 'partials/asideBelow.njk' import asideBelow %}
 {% block title %}
         <h1 id="title">{{ page.title }}</h1>
 {% endblock %}
@@ -9,43 +10,8 @@
         <p><strong>{{ page.lead }}</strong></p>
         {{ page.content }}
 
-        <section class="cards">
-          <div class="row row-cols-1 row-cols-md-2 g-4">
-            <div class="col">
-              <div class="card text-bg-dark h-100 ">
-                <img src="img/astro-card.jpg" class="card-img" alt="...">
-                <div class="card-img-overlay">
-                  <h2 class="card-title position-absolute bottom-0">Astronomia</h2>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-            <div class="card text-bg-dark h-100">
-                <img src="img/geopolitics-card.jpg" class="card-img" alt="...">
-                <div class="card-img-overlay">
-                  <h2 class="card-title position-absolute bottom-0">Geopolityka</h2>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card text-bg-dark h-100">
-                <img src="img/rpg-card.jpg" class="card-img" alt="...">
-                <div class="card-img-overlay">
-                  <h2 class="card-title position-absolute bottom-0">Gry fabularne</h2>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-            <div class="card text-bg-dark h-100">
-                <img src="img/diorama-card.jpg" class="card-img" alt="...">
-                <div class="card-img-overlay">
-                  <h2 class="card-title position-absolute bottom-0">Dioramy</h2>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        {{ asideBelow(page.blocks.below) }}
       </article>
 
-    {{ asideRight("Ostatnie wpisy", posts) }}
+    {{ asideRight(page.blocks.right) }}
 {% endblock %}

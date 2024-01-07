@@ -1,8 +1,10 @@
 import { PageDef } from '../types/PageDef';
-import { Defs } from '../types/Defs';
 import { Content } from './Content';
+import { PageData } from '../types/PageData';
 
 export class Page extends Content {
+  public static markdownFields: (keyof PageDef)[] = ['lead', 'content'];
+
   public readonly subtitle: string | undefined;
 
   public constructor(
@@ -14,7 +16,16 @@ export class Page extends Content {
     this.subtitle = def.subtitle;
   }
 
-  public renderAsides(defLib: Defs) {
-    super.renderBlocks('pages', defLib);
+  public render(): PageData {
+    return {
+      slug: this.slug,
+      subtitle: this.subtitle,
+      title: this.title,
+      headerImage: this.headerImage,
+      thumbnailImage: this.thumbnailImage,
+      lead: this.lead,
+      content: this.content,
+      blocks: this.blocks,
+    };
   }
 }

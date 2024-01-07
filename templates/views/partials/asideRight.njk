@@ -1,28 +1,36 @@
-{% macro asideRight(title, content)%}
-    <aside class="col-sm-3 text-light bg-body-secondary rounded" data-bs-theme="dark">
-        <h2 class="text-center">{{ title }}</h2>
-        {% for item in content %}
-            {{ item.type(aside) }}
+{% macro asideRight(sidebarDef)%}
+    {% if sidebardef.length > 0 %}
+    <aside id="asideRight" class="col-sm-3 text-light bg-body-secondary rounded" data-bs-theme="dark">
+        {% for block in sidebarDef %}
+            {% if block.type == 'note' %}
+                {{ note(block) }}
+            {% elif block.type == 'postList' %}
+                {{ postList(block) }}
+            {% endif %}
             {% if not loop.last %}<hr>{% endif %}
         {% endfor %}
     </aside>
+    {% endif %}
 {% endmacro %}
 
 {% macro note(item) %}
-    {% if item.title %}<h3>{{ item.title }}</h3>{% endif %}
+    {% if item.title %}<h2 class="text-center">{{ item.title }}</h2>{% endif %}
     {{ item.content }}
 {% endmacro %}
 
-{% macro slide(item) %}
+{% macro postList(block) %}
+    <h2 class="text-center">{{ block.title }}</h2>
+    {%  for post in block.items %}
     <div class="card bg-body-secondary">
         <div class="card-body text-white">
-            <img src="img/{{ item.headerImage }}" class="card-img-top" alt="{{ item.title }}">
+            <img src="img/{{ post.headerImage }}" class="card-img-top" alt="{{ post.title }}">
             <div class="card-img-overlay">
                 <div class="position-absolute bottom-0 bg-dark bg-opacity-50">
-                    <h3 class="card-title"><a href="/post/{{ item.slug }}?lang={{ item.lang }}">{{ item.title }}</a></h3>
-                    <p class="card-text">{{ item.content }}</p>
+                    <h3 class="card-title"><a href="/post/{{ post.slug }}?lang={{ post.lang }}">{{ post.title }}</a></h3>
+                    <p class="card-text">{{ post.lead | striptags | trim | truncate(90) }}</p>
                 </div>
             </div>
         </div>
     </div>
+    {% endfor %}
 {% endmacro %}

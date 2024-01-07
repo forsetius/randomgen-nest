@@ -83,7 +83,6 @@ export class PageController {
   ) {
     const page =  this.contentService[lang].getPage('_blog-list-tag');
     const pager = this.contentService[lang].getPostsByTag(tag, itemsPerPage, pageNo);
-    console.log(pager);
 
     return this.makeResponse(
       lang,

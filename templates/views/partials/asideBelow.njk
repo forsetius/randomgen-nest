@@ -1,0 +1,26 @@
+{% macro asideBelow(sidebarDef) %}
+    {% for block in sidebarDef %}
+        {% if block.type == 'note' %}
+            {{ note(block) }}
+        {% elif block.type == 'pageSet' %}
+            {{ pageSet(block) }}
+        {% endif %}
+    {% endfor %}
+{% endmacro %}
+
+{% macro pageSet(block) %}
+    <section class="cards">
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+        {% for page in block.items %}
+            <div class="col">
+                <div class="card text-bg-dark h-100 "><a href="{{ page.url }}">
+                    <img src="img/{{ page.thumbnailImage }}" class="card-img" alt="{{ page.title }}">
+                    <div class="card-img-overlay">
+                        <h2 class="card-title position-absolute bottom-0">{{ page.title }}</h2>
+                    </div>
+                    </a></div>
+            </div>
+        {% endfor %}
+        </div>
+    </section>
+{% endmacro %}

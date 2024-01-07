@@ -1,0 +1,78 @@
+title: Programowanie
+lead: Zacząłem programować w 1988. Nie miałem wyjścia, rodzice kupili mi Atari 65XE ale bez magnetofonu, żebym nie pykał w gierki tylko nauczył się czegoś pożytecznego. No to się nauczyłem - wymiatałem w Atari Basic.
+headerImage: matrixtrio-head.jpg
+thumbnailImage: matrixtrio-card.jpg
+content: >
+  Przez większość mojej kariery zawodowej programowanie pozostawało hobby, chociaż zwykle używałem umiejętności kodowania w kolejnych pracach, jakich się podejmowałem. Od MS Access w 1996 w mojej pierwszej pracy, przez makra VBA Excela (bo w kontrollingu brzydzili się SAP-em), po skrypty Basha. 
+  W skoncentrowaniu się na kodowaniu pomogła chyba przesiadka na Linuksa. Zacząłem z nim pracować jakoś w 1998 a stał się (prywatnie) moim jedynym systemem operacyjnym w 2006. Ale nie jestem fanbojem, wyrosłem już z rekompilacji kernela, instalowania 10 dziwnych menedżerów okien, robienia obejść jakimiś hackami... System ma działać i pozwolić mi wygodnie pracować. Polecam zatem [Linux Mint](https://linuxmint.com).
+  
+  
+  Dzisiaj mam już prawie 10 lat doświadczenia jako profesjonalny programista i wymiatam w TypeScripcie. Koduję w PHP (głównie Symfony, wcześniej CLI) i Node.js+TypeScript (Express, Nest.js, CLI), znam Basha. 
+  W PHP tworzyłem zarówno proste panele administracyjne (od Symfony 2 z EasyAdminem po Symfony 6 wystawiające API dla frontendu) jak i rozbudowane systemy backoffice'owe z DDD, EventSourcingiem i CQRS.
+  Z kolei odkąd poznałem Node.js (a szczególnie TypeScript, który cywilizuje JavaScript), PHP zszedł na dalszy plan. To dla mnie trochę deprymujące widzieć jak Symfony tworzy sobie całą strzelistą architekturę, żeby obsłużyć request... i wyrzuca ją do kosza po odpowiedzi. Ok, cache itd, ale wciąż, nie lubię marnotrawstwa. W Nodzie tworzy się serwer aplikacji, który buduje sobie całą archotekturę i później za jej pomocą obsługuje kolejne requesty. No i to trochę zabawne patrzeć jak PHP usiłuje dogonić TypeScripta ficzerami jak funkcje strzałkowe, typowanie itd. a generyków i tak się nie doczekamy.
+
+  ## Projekty
+  
+  Oto parę projektów, przy których pracowałem:
+  
+  ### System wystawiania biletów parkingowych
+  
+  Prosty system wystawiający bezpłatne bilety parkingowe na daną tablicę rejestracyjną na pierwsze X godzin parkowania. Oprócz endpointów wystawiających i sprawdzających bilety był też panel administracyjny na Symfony 2 i EasyAdminie.
+  
+  ### Systemy informacji parkingowej
+  
+  Kilka podobnych projektów o różnym stopniu skomplikowania. Generalnie chodziło o pobranie danych z czujników umieszczonych w asfalcie na miejscu parkingowym (wykrywały samochód nad sobą), zliczania ich i przesyłania na elektroniczne tablice informacyjne.
+  W kolejnych odsłonach doszedł panel administracyjny z graficzną reprezentacją czujników i ich geolokalizacją oraz skojarzenie czujników na ziemi z danymi z kamer parkingowych.
+  
+  
+  Cały routing od czujników przez hub po wyświetlacze był zrobiony w Node.js natomiast panel administracyjny w Symfony z EasyAdminem. Jako baza danych został użyty Postgres z PostGis-em.
+  
+  ### Zautomatyzowany system sprawdzania opłacenia postoju w SPP
+  
+  W starych czasach było tak, że kontroler w Strefie Płatnego Parkowania chodził sobie na piechotę i wklepywał w jakiś dziwny terminal numery rejestracyjne napotkanych samochodów. 
+  Tutaj pomysł polegał na tym, by umieścić na samochodzie specjalną kamerę zczytującą numery rejestracyjne i weryfikować je w systemie automatycznie. Nawet mimo ograniczonej w tamtym czasie zdolności do rozpoznawania znaków na tablicach, system oferował znaczącą poprawę wydajności kontroli, szczególnie wzdłuż długich ulic.
+  
+  
+  System wymagał wystawienia API, na które strzelała kamera, użycia API systemu biletowego oraz zapewnienie prawidłowej geolokalizacji obiektów. Użyte zostały technologie jak wyżej.
+
+  ### System obsługi parkingu płatnego
+  
+  Tutaj było trochę podobnie jak wyżej ale można się było pobawić szlabanami. Samochód podjeżdża pod szlaban wjazdowy i jego tablica rejestracyjna jest zczytywana a szlaban otwierany. Kierowca zanim wyjedzie musi zapłacić więc system wylicza opłatę dla danej tablicy rejestracyjnej i odnotowuje wpłatę. Następnie przed szlabanem wyjazdowym tablica samochodu jest znów zczytywana i jeśli postój został opłacony to szlaban się podnosi.
+  
+  
+  Znowu, w grę wchodziła integracja kilku różnych API i zrobienie panelu administracyjnego. Technologie jak wyżej.
+   
+  ### Aplikacja wspomagająca pracę HR
+  
+  Narzędzie dla pracowników działów HR usprawniające prowadzenie rozmów okresowych: od zarządzania szablonami rozmów, przez terminarz, po samo prowadzenie rozmowy z pracownikiem i wnioski z niej.  
+  
+  
+  Aplikacja pisana była oryginalnie w JavaScripcie, od czytania legacy kodu krwawiły oczy. Oprócz zrealizowania nowej funkcjonalności i wprowadzenia testowania, wykonałem też przejście na TypeScript.
+  
+  ### System backoffice dla podmiotu z branży finansowej
+  
+  Największy jak do tej pory projekt przy którym pracowałem w silnym, w zespole na 20+ osób. Stworzona od podstaw aplikacja backoffice'owa pełniąca rolę hubu przyjmującego informacje o rozliczeniach finansowych z rozbudowaną logiką biznesową.
+  Zrealizowaliśmy wiele integracji, m.in. z systemami obsługi płatności, API banków i instytucji kontrolnych oraz systemami dostawców usług finansowych. 
+  
+  
+  Aplikacja pisana na Symfony, w architekturze DDD, z wykorzystaniem event sourcingu i CQRS, z pełnym pokryciem testami end-to-end i jednostkowymi. Do tego doszedł moduł raportów pisany w 2-osobowym zespole w Node.js+Typescript.
+  
+  ### Silnik systemu pośrednictwa pracy
+
+  Pracowaliśmy jako zespół oddelegowany do niemieckiego klienta, który ma platformę pośredniczącą między poszukującymi pracy a pracodawcami. 
+  Jego system posiada silnik, który przekazuje odpowiednio otagowane oferty pracy do innych portali rekrutacyjnych oraz dopasowywanie kandydatów do pracodawców. 
+  
+  Klient posiada bardzo rozbudowany ekosystem zdockeryzowanych mikroserwisów, które napisane są w różnych technologiach: PHP, Node.js+TypeScript, Python. 
+  Z jednej strony brałem więc udział w utrzymaniu kanałów rozsyłających oferty pracy, z drugiej rozbudowywałem funkcje części pythonoweja z trzeciej - pisałem serwisy Node'owe, w tym od zera. 
+
+blocks:
+  right:
+    - title: Notatka na pasku bocznym
+      type: note
+      image: hi.jpg
+      style: info
+      content: >
+        Lorrem ipossum dolores amelinet.
+
+  below: []
+  underLead: []

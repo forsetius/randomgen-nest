@@ -1,35 +1,30 @@
 title: Hello World!
-lead: Jestem Marcin i nie lubię się opisywać.
+lead: Jestem Marcin i mam 2/10 w autoprezentacji.
 headerImage: matrix-head.jpg
 content: >
   No dobrze...
   
   
-  Nazywam się **Marcin Paździora** i jestem programistą. Takie odpowiednie dla nerda zajęcie, prawda? PHP, JavaScript (ES6, nie niżej, na bogów Eternii!), TypeScript. Obecnie głównie TypeScript bo silne typowanie rządzi. Zajmuję się stroną backendową aplikacji internetowych ale choćby na potrzeby tej strony musiałem przeprosić się z frontendem. Co absolutnie nie czyni mnie frątasiem, skądże! ;)
+  Nazywam się **Marcin Paździora** i jestem programistą. PHP, JavaScript (ES6, nie niżej, na bogów Eternii!), TypeScript. Obecnie głównie TypeScript bo silne typowanie rządzi. Zajmuję się stroną backendową aplikacji internetowych ale choćby na potrzeby tej strony musiałem przeprosić się z frontendem. Co absolutnie nie czyni mnie frątasiem, skądże! ;)
   
   
-  Ale jestem też _skromny_ ;), więc kompetencjami zawodowymi chwalę się na osobnej stronie: Programowanie. Oraz na LinkedIn. No i wystawiam parę repozytoriów na GitHubie.
+  Ale kompetencjami zawodowymi chwalę się na osobnej stronie: [Programowanie](/programowanie). Oraz na [LinkedIn](https://linked.in/). No i wystawiam parę repozytoriów na [GitHubie](https://github.com/forsetius).
   
   
-  A tak prywatnie mówią na mnie Forseti i jestem nerdem. Nerduję regularnie i nie zamierzam przestać. Gram w gry fabularne, czytuję fantastykę, jeżdżę na konwenty, piję piwo. Trochę autorzę, to znaczy piszę scenariusze, które potem prowadzę (albo i nie), tworzę własną mechanikę i settingi, programuję narzędzia pod RPG-i. Mam też inne zainteresowania, hobby i rysy charakteru, patrz na stronie O mnie.
+  A tak prywatnie mówią na mnie Forseti i jestem nerdem. Gram w gry fabularne, czytuję fantastykę, jeżdżę na konwenty, piję piwo. Trochę autorzę, to znaczy piszę scenariusze, które potem prowadzę (albo i nie), tworzę własną mechanikę RPG i settingi, programuję narzędzia pod RPG-i. Mam też inne zainteresowania, hobby i rysy charakteru, patrz na stronie [O mnie](/o-mnie).
+
 blocks:
-  underTitle:
-    - type: Note
-      style: warning
-      title: Uwaga!
-      content: >
-        Witam na mojej nowej stronie!
   below:
-    - type: PageList
-      source: hardcoded
+    - type: pageSet
+      title:
       items:
         - astronomia
         - geopolityka
         - rpg
         - dioramy
   right:
-    - type: PostList
-      source: byDate
-      items: 3
+    - type: postList
+      title: Ostatnie posty
+      itemCount: 3
       link: /blog
 

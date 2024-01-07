@@ -1,3 +1,5 @@
+{% from 'partials/asideRight.njk' import asideRight %}
+
 {% extends 'layout.njk' %}
 {% block title %}
     <h1 id="title">{{ page.title }}</h1>
@@ -10,7 +12,7 @@
 {% block subheaderRight %}
     {% if page.tags %}<p class="d-flex justify-content-end">
     {% for tag in page.tags %}
-        <a href="/post/tag/{{ tag }}" class="text-light bi bi-tag-fill">&nbsp;{{ tag }}&nbsp;&nbsp;</a>
+        <a href="/post/tag/{{ tag }}" class="text-light bi bi-tag-fill"  data-bs-theme="dark">&nbsp;{{ tag }}&nbsp;&nbsp;</a>
     {% endfor %}
     </p>{% endif %}
 {% endblock %}
@@ -20,4 +22,6 @@
         <p><strong>{{ page.lead }}</strong></p>
         {{ page.content }}
     </article>
+
+    {{ asideRight(page.blocks.right) }}
 {% endblock %}
